@@ -4,7 +4,8 @@ import { connectedMsg } from './utilities'
 export default class extends Controller {
   static targets = ['button', 'dropDown']
   static values = {
-    lgBreakPoint: { type: Number, default: 1024 }
+    lgBreakPoint: { type: Number, default: 1024 },
+    closedClass: { type: String, default: 'drop-down--closed' }
   }
 
   connect() {
@@ -24,7 +25,7 @@ export default class extends Controller {
   }
 
   toggleDropDown() {
-    this.dropDownTarget.classList.toggle('hidden')
+    this.dropDownTarget.classList.toggle('drop-down--closed')
   }
 
   isSmallLayout() {
@@ -32,6 +33,6 @@ export default class extends Controller {
   }
 
   isDropDownClosed() {
-    return this.dropDownTarget.classList.contains('hidden')
+    return this.dropDownTarget.classList.contains('drop-down--closed')
   }
 }
