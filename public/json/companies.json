@@ -1,0 +1,161 @@
+[
+  { "name": "FedEx Corp.", "city": "Memphis", "state": "TN" },
+  { "name": "XPO Logistics", "city": "Greenwich", "state": "CT" },
+  { "name": "J.B. Hunt Transport", "city": "Lowell", "state": "AR" },
+  { "name": "Knight-Swift Transport", "city": "Phoenix", "state": "AZ" },
+  { "name": "YRC Worldwide", "city": "Overland Park", "state": "KS" },
+  { "name": "Schneider", "city": "Greenbay", "state": "WI" },
+  { "name": "Landstar System", "city": "Jacksonville", "state": "FL" },
+  { "name": "Old Dominion Freight Line", "city": "Thomasville", "state": "NC" },
+  { "name": "TFI International", "city": "Montreal", "state": "QC, CA" },
+  { "name": "Ryder Supply Chain Solutions", "city": "Miami", "state": "FL" },
+  { "name": "Hub Group", "city": "Oakbrook", "state": "IL" },
+  { "name": "Estes Express Lines", "city": "Richmond", "state": "VA" },
+  {
+    "name": "ABF Freight Systems [ArcBest]",
+    "city": "Fort Smith",
+    "state": "AR"
+  },
+  { "name": "Werner Enterprises", "city": "Omaha", "state": "NE" },
+  { "name": "Penske Logistics", "city": "Reading", "state": "PA" },
+  {
+    "name": "Roadrunner Transportation Systems",
+    "city": "Downers Grove",
+    "state": "IL"
+  },
+  { "name": "Prime Inc.", "city": "Springfield", "state": "MO" },
+  { "name": "NFI", "city": "Camden", "state": "NJ" },
+  { "name": "U.S. Xpress Enterprises", "city": "Chattanooga", "state": "TN" },
+  { "name": "R+L Carriers", "city": "Wilmington", "state": "OH" },
+  { "name": "CRST International", "city": "Cedar Rapids", "state": "IA" },
+  { "name": "Saia", "city": "Johns Creek", "state": "GA" },
+  { "name": "C.R. England Inc.", "city": "Salt Lake City", "state": "UT" },
+  { "name": "Universal Logistics Holdings", "city": "Warren", "state": "MI" },
+  { "name": "Forward Air Corp.", "city": "Greenville", "state": "TN" },
+  { "name": "Southeastern Freight Lines", "city": "Lexington", "state": "SC" },
+  { "name": "Averitt Express", "city": "Cookeville", "state": "TN" },
+  { "name": "Evans Delivery Co.", "city": "Schuylkill Haven", "state": "PA" },
+  { "name": "Crete Carrier Corp.", "city": "Lincoln", "state": "NB" },
+  { "name": "Purolator", "city": "Mississauga", "state": "ON" },
+  { "name": "Lynden Inc.", "city": "Anchorage", "state": "AK" },
+  { "name": "Celadon Group Inc.*", "city": "Indianapolis", "state": "IN" },
+  { "name": "KLLM Transport Services", "city": "Jackson", "state": "MS" },
+  { "name": "Ruan", "city": "Des Moines", "state": "IA" },
+  { "name": "Roehl Transport", "city": "Marshfield", "state": "WI" },
+  { "name": "Alliance Shippers", "city": "Englewood Cliffs", "state": "NJ" },
+  {
+    "name": "Covenant Transport Services",
+    "city": "Chattanooga",
+    "state": "TN"
+  },
+  {
+    "name": "Pitt Ohio Transportation Group",
+    "city": "Pittsburgh",
+    "state": "PA"
+  },
+  {
+    "name": "Central Transport International",
+    "city": "Warren",
+    "state": "MI"
+  },
+  {
+    "name": "Day \u0026 Ross Transportation Group",
+    "city": "Hartland",
+    "state": "NB, CA"
+  },
+  { "name": "Cardinal Logistics", "city": "Concord", "state": "NC" },
+  { "name": "Marten Transport Ltd.", "city": "Mondovi", "state": "WI" },
+  { "name": "AAA Cooper Transportation", "city": "Dothan", "state": "AL" },
+  { "name": "Stevens Transport", "city": "Dallas", "state": "TX" },
+  { "name": "Western Express", "city": "Nashville", "state": "TN" },
+  { "name": "Mullen Group", "city": "Okotoks", "state": "AB, CA" },
+  { "name": "Dayton Freight Lines", "city": "Dayton", "state": "OH" },
+  { "name": "Heartland Express Inc.", "city": "North Liberty", "state": "IA" },
+  { "name": "Performance Team", "city": "Los Angeles", "state": "CA" },
+  { "name": "OnTrac Inc.", "city": "Chandler", "state": "AZ" },
+  { "name": "Bison Transport", "city": "Winnipeg", "state": "MB, CA" },
+  { "name": "Cowan Systems", "city": "Baltimore", "state": "MD" },
+  { "name": "USA Truck", "city": "Van Buren", "state": "AR" },
+  { "name": "PAM Transport", "city": "Tontitown", "state": "AR" },
+  {
+    "name": "Canada Cartage [Nautic Partners]",
+    "city": "Mississauga",
+    "state": "ON, CA"
+  },
+  { "name": "Dart Transit Company", "city": "Egan", "state": "MN" },
+  { "name": "Black Horse Carriers", "city": "Carol Stream", "state": "IL" },
+  { "name": "National Retail Systems", "city": "North Bergen", "state": "NJ" },
+  { "name": "A. Duie Pyle Inc.", "city": "West Chester", "state": "PA" },
+  { "name": "Transport Investments Inc.", "city": "Pittsburgh", "state": "PA" },
+  {
+    "name": "Mesilla Valley Transportation",
+    "city": "Las Cruces",
+    "state": "NM"
+  },
+  { "name": "IMC Companies", "city": "Memphis", "state": "TN" },
+  { "name": "TransAm Trucking Inc", "city": "Olathe", "state": "KS" },
+  { "name": "ContainerPort Group", "city": "Cleveland", "state": "OH" },
+  { "name": "RoadOne IntermodaLogistrics", "city": "Randolph", "state": "MA" },
+  {
+    "name": "Dependable Supply Chain Services",
+    "city": "Los Angeles",
+    "state": "CA"
+  },
+  { "name": "Challenger Group", "city": "Cambridge", "state": "ON, CA" },
+  {
+    "name": "Martin Transportation Systems",
+    "city": "Byron Center",
+    "state": "MI"
+  },
+  { "name": "New Penn Motor Express [YRC]", "city": "Lebanon", "state": "PA" },
+  { "name": "Daylight Transport", "city": "Long Beach", "state": "CA" },
+  { "name": "Central Freight Lines", "city": "Waco", "state": "TX" },
+  { "name": "Oak Harbor Freight Lines", "city": "Auburn", "state": "WA" },
+  { "name": "Wilson Logistics", "city": "Springfield", "state": "MO" },
+  { "name": "Bill Davis Trucking", "city": "Batesville", "state": "AK" },
+  { "name": "Duncan and Sons Lines", "city": "Phoenix", "state": "AZ" },
+  { "name": "Raven Transport", "city": "Jacksonville", "state": "FL" },
+  { "name": "RJR Transportation", "city": "El Paso", "state": "IL" },
+  { "name": "OutWest Express", "city": "El Paso", "state": "TX" },
+  { "name": "High Country Transportation", "city": "Lancaster", "state": "TX" },
+  { "name": "S\u0026S Transport Inc.", "city": "Grand Forks", "state": "ND" },
+  { "name": "Hirschbach Motor Lines", "city": "Dubuque", "state": "IA" },
+  { "name": "Horizon Freight Lines", "city": "Cleveland", "state": "OH" },
+  { "name": "Epes Transport System", "city": "Greensboro", "state": "NC" },
+  {
+    "name": "Nussbaum Transportation Services",
+    "city": "Hudson",
+    "state": "IL"
+  },
+  { "name": "Halvor Lines", "city": "Superior", "state": "WI" },
+  { "name": "McFarland Truck Lines Inc", "city": "Austin", "state": "MN" },
+  { "name": "Givens Transportation Inc.", "city": "Chesapeake", "state": "VA" },
+  {
+    "name": "Saddle Creek Logistic Services",
+    "city": "Lakeland",
+    "state": "FL"
+  },
+  { "name": "Standard Forwarding", "city": "East Moline", "state": "IL" },
+  { "name": "Itz-Ohlson", "city": "Topsfield", "state": "MA" },
+  { "name": "Colonial Cartage Corp.", "city": "Kennesaw", "state": "GA" },
+  { "name": "Colonial Freight Systems", "city": "Knoxville", "state": "TN" },
+  {
+    "name": "Columbian Logistics Network",
+    "city": "Grand Rapids",
+    "state": "MI"
+  },
+  {
+    "name": "Continental Expedited Services",
+    "city": "Clarksville",
+    "state": "TN"
+  },
+  { "name": "Lily Transportation Corp.", "city": "Needham", "state": "MA" },
+  { "name": "McLeod Express", "city": "Decatur", "state": "IL" },
+  { "name": "M\u0026W Transportation", "city": "Nashville", "state": "TN" },
+  { "name": "John Christner Trucking", "city": "Sapulpa", "state": "OK" },
+  {
+    "name": "Ward Transport \u0026 Logistics Corp.",
+    "city": "Altoona",
+    "state": "PA"
+  }
+]

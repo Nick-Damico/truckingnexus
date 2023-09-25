@@ -7,16 +7,19 @@ module Scrapers
   class Company
     attr_accessor :url
 
+    SITE_URL = 'https://www.ajot.com/premium/ajot-top-100-trucking-companies'
+    FILE_PATH = Rails.root.join('public', 'json', 'companies.json').to_s.freeze
+
     CompanyData = Struct.new(:name, :city, :state)
 
     def initialize
-      @url = 'https://www.ajot.com/premium/ajot-top-100-trucking-companies'
+      @url = SITE_URL
     end
 
     def call
       company_data = build_company_data(company_table_rows)
+      save_data(company_data)
       create_companies(company_data)
-      # save_json(company_data)
     end
 
     def build_company_data(row_data)
@@ -45,6 +48,11 @@ module Scrapers
 
     def parse_html
       URI.open(url)
+    end
+
+    def save_data(data)
+      json_data = data.to_json
+      File.write(FILE_PATH, json_data, mode: 'w+')
     end
 
     def scrape_data(html)
