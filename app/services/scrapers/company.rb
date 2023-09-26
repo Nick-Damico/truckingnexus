@@ -40,7 +40,13 @@ module Scrapers
 
     def create_companies(company_data_collection)
       company_data_collection.each do |company_data|
-        puts "Adding #{company_data.name}..."
+        ::Company.create_or_find_by!(
+          name: company_data.name
+        ).tap do |company|
+          company.city = company_data.city
+          company.state = company_data.state
+          company.save! if company.changed?
+        end
       end
     end
 
