@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :companies, only: [:index]
+  resources :quizzes, only: [:index]
 end
