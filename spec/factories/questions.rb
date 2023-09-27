@@ -5,4 +5,8 @@ FactoryBot.define do
     quiz { create(:quiz) }
     content { Faker::Lorem.sentence }
   end
+
+  trait :with_answers do
+    answers { create_list(:answer, 4) }
+  end
 end
