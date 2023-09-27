@@ -1,3 +1,21 @@
-<% @companies.each do |company| %>
-  <h2><%= company.name %></h2>
-<% end %>
+<section class="flex flex-col mb-20">
+  <h2 class="text-3xl mb-4 font-bold">Top <%= @companies.count %> Companies List</h2>
+  <table class="table-auto">
+    <thead>
+      <tr class="text-left text-xl">
+        <th>Company</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@companies.each do |company| %>
+        <tr>
+          <td><%= company.name %></td>
+          <td><%= company.city %></td>
+          <td><%= company.state %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
