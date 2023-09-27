@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :quiz do
-    name { "#{Faker::Hobby.activity} Quiz" }
+    name { "#{Faker::Lorem.sentence(word_count: 3)} Quiz" }
   end
 
   trait :with_questions do
-    questions { create_list(:question, 2) }
+    questions { create_list(:question, 1) }
   end
 end

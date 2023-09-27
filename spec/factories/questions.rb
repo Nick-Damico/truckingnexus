@@ -4,9 +4,10 @@ FactoryBot.define do
   factory :question do
     quiz { create(:quiz) }
     content { Faker::Lorem.sentence }
-  end
 
-  trait :with_answers do
-    answers { create_list(:answer, 4) }
+    after(:build) do |question, _evaluator|
+      question.answers << build_list(:answer, 4)
+      question.correct_answer = question.answers.first
+    end
   end
 end
