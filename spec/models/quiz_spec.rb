@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Quiz, type: :model do
   subject { build(:quiz) }
+  it { should have_many(:questions) }
 
   it 'has a valid factory' do
     expect(subject).to be_valid
