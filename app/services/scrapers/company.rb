@@ -8,7 +8,7 @@ module Scrapers
     attr_accessor :url
 
     SITE_URL = 'https://www.ajot.com/premium/ajot-top-100-trucking-companies'
-    FILE_PATH = Rails.root.join('public', 'json', 'companies.json').to_s.freeze
+    JSON_DATA_FILE_PATH = Rails.root.join('public', 'json', 'companies.json').to_s.freeze
 
     CompanyData = Struct.new(:name, :city, :state)
 
