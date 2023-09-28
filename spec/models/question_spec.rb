@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Question, type: :model do
   subject { create(:question) }
 
-  it { should belong_to(:correct_answer) }
+  it { should belong_to(:correct_answer).optional }
   it { should belong_to(:quiz) }
   it { should have_many(:answers) }
 
