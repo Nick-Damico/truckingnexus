@@ -228,7 +228,569 @@ questions_data = [
       '"Bobtail" tractors can take longer to stop than a combination vehicle loaded to the maximum gross weight.'
     ],
     correct_anwser: '"Bobtail" tractors can take longer to stop than a combination vehicle loaded to the maximum gross weight.'
+  },
+  {
+    content: 'After connecting the air lines, but before backing under the trailer you should:',
+    answers: [
+      'Make sure that the trailer brakes are off.',
+      'Supply air to the trailer system, then pull out the air supply knob.',
+      'Walk around the rig to make sure it is clear.'
+    ],
+    correct_anwser: 'Supply air to the trailer system, then pull out the air supply knob.'
+  },
+  {
+    content: 'The hand valve should be used:',
+    answers: [
+      'To test the trailer brakes.',
+      'Only when the trailer is fully loaded.',
+      'Only with the foot brake.'
+    ],
+    correct_anwser: 'To test the trailer brakes.'
+  },
+  {
+    content: 'The air leakage rate for a single vehicle (engine off, brakes off) should be no more than ___ psi per minute.',
+    answers: %w[2 3 4],
+    correct_anwser: '3'
+  },
+  {
+    content: 'The fifth wheel locking lever is not locked after the jaws close around the kingpin. This means that:',
+    answers: [
+      'You can set the fifth wheel for weight balance.',
+      'The coupling is not right and should be fixed before driving the vehicle.',
+      'The parking lock is off and you may drive away.'
+    ],
+    correct_anwser: 'The coupling is not right and should be fixed before driving the vehicle.'
+  },
+  {
+    content: 'You are driving a combination vehicle when the trailer breaks away, pulling apart both air lines. You would expect the trailer brakes to come on and:',
+    answers: [
+      'The trailer supply valve to stay open',
+      'The tractor to lose all air pressure',
+      'The tractor protection valve to close.'
+    ],
+    correct_anwser: 'The tractor protection valve to close.'
+  },
+  {
+    content: 'Semi trailers made before 1975 that are equipped with air brakes:',
+    answers: [
+      'Often do not have spring brakes.',
+      'Usually need a glad hand converter',
+      'Are easier to brake because they are heavier.'
+    ],
+    correct_anwser: 'Often do not have spring brakes.'
+  },
+  {
+    content: 'Almost half of all truck driver deaths are the result of:',
+    answers: [
+      'Speed.',
+      'Rollovers.',
+      'Following too closely.'
+    ],
+    correct_anwser: 'Rollovers.'
+  },
+  {
+    content: 'What statement best explains "crack the whip effect"?',
+    answers: [
+      'When you make a quick lane change or sudden movement with your steering wheel the rear trailer tends to swing out. The force of the rear trailer becomes amplified causing it to roll over (rearward amplification).',
+      'Your trailer is half full and the cargo is loaded in the front of the trailer. When you make a sudden steering wheel movement cargo will tend to forcefully slide to the back of the trailer, forcing the trailer to rollover.',
+      'When you make a quick lane chagne or sudden movement with your steering wheel the tractor tends to rock and sway. The velocity of the rear most trailer forces the tractor to rollover before the trailer.'
+    ],
+    correct_anwser: 'When you make a quick lane change or sudden movement with your steering wheel the rear trailer tends to swing out. The force of the rear trailer becomes amplified causing it to roll over (rearward amplification).'
+  },
+  {
+    content: 'Which type of truck-trailer combination has the best chance of the "crack the whip" rollover?',
+    answers: [
+      'A single tractor trailer',
+      'A tractor pulling doubles',
+      'A tractor pulling triples'
+    ],
+    correct_anwser: 'A tractor pulling triples'
+  },
+  {
+    content: 'Which trailers are most likely to get stuck on railroad tracks?',
+    answers: [
+      'Lowboy trailers. A low slung unit.',
+      'Tandem axle tractor pulling a flatbed.'
+    ],
+    correct_anwser: 'Lowboy trailers. A low slung unit.',
+    multiple: true # QUESTION TYPES NOT IMPLEMENTED YET.
+  },
+  {
+    content: 'Where should the tractor be when you inspect landing gear after uncoupling the trailer?',
+    answers: [
+      'With the tractor frame under the trailer.',
+      'Completely cleared from the trailer',
+      'With the fifth wheel directly beneath the kingpin.'
+    ],
+    correct_anwser: 'With the tractor frame under the trailer.'
+  },
+  {
+    content: 'Under good driving conditions, you should leave at least one second of space between your vehicle and the vehicle ahead for every ___ feet of your vehicles length.',
+    answers: %w[10 20 30],
+    correct_anwser: '10'
+  },
+  {
+    content: 'The safest way to make turn without entering another traffic lane is:',
+    answers: [
+      'You should turn wide before you start the turn.',
+      'You should turn wide as you complete the turn.',
+      'You should not make a turn and move to another place where you can make a turn without crossing other lane.'
+    ],
+    correct_anwser: 'You should turn wide as you complete the turn.'
+  },
+  {
+    content: 'In general, the higher your truck\'s center of gravity, the:',
+    answers: [
+      'Easier it is to turn around corners.',
+      'More stable it is when turning.',
+      'Easier it is to turn over.'
+    ],
+    correct_anwser: 'Easier it is to turn over.'
+  },
+  {
+    content: 'If the service line comes apart while you are driving a combination vehicle but the emergency line stays together, what will happen right away?',
+    answers: [
+      'The trailer\'s tank will exhaust through the open line.',
+      'The emergency trailer brakes will come on.',
+      'Nothing is likely to happen until you try to apply the brakes.'
+    ],
+    correct_anwser: 'Nothing is likely to happen until you try to apply the brakes.'
+  },
+  {
+    content: 'Glad hands are used to connect the:',
+    answers: [
+      'Electric lines from the tractor to trailer',
+      'Kingpin from the trailer to the locking jaws of the fifth wheel.',
+      'Service and emergency air lines from the truck to the trailer.'
+    ],
+    correct_anwser: 'Service and emergency air lines from the truck to the trailer.'
+  },
+  {
+    content: 'A driver crosses the air lines when hooking up to an old trailer. What will happen?',
+    answers: [
+      'The hand valve will apply the tractor brakes instead of the trailer brakes.',
+      'If the trailer has no spring brakes, you could drive away but you wouldn\'t have trailer brakes.',
+      'The brake lights will come on when the brake pedal is pressed.'
+    ],
+    correct_anwser: 'If the trailer has no spring brakes, you could drive away but you wouldn\'t have trailer brakes.'
+  },
+  {
+    content: 'The hand valve should be used:',
+    answers: [
+      'As a parking brake.',
+      'Only with foot brake.',
+      'To test the trailer brakes.'
+    ],
+    correct_anwser: 'To test the trailer brakes.'
+  },
+  {
+    content: 'When driving a set of doubles it is necessary to close which shut-off valve in the last trailer.',
+    answers: [
+      'Front.',
+      'Back.',
+      'Middle section.'
+    ],
+    correct_anwser: 'Back.'
+  },
+  {
+    content: 'Your emergency air line breaks, or it gets pulled apart while you are driving. The loss of pressure will cause the:',
+    answers: [
+      'Air compressor to unload instead of pumping air.',
+      'Emergency trailer brakes to come on.',
+      'Trailer supply valve to open.'
+    ],
+    correct_anwser: 'Emergency trailer brakes to come on.'
+  },
+  {
+    content: 'How much space should be between upper and lower fifth wheel after coupling?',
+    answers: [
+      'Just enough to see light through it.',
+      'About 1/4 inch.',
+      'None.'
+    ],
+    correct_anwser: 'None.'
+  },
+  {
+    content: 'If the brakes are not released when you pushed the trailer air supply valve you should:',
+    answers: [
+      'Check air line connection.',
+      'Cross the airlines.',
+      'Check electrical cable.'
+    ],
+    correct_anwser: 'Never'
+  },
+  {
+    content: 'You have pushed the trailer air supply valve. You should not back a tractor under a trailer until the whole air system is:',
+    answers: [
+      'At normal pressure.',
+      'Empty.',
+      'Between 60 and 80 psi.'
+    ],
+    correct_anwser: 'At normal pressure.'
+  },
+  {
+    content: 'You are coupling tractor to a semitrailer. You have connected the airlines. Before backing under the trailer you should:',
+    answers: [
+      'Supply air to the trailer system, then pull out the air supply knob.',
+      'Pull ahead to test the glad hands connections.',
+      'Make sure that the trailer brakes are off.'
+    ],
+    correct_anwser: 'Supply air to the trailer system, then pull out the air supply knob.'
+  },
+  {
+    content: 'After you have coupled the trailer you should have to raise the landing gear by using:',
+    answers: [
+      'Low gear.',
+      'Intermediate.',
+      'High gear'
+    ],
+    correct_anwser: 'Low gear.'
+  },
+  {
+    content: 'When connecting the glad hands press the two seals with the coupler together at what degree?',
+    answers: %w[45 90 180],
+    correct_anwser: '45'
+  },
+  {
+    content: 'The iron trailer supports are up and the trailer is resting on the tractor. Make sure:',
+    answers: [
+      'There is enough clearance between the upper and lower fifth wheels.',
+      'There is enough clearance between the tractor frame and the landing gear.',
+      'The safety latch is in unlocked position.'
+    ],
+    correct_anwser: 'There is enough clearance between the tractor frame and the landing gear.'
+  },
+  {
+    content: 'When you are uncoupling a loaded trailer lower the landing gear until it:',
+    answers: [
+      'Reaches the ground.',
+      'Makes contact with the ground and leave the trailer off the fifth wheel.',
+      'Makes firm contact with the ground.'
+    ],
+    correct_anwser: 'Makes firm contact with the ground.'
   }
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
+  # {
+  #   content: '',
+  #   answers: [
+  #     'To park on a grade'
+  #   ],
+  #   correct_anwser: 'Never'
+  # },
   # {
   #   content: '',
   #   answers: [
