@@ -21,11 +21,15 @@ end
 
 puts 'SEEDING QUIZZES'
 combo_quiz = Quiz.find_or_create_by!(
-  name: 'Combination Endorsement Practice Test',
+  name: 'Combination Endorsement',
   description: 'Test your knowledge of combination vehicles with our CDL quiz. Challenge yourself with questions about coupling and uncoupling procedures, and safe driving practices for these complex commercial vehicles.'
 )
+airbrake_quiz = Quiz.find_or_create_by!(
+  name: 'Airbrake Endorsement',
+  description: 'Take our CDL airbrake quiz to assess your understanding of air brake systems used in commercial vehicles. Explore topics like air brake components, maintenance, and proper operation to ensure safe and efficient braking.'
+)
 
-questions_data = [
+combo_questions_data = [
   {
     content: 'You are coupling a semi trailer to your tractor but have not yet backed under. The trailer is at the right height when:',
     answers: [
@@ -823,16 +827,308 @@ questions_data = [
   # Add more questions and answers as needed
 ]
 
-combo_quiz.questions.create!(questions_data.map do |q_data|
+airbrake_questions_data = [
   {
-    content: q_data[:content],
-    answers_attributes: q_data[:answers].map { |answer| { content: answer } }
+    content: 'Oil and water ususally collect in compressed air tanks. If you do not have an automatic tank drain, when should you drain the air tanks?',
+    answers: [
+      'After every working day.',
+      'After every four hours of service.',
+      'Once a week.'
+    ],
+    correct_anwser: 'After every working day.'
+  },
+  {
+    content: 'Why drain water form the compressed air tanks?',
+    answers: [
+      'To keep from fouling the air compressor oil.',
+      'Water can freeze in cold weather and cause brake failure.',
+      'The low boiling point of water reduces braking power.'
+    ],
+    correct_anwser: 'Water can freeze in cold weather and cause brake failure.'
+  },
+  {
+    content: 'The air brake system for a straight truck or bus should not leak at a rate of more than ___ psi per minute with the engine off and the brakes released.',
+    answers: %w[1 2 3],
+    correct_anwser: '3'
+  },
+  {
+    content: 'To make an emergency stop with air brakes, using the stab braking method, you should:',
+    answers: [
+      'Pump the brake pedal rapidly and lightly.',
+      'Brake hard until the wheels lock, and then get off the brakes for as much time as the wheels were locked.',
+      'Press on the brake pedal as hard as you can, release the brakes when the wheels locked, put on the brakes again when the wheels start rolling.'
+    ],
+    correct_anwser: 'Press on the brake pedal as hard as you can, release the brakes when the wheels locked, put on the brakes again when the wheels start rolling.'
+  },
+  {
+    content: 'You should know that your brakes are fading when:',
+    answers: [
+      'Pressure on the brake pedal is released and speed increases.',
+      'You have to press the brake pedal harder to control speed on a downgrade.',
+      'The brake feels spongy when pressure is applied.'
+    ],
+    correct_anwser: 'You have to press the brake pedal harder to control speed on a downgrade.'
+  },
+  {
+    content: 'If the air compressor should develop a leak, what keeps the air in the tanks?',
+    answers: [
+      'The tractor protection valve.',
+      'The emergency relay valve.',
+      'The one way check valve.'
+    ],
+    correct_anwser: 'The one way check valve.'
   }
-end)
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # },
+  # {
+  #   content: '',
+  #   answers: [],
+  #   correct_anwser:
+  # }
+]
+
+puts 'SEEDING QUIZ QUESTIONS'
+
+[{ quiz: combo_quiz, data: combo_questions_data },
+ { quiz: airbrake_quiz, data: airbrake_questions_data }].each do |hash|
+  quiz, data = hash.values_at(:quiz, :data)
+  quiz.questions.create!(data.map do |q_data|
+    {
+      content: q_data[:content],
+      answers_attributes: q_data[:answers].map { |answer| { content: answer } }
+    }
+  end)
+end
 
 puts 'SEEDING QUIZ ANSWERS'
-questions_data.each do |question_data|
-  question = Question.find_by(content: question_data[:content])
-  question.correct_answer = Answer.find_by(content: question_data[:correct_anwser], question_id: question.id)
-  question.save!
+
+[combo_questions_data, airbrake_questions_data].each do |question_data|
+  question_data.each do |data|
+    question = Question.find_by(content: data[:content])
+    question.correct_answer = Answer.find_by(content: data[:correct_anwser], question_id: question.id)
+    question.save!
+  end
 end
