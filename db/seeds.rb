@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts 'SEEDING USERS'
+
+admin =
+  User.create!(
+    email: 'admin@truckingnexus.com',
+    password: '1234trucking',
+    password_confirmation: '1234trucking'
+  )
+
 puts 'SEEDING COMPANIES'
 
 Scrapers::Company.new.call unless File.exist?(Scrapers::Company::JSON_DATA_FILE_PATH)
@@ -20,6 +29,7 @@ JSON.parse(file.read).each do |company|
 end
 
 puts 'SEEDING QUIZZES'
+
 combo_quiz = Quiz.find_or_create_by!(
   name: 'Combination Endorsement',
   description: 'Test your knowledge of combination vehicles with our CDL quiz. Challenge yourself with questions about coupling and uncoupling procedures, and safe driving practices for these complex commercial vehicles.'
