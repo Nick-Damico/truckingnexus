@@ -31,6 +31,25 @@ Trucking Nexus is designed with simplicity in mind. Sign up, browse trucking job
 
 - **Quizzes:** [dbdiagrm.io Quizzes] (https://dbdiagram.io/d/testing-6512dd32ffbf5169f08733cb)
 
+### Quizzes
+
+These user stories are written in a way that focuses on what the user wants to achieve and what functionality they expect from the quiz application.
+
+- [x] As a user, I want to view a list of available quizzes.
+- [ ] As a user, I want the ability to choose a quiz by clicking a button in the list.
+- [ ] As a user, I want to answer one question at a time.
+- [ ] As a user, I want to see a list of possible answers for each question.
+- [ ] As a user, I want to select my answer for each question.
+- [ ] As a user, I want to receive a score at the end of the quiz, presented as a percentage to indicate my performance.
+
+Future functionality:
+
+- [ ] As a user, I want the option to pause a quiz and continue it later, so I can conveniently complete it at my own pace.
+
+- [ ] As a user, I want to view my previous quiz scores, allowing me to track my progress and performance over time.
+
+- [ ] As a user, I want to customize the quiz by selecting the number of questions I will be presented with, enabling me to tailor the quiz to my preferences and available time. be asked.
+
 ## Contributing:
 
 We welcome contributions from the trucking community and developers alike. Whether you want to suggest features, report bugs, or submit code improvements, please follow our [contribution guidelines on GitHub](link_to_contributing_guidelines).
