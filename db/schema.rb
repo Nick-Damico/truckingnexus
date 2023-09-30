@@ -49,12 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_29_185624) do
     t.index ["name"], name: "index_quizzes_on_name", unique: true
   end
 
-  create_table "quizzes_users", id: false, force: :cascade do |t|
+  create_table "user_quizzes", force: :cascade do |t|
+    t.integer "score"
     t.bigint "user_id", null: false
     t.bigint "quiz_id", null: false
-    t.integer "score"
-    t.index ["quiz_id", "user_id"], name: "index_quizzes_users_on_quiz_id_and_user_id"
-    t.index ["user_id", "quiz_id"], name: "index_quizzes_users_on_user_id_and_quiz_id"
+    t.index ["quiz_id", "user_id"], name: "index_user_quizzes_on_quiz_id_and_user_id"
+    t.index ["quiz_id"], name: "index_user_quizzes_on_quiz_id"
+    t.index ["user_id", "quiz_id"], name: "index_user_quizzes_on_user_id_and_quiz_id"
+    t.index ["user_id"], name: "index_user_quizzes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,4 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_29_185624) do
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "answers", column: "correct_answer_id"
   add_foreign_key "questions", "quizzes"
+  add_foreign_key "user_quizzes", "quizzes"
+  add_foreign_key "user_quizzes", "users"
 end

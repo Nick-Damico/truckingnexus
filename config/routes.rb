@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :companies, only: [:index]
   resources :quizzes, only: [:index]
+  resources :user_quizzes, only: %i[new create show]
 end
