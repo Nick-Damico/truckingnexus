@@ -6,6 +6,7 @@ RSpec.describe 'UserQuizzes', type: :request do
   let!(:user) { create(:user) }
   let!(:quiz) { create(:quiz) }
   let!(:companies) { create_list(:company, 2) }
+  let!(:user_quiz) { create(:user_quiz, user_id: user.id, quiz_id: quiz.id) }
 
   before { sign_in user }
 
@@ -66,7 +67,7 @@ RSpec.describe 'UserQuizzes', type: :request do
 
   describe 'Show: GET /user_quiz' do
     it 'returns successful status code' do
-      get user_quiz_path(subject)
+      get user_quiz_path(user_quiz)
       expect(response).to have_http_status(200)
     end
   end
