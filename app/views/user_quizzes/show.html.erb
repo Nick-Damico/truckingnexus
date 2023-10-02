@@ -1,1 +1,6 @@
-<h2 class="text-2xl font-bold mb-4"><%= @user_quiz.quiz&.name %> Quiz</h2>
+<h2 class="text-2xl text-center font-bold mb-4"><%= @user_quiz.quiz&.name %> Quiz</h2>
+<% question =  %>
+<div class="flex flex-col w-full self-center max-w-xl p-5 border rounded-lg bg-zinc-100 border-zinc-950">
+  <%= render partial: 'answer_sheet_questions/form', locals: { answer_sheet_question: @answer_sheet.next_question }%>
+</div>
+<%= copyright_div %>

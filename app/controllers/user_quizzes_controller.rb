@@ -4,7 +4,6 @@ class UserQuizzesController < ApplicationController
   def new; end
 
   def create
-    puts params
     @user_quiz = UserQuiz.create(user_quiz_params)
     if @user_quiz.save
       @user_quiz.prep_for_quiz
@@ -15,7 +14,9 @@ class UserQuizzesController < ApplicationController
   end
 
   def show
-    @user_quiz = UserQuiz.find_by(params[:user_quiz_id])
+    @user_quiz = UserQuiz.find_by(id: params[:id])
+    @user_quiz.prep_for_quiz unless @user_quiz.answer_sheet
+    @answer_sheet = @user_quiz.answer_sheet
   end
 
   private
