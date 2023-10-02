@@ -61,10 +61,7 @@ RSpec.describe AnswerSheet, type: :model do
     end
 
     it 'returns false if unanswered questions remain' do
-      subject.answer_sheet_questions.each do |as_question|
-        user_answer = as_question.question.answers.first
-        as_question.update(answer_id: nil)
-      end
+      subject.answer_sheet_questions.each { |question| question.update(answer_id: nil) }
 
       expect(subject.completed?).to eq false
     end
