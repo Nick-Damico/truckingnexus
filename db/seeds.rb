@@ -839,7 +839,7 @@ combo_questions_data = [
 
 airbrake_questions_data = [
   {
-    content: 'Oil and water ususally collect in compressed air tanks. If you do not have an automatic tank drain, when should you drain the air tanks?',
+    content: 'Oil and water usually collect in compressed air tanks. If you do not have an automatic tank drain, when should you drain the air tanks?',
     answers: [
       'After every working day.',
       'After every four hours of service.',
