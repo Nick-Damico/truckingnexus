@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 RSpec.describe UserQuiz, type: :model do
   subject { create(:user_quiz) }
 
@@ -10,9 +12,10 @@ RSpec.describe UserQuiz, type: :model do
   it { should validate_presence_of(:user) }
   it { should validate_presence_of(:quiz) }
 
-  describe '#generate_answer_sheet' do
-    it 'user answer_sheet for quiz' do
-      expect(subject.answer_sheet)
+  describe '#prep_for_quiz' do
+    it 'generates an AnswerSheet' do
+      subject.prep_for_quiz
+      expect(subject.answer_sheet).to_not be_nil
     end
   end
 end

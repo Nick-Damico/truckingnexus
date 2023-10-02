@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'UserQuizzes', type: :request do
   let!(:user) { create(:user) }
-  let!(:quiz) { create(:quiz) }
+  let!(:quiz) { create(:quiz, :with_questions) }
   let!(:companies) { create_list(:company, 2) }
   let!(:user_quiz) { create(:user_quiz, user_id: user.id, quiz_id: quiz.id) }
 

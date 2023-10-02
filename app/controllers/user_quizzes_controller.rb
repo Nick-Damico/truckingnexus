@@ -7,6 +7,7 @@ class UserQuizzesController < ApplicationController
     puts params
     @user_quiz = UserQuiz.create(user_quiz_params)
     if @user_quiz.save
+      @user_quiz.prep_for_quiz
       redirect_to @user_quiz
     else
       redirect_to quizzes_url
