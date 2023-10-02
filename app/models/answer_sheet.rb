@@ -19,6 +19,14 @@ class AnswerSheet < ApplicationRecord
     end
   end
 
+  def completed?
+    unanswered_question_count.zero?
+  end
+
+  def unanswered_question_count
+    answer_sheet_questions.unanswered_questions.count
+  end
+
   def next_question
     answer_sheet_questions.find_by(answer: nil)
   end
