@@ -28,6 +28,6 @@ class AnswerSheet < ApplicationRecord
   end
 
   def next_question
-    answer_sheet_questions.find_by(answer: nil)
+    answer_sheet_questions.unanswered_questions.limit(1).first
   end
 end
