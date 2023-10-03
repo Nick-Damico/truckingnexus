@@ -66,4 +66,21 @@ RSpec.describe AnswerSheet, type: :model do
       expect(subject.completed?).to eq false
     end
   end
+
+  describe '#number_of_questions' do
+    it 'returns the total number of questions on quiz' do
+      expected_count = subject.questions.count
+      expect(subject.number_of_questions).to eq expected_count
+    end
+  end
+
+  describe '#number_of_correct' do
+    it 'returns the total number of questions answered correctly' do
+      answer_sheet_question = subject.answer_sheet_questions.first
+      correct_answer = answer_sheet_question.question.correct_answer
+      answer_sheet_question.update(answer: correct_answer)
+
+      expect(subject.number_of_correct_answers).to eq 1
+    end
+  end
 end
