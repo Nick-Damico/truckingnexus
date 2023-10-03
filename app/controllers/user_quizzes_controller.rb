@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UserQuizzesController < ApplicationController
+  before_action :set_user_quiz, only: %i[show]
+
   def new; end
 
   def create
@@ -14,12 +16,30 @@ class UserQuizzesController < ApplicationController
   end
 
   def show
-    @user_quiz = UserQuiz.find_by(id: params[:id])
-    @user_quiz.prep_for_quiz unless @user_quiz.answer_sheet
-    @answer_sheet = @user_quiz.answer_sheet
+    prep_for_quiz
+    set_show_variables
+    grade_quiz if @user_quiz.completed?
   end
 
   private
+
+  def grade_quiz
+    return if @user_quiz.score.present?
+
+    QuizService::Grader.new(user_quiz: @user_quiz).call
+  end
+
+  def prep_for_quiz
+    @user_quiz.prep_for_quiz unless @user_quiz.answer_sheet
+  end
+
+  def set_show_variables
+    @answer_sheet = @user_quiz.answer_sheet
+  end
+
+  def set_user_quiz
+    @user_quiz = UserQuiz.find(params[:id])
+  end
 
   def user_quiz_params
     params.require(:user_quiz).permit(:quiz_id, :user_id)
