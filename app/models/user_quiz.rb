@@ -13,4 +13,10 @@ class UserQuiz < ApplicationRecord
 
     AnswerSheet.prep_for_quiz(user_quiz: self)
   end
+
+  def completed?
+    false if answer_sheet.nil?
+
+    answer_sheet.completed?
+  end
 end
