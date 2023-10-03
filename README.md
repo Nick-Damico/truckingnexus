@@ -36,16 +36,16 @@ Trucking Nexus is designed with simplicity in mind. Sign up, browse trucking job
 TODOs:
 
 - [ ] Display Flash Messages
-- [ ] Add a resume or new feature on quizzes. A user choice of new quiz will destroy the previous unfinished quiz.
+- [ ] Add a resume or start new quiz feature. A user choice of new quiz will destroy the previous unfinished quiz.
 
 These user stories are written in a way that focuses on what the user wants to achieve and what functionality they expect from the quiz application.
 
 - [x] As a user, I want to view a list of available quizzes.
-- [ ] As a user, I want the ability to choose a quiz by clicking a button in the list.
-- [ ] As a user, I want to answer one question at a time.
-- [ ] As a user, I want to see a list of possible answers for each question.
-- [ ] As a user, I want to select my answer for each question.
-- [ ] As a user, I want to receive a score at the end of the quiz, presented as a percentage to indicate my performance.
+- [x] As a user, I want the ability to choose a quiz by clicking a button in the list.
+- [x] As a user, I want to answer one question at a time.
+- [x] As a user, I want to see a list of possible answers for each question.
+- [x] As a user, I want to select my answer for each question.
+- [x] As a user, I want to receive a score at the end of the quiz, presented as a percentage to indicate my performance.
 - [ ] As a user, I should be able to resume a quiz already started by clicking on the button within the quizzes page.
 
 Future functionality:
