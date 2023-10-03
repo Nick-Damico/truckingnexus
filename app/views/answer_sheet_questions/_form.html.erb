@@ -4,14 +4,14 @@
   <div class="mb-6 field">
     <% question.answers.each.with_index(1) do |answer, idx| %>
       <div class="flex items-stretch mb-2 h-14">
-        <%= ff.radio_button :answer_id, answer.id, class: "peer hidden", requied: true %>
-        <%= ff.label :answer_id, value: answer.id, class: "flex flex-grow gap-x-4 px-2 items-center rounded text-gray-700 text-sm font-bold peer-checked:bg-emerald-400/90 transition-all" do %>
-          <span><%= "#{idx}." %></span> <span><%= answer.content %></span>
+        <%= ff.radio_button :answer, answer.id, class: "peer hidden", requied: true %>
+        <%= ff.label :answer, value: answer.id, class: "flex flex-grow gap-x-4 px-2 items-center rounded text-gray-700 text-sm font-bold peer-checked:bg-emerald-400/90 transition-all duration-500" do %>
+          <p><%= "#{idx}. #{answer.content}" %></p>
         <% end %>
       </div>
     <% end %>
   </div>
   <div class="flex items-center mb-4">
-    <%= ff.submit "Next", class: "text-center w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline actions cursor-pointer" %>
+    <%= ff.submit "Next Question", class: "text-center w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline actions cursor-pointer transition-all duration-500" %>
   </div>
 <% end %>
