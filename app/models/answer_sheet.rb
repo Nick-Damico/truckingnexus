@@ -3,7 +3,7 @@
 class AnswerSheet < ApplicationRecord
   belongs_to :user_quiz
 
-  has_many :answer_sheet_questions
+  has_many :answer_sheet_questions, dependent: :destroy
   has_many :questions, through: :answer_sheet_questions
   has_many :answers, through: :answer_sheet_questions
 

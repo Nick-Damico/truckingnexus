@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserQuizzesController < ApplicationController
-  before_action :set_user_quiz, only: %i[show]
+  before_action :set_user_quiz, only: %i[show destroy]
 
   def new; end
 
@@ -19,6 +19,12 @@ class UserQuizzesController < ApplicationController
     prep_for_quiz
     set_show_variables
     grade_quiz if @user_quiz.completed?
+  end
+
+  def destroy
+    return unless @user_quiz.destroy
+
+    redirect_to quizzes_url
   end
 
   private

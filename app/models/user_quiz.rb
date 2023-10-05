@@ -3,7 +3,7 @@
 class UserQuiz < ApplicationRecord
   belongs_to :user
   belongs_to :quiz
-  has_one :answer_sheet
+  has_one :answer_sheet, dependent: :destroy
 
   validates :user, presence: true
   validates :quiz, presence: true

@@ -71,4 +71,16 @@ RSpec.describe 'UserQuizzes', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'Destroy: DELETE /user_quiz' do
+    it 'destroys user_quiz record' do
+      user_quiz.prep_for_quiz
+      expect do
+        delete user_quiz_path(user_quiz)
+      end.to change(UserQuiz,
+                    :count).by(-1).and change(AnswerSheet,
+                                              :count).by(-1).and change(Quiz,
+                                                                        :count).by(0).and change(Answer, :count).by(0)
+    end
+  end
 end
