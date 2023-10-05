@@ -29,4 +29,12 @@ module QuizzesHelper
                                                    class: 'bg-red-400 hover:bg-red-500 px-3 py-2')
     end
   end
+
+  def answer_index_to_letter(idx)
+    int_to_char(idx)
+  end
+
+  def int_to_char(number)
+    (number + 'a'.ord).chr
+  end
 end
