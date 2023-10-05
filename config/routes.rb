@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   resources :companies, only: [:index]
   resources :quizzes, only: [:index]
-  resources :user_quizzes, only: %i[new create show]
+  resources :user_quizzes, only: %i[new create show destroy]
   resources :answer_sheet_questions, only: %i[edit update]
 end

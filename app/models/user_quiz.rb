@@ -8,6 +8,8 @@ class UserQuiz < ApplicationRecord
   validates :user, presence: true
   validates :quiz, presence: true
 
+  scope :active, -> { where(score: nil) }
+
   def prep_for_quiz(question_count: nil)
     return answer_sheet if answer_sheet.present?
 
