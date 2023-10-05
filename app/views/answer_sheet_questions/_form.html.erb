@@ -1,11 +1,11 @@
 <% question = answer_sheet_question.question %>
-<%= form_for(answer_sheet_question) do |ff| %>
+<%= form_for(answer_sheet_question, data: { turbo: false }) do |ff| %>
   <p class="text-xl font-bold italic border-b border-zinc-500 pb-2 mb-4"><%= question.content %></p>
   <div class="mb-6 field">
     <% question.answers.each.with_index(1) do |answer, idx| %>
       <div class="flex items-stretch mb-2 h-14">
-        <%= ff.radio_button :answer, answer.id, class: "peer hidden", requied: true %>
-        <%= ff.label :answer, value: answer.id, class: "flex flex-grow gap-x-4 px-2 items-center rounded text-gray-700 text-sm font-bold peer-checked:bg-emerald-400/90 transition-all duration-500" do %>
+        <%= ff.radio_button :answer_id, answer.id, class: "peer hidden", requied: true %>
+        <%= ff.label :answer_id, value: answer.id, class: "flex flex-grow gap-x-4 px-2 items-center rounded text-gray-700 text-sm font-bold peer-checked:bg-emerald-400/90 transition-all duration-500" do %>
           <p><%= "#{idx}. #{answer.content}" %></p>
         <% end %>
       </div>
