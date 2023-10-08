@@ -9,4 +9,12 @@
   .drop-down--closed {
     @apply -top-[11rem] !important;
   }
+
+  .main-nav_link--selected {
+    @apply font-bold text-white;
+  }
+
+  .profile-nav_link--selected {
+    @apply bg-sky-500 text-white;
+  }
 }
