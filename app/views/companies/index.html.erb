@@ -1,21 +1,39 @@
-<section class="flex flex-col mb-20">
-  <h2 class="text-3xl mb-4 font-bold">Top <%= @companies.count %> Companies List</h2>
-  <table class="table-auto">
-    <thead>
-      <tr class="text-left text-xl">
-        <th>Company</th>
-        <th>City</th>
-        <th>State</th>
+<div class="relative overflow-x-auto mb-20 bg-white rounded-lg p-6">
+  <h2 class="text-2xl font-bold mb-4">Top <%= @companies.size %> Companies</h2>
+  <table class="w-full text-sm text-left text-gray-500">
+    <thead class="text-xs text-white uppercase bg-sky-500">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Company Name
+        </th>
+        <th scope="col" class="px-6 py-3">
+          City
+        </th>
+        <th scope="col" class="px-6 py-3">
+          State
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Overall Rating
+        </th>
       </tr>
     </thead>
     <tbody>
       <%@companies.each do |company| %>
-        <tr>
-          <td><%= h(company.name) %></td>
-          <td><%= company.city %></td>
-          <td><%= company.state %></td>
+        <tr class="bg-white border-b">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            <%= h(company.name) %>
+          </th>
+          <td class="px-6 py-4">
+            <%= company.city %>
+          </td>
+          <td class="px-6 py-4">
+            <%= company.state %>
+          </td>
+          <td class="px-6 py-4">
+            5 Stars
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</section>
+</div>
