@@ -2,24 +2,24 @@
   <h2 class="text-2xl font-bold mb-4">Top <%= @companies.size %> Companies</h2>
   <table class="w-full text-sm text-left text-gray-500">
     <thead class="text-xs text-white uppercase bg-sky-500">
-      <tr>
-        <th scope="col" class="px-6 py-3">
+      <tr class='text-md'>
+        <th scope="col" class="px-6 py-4">
           Company Name
         </th>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-4">
           City
         </th>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-4">
           State
         </th>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-4">
           Overall Rating
         </th>
       </tr>
     </thead>
     <tbody>
-      <%@companies.each do |company| %>
-        <tr class="bg-white border-b">
+      <%@companies.each.with_index do |company, idx| %>
+        <tr class="bg-white border-b <%= idx.odd? ? 'bg-sky-100' : '' %>">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
             <%= h(company.name) %>
           </th>
