@@ -17,4 +17,8 @@
   .profile-nav_link--selected {
     @apply bg-sky-500 text-white;
   }
+
+  .nav-closed {
+    @apply max-h-[90px] !important;
+  }
 }

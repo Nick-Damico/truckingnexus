@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 import { connectedMsg } from './utilities'
 
 export default class extends Controller {
-  static targets = ['button', 'dropDown']
+  static targets = ['button', 'dropDown', 'nav']
   static values = {
     lgBreakPoint: { type: Number, default: 1024 },
     closedClass: { type: String, default: 'drop-down--closed' }
@@ -26,6 +26,7 @@ export default class extends Controller {
 
   toggleDropDown() {
     this.dropDownTarget.classList.toggle('drop-down--closed')
+    this.navTarget.classList.toggle('nav-closed')
   }
 
   isSmallLayout() {
