@@ -10,15 +10,15 @@
     @apply -top-[11rem] !important;
   }
 
+  .h-nav_drop-down--closed {
+    @apply max-h-[80px] !important;
+  }
+
   .main-nav_link--selected {
     @apply font-bold text-white;
   }
 
   .profile-nav_link--selected {
     @apply bg-sky-500 text-white;
-  }
-
-  .nav-closed {
-    @apply max-h-[90px] !important;
   }
 }

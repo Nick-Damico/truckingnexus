@@ -26,7 +26,7 @@ export default class extends Controller {
 
   toggleDropDown() {
     this.dropDownTarget.classList.toggle('drop-down--closed')
-    this.navTarget.classList.toggle('nav-closed')
+    this.navTarget.classList.toggle('h-nav_drop-down--closed')
   }
 
   isSmallLayout() {
