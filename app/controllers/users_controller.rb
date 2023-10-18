@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     return unless @user.update(user_params)
 
-    render :show
+    redirect_to @user
   end
 
   private
