@@ -7,6 +7,20 @@ module ApplicationHelper
                 class: class_options)
   end
 
+  def flash_bg_color(key)
+    klasses = ['bg-flash']
+    case key.to_sym
+    when :alert
+      klasses << 'bg-flash--warning'
+    when :info
+      klasses << 'bg-flash--info'
+    when :notice
+      klasses << 'bg-flash--notice'
+    end
+
+    klasses.join(' ')
+  end
+
   def logout_button
     link_to('Log Out', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
                                                   class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0')
