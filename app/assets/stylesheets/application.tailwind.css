@@ -45,4 +45,8 @@
   .bg-flash--notice {
     @apply bg-emerald-400;
   }
+
+  .flash-dismiss-animation {
+    @apply transition-all translate-x-12 opacity-0 duration-500 ease-out;
+  }
 }

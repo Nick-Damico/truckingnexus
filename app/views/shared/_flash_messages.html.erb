@@ -1,10 +1,12 @@
-<% flash.each do |key, value| %>
-  <div data-controller="flash" class="flex self-end items-center py-3 px-5 mb-2 rounded-lg <%= flash_bg_color(key) %>">
-    <div class="mr-2"><%= value %></div>
-    <button type="button" data-action="flash#dismiss">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-<% end %>
+<div data-controller="flash">
+  <% flash.each do |key, value| %>
+    <div data-flash-target='container' class="flex self-end items-center py-3 px-5 mb-2 rounded-lg <%= flash_bg_color(key) %>">
+      <div class="mr-2"><%= value %></div>
+      <button type="button" data-action="flash#dismiss">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  <% end %>
+</div>
