@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     return unless @user.update(user_params)
 
-    redirect_to @user, flash: { info: 'Updated Successfully' }
+    redirect_to @user, flash: { notice: 'Updated Successfully' }
   end
 
   private
