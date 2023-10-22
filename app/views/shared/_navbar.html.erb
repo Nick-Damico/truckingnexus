@@ -26,7 +26,7 @@
     <div class='flex items-center mt-2 lg:mt-0'>
       <% if user_signed_in? %>
         <%= profile_button %>
-        <%= logout_button(class: 'mt-0') %>
+        <%= logout_button(class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-sky-500 hover:bg-white mt-0') %>
       <% else %>
         <%= login_button %>
       <% end %>

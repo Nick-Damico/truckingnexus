@@ -2,9 +2,9 @@
 
 module UsersHelper
   def logout_button(**options)
-    klass_opts = options[:class]
+    klass_opts = options[:class] || 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
     link_to('Log Out', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
-                                                  class: "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 #{klass_opts}")
+                                                  class: klass_opts)
   end
 
   def login_button
