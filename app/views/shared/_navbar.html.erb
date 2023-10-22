@@ -23,10 +23,10 @@
         Contact
       </a>
     </div>
-    <div class='flex items-center'>
+    <div class='flex items-center mt-2'>
       <% if user_signed_in? %>
         <%= profile_button %>
-        <%= logout_button %>
+        <%= logout_button(class: 'mt-0') %>
       <% else %>
         <%= login_button %>
       <% end %>
