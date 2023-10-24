@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_16_112509) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_001254) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_112509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -99,4 +101,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_112509) do
   add_foreign_key "questions", "quizzes"
   add_foreign_key "user_quizzes", "quizzes"
   add_foreign_key "user_quizzes", "users"
+  add_foreign_key "users", "companies"
 end

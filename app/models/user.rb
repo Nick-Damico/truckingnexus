@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :company, optional: true
   has_many :user_quizzes
   has_many :quizzes, through: :user_quizzes
 end
