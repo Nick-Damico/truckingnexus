@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show update]
+  before_action :set_resources, only: %i[show]
 
   def show; end
 
@@ -19,5 +20,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_resources
+    @companies = Company.order(:name)
   end
 end
