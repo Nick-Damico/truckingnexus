@@ -50,13 +50,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_210432) do
   end
 
   create_table "employment_histories", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "company_id", null: false
+    t.bigint "employee_id", null: false
+    t.bigint "employer_id", null: false
     t.boolean "current"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_employment_histories_on_company_id"
-    t.index ["user_id"], name: "index_employment_histories_on_user_id"
+    t.index ["employee_id"], name: "index_employment_histories_on_employee_id"
+    t.index ["employer_id"], name: "index_employment_histories_on_employer_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -107,8 +107,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_210432) do
   add_foreign_key "answer_sheet_questions", "questions"
   add_foreign_key "answer_sheets", "user_quizzes"
   add_foreign_key "answers", "questions"
-  add_foreign_key "employment_histories", "companies"
-  add_foreign_key "employment_histories", "users"
+  add_foreign_key "employment_histories", "companies", column: "employer_id"
+  add_foreign_key "employment_histories", "users", column: "employee_id"
   add_foreign_key "questions", "answers", column: "correct_answer_id"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "user_quizzes", "quizzes"
