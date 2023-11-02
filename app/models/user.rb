@@ -7,6 +7,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :company, optional: true
+
   has_many :user_quizzes
   has_many :quizzes, through: :user_quizzes
+
+  has_many :employment_histories
+  has_many :employers, through: :employment_histories, source: :employer
 end
