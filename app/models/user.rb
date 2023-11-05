@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :user_quizzes
   has_many :quizzes, through: :user_quizzes
 
-  has_many :employment_histories
-  has_many :employers, through: :employment_histories, source: :employer
+  has_many :employment_histories, foreign_key: :employee_id
+  has_many :employers, through: :employment_histories
 end
