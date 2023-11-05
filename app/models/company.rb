@@ -6,5 +6,5 @@ class Company < ApplicationRecord
 
   has_many :users
   has_many :employment_histories, foreign_key: :employer_id
-  has_many :employees, through: :employment_histories, source: :employee
+  has_many :employees, through: :employment_histories
 end
