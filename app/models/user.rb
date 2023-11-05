@@ -13,4 +13,6 @@ class User < ApplicationRecord
 
   has_many :employment_histories, foreign_key: :employee_id
   has_many :employers, through: :employment_histories
+
+  accepts_nested_attributes_for :employment_histories
 end
