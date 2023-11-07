@@ -4,8 +4,11 @@
     <%= form.text_field :username, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
   <div class="flex flex-col items-stretch mb-2 lg:w-1/2">
-    <%= form.label :employers_ids, 'Current Employer', class: "text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.select :employers_ids, @companies.pluck(:name, :id), class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <%= form.fields_for :employment_histories, @employment_history do |ff_eh| %>
+      <%= ff_eh.hidden_field :current, value: @employment_history.current %>
+      <%= ff_eh.label :employer_id, 'Current Employer', class: "text-gray-700 text-sm font-bold mb-2" %>
+      <%= ff_eh.select :employer_id, @companies.pluck(:name, :id), class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: 3 %>
+    <% end %>
   </div>
   <div class="flex items-center mb-4 lg:w-1/2">
     <%= form.submit 'Save', class: "text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline actions cursor-pointer" %>

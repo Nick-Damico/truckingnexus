@@ -24,5 +24,6 @@ class UsersController < ApplicationController
 
   def set_resources
     @companies = Company.order(:name)
+    @employment_history = EmploymentHistory.new(current: true)
   end
 end
