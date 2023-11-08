@@ -30,12 +30,13 @@
   }
 
   /* FLASH MESSAGES */
-  .bg-flash--alert {
-    @apply bg-red-400;
-  }
-
   .bg-flash {
     @apply text-white;
+  }
+
+  .bg-flash--alert,
+  .bg-flash--warning {
+    @apply bg-red-400;
   }
 
   .bg-flash--info {
