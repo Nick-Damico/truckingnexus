@@ -1,10 +1,10 @@
 <div class="mx-auto w-full max-w-xs">
   <div class="bg-white shadow-md rounded-md px-8 pt-6 pb-8 mb-4 lg:mt-24">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
       <h2 class="text-center text-2xl font-bold mb-8">
         Forgot Password?
       </h2>
+      <%= render "devise/shared/error_messages", resource: resource %>
       <div class="mb-6 field">
         <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sam@best-dog.com', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
