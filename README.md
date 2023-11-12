@@ -27,6 +27,19 @@ Trucking Nexus is a Ruby on Rails application that serves as your one-stop desti
 
 Trucking Nexus is designed with simplicity in mind. Sign up, browse trucking job listings, rate your experiences, access CDL test prep materials, and stay informed about the trucking industry—all within a few clicks.
 
+## Development
+
+### Running Dev with Overmind
+
+- `brew install tmux`
+- `brew install overmind`
+
+Start up development environment with command: `overmind start`
+
+### Running Dev with Foreman
+
+Start up development environment with command: `./bin/dev`
+
 ## Design
 
 - **Quizzes:** [dbdiagrm.io Quizzes] (https://dbdiagram.io/d/testing-6512dd32ffbf5169f08733cb)
