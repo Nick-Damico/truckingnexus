@@ -12,4 +12,13 @@ RSpec.describe 'Companies', type: :request do
       expect(response.body).to include(companies.first.name)
     end
   end
+
+  describe 'GET /companies/:id' do
+    it 'renders the show template' do
+      selected_company = companies.first
+      get company_path(selected_company)
+      expect(response).to have_http_status(200)
+      expect(response.body).to include(selected_company.name)
+    end
+  end
 end

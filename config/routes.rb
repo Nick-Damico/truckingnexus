@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :answer_sheet_questions, only: %i[edit update]
-  resources :companies, only: [:index]
+  resources :companies, only: %i[index show]
   resources :quizzes, only: [:index]
   resources :user_quizzes, only: %i[new create show destroy]
   resources :users, only: %i[show update]
