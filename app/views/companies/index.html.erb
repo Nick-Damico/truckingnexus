@@ -21,7 +21,9 @@
       <%@companies.each.with_index do |company, idx| %>
         <tr class="border-b <%= idx.odd? ? 'bg-sky-100' : 'bg-white' %>">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            <%= h(company.name) %>
+            <%= link_to company_path(company) do %>
+              <%= h(company.name) %>
+            <% end %>
           </th>
           <td class="px-6 py-4">
             <%= company.city %>
