@@ -1,8 +1,8 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-cache="false" class='flex flex-col w-full py-3 px-5 mb-2 rounded-lg bg-flash--alert'>
+  <div id="error_explanation" data-turbo-cache="false" class='flex flex-col w-full'>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <li class='text-white'><%= message %></li>
+        <li class='flex flex-col w-full py-3 px-5 mb-2 rounded-lg bg-flash--alert text-white'><%= message %></li>
       <% end %>
     </ul>
   </div>
