@@ -48,7 +48,7 @@ Start up development environment with command: `./bin/dev`
 
 TODOs:
 
-- [ ] Display Flash Messages
+- [x] Display Flash Messages
 - [x] Add a resume or start new quiz feature. A user choice of new quiz will destroy the previous unfinished quiz.
 
 These user stories are written in a way that focuses on what the user wants to achieve and what functionality they expect from the quiz application.
@@ -63,11 +63,15 @@ These user stories are written in a way that focuses on what the user wants to a
 
 Future functionality:
 
-- [ ] As a user, I want the option to pause a quiz and continue it later, so I can conveniently complete it at my own pace.
+- [x] As a user, I want the option to pause a quiz and continue it later, so I can conveniently complete it at my own pace.
 
 - [ ] As a user, I want to view my previous quiz scores, allowing me to track my progress and performance over time.
 
 - [ ] As a user, I want to customize the quiz by selecting the number of questions I will be presented with, enabling me to tailor the quiz to my preferences and available time. be asked.
+
+- Bugs
+
+- [ ] Error `param is missing or the value is empty: answer_sheet_question`. User encounters error when clicking submit on quiz without selecting and option.
 
 ## Contributing:
 
