@@ -1,4 +1,4 @@
-<% if resource&.errors&.any? %>
+<% if defined?(resource) && resource.errors.any? %>
   <div id="error_explanation" data-turbo-cache="false" class='flex flex-col w-full'>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
