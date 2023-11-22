@@ -6,9 +6,10 @@ class AnswerSheetQuestionsController < ApplicationController
   def update
     if @answer_sheet_question.update(answer_sheet_question_params)
       redirect_to @answer_sheet_question.answer_sheet.user_quiz
-    else
-      # do something
     end
+  rescue ActionController::ParameterMissing
+    flash.alert = 'Oops! Please choose an answer before submitting.'
+    redirect_to @answer_sheet_question.answer_sheet.user_quiz
   end
 
   private
