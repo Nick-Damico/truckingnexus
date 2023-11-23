@@ -25,5 +25,16 @@ RSpec.describe 'AnswerSheetQuestions', type: :request do
       expect(response).to have_http_status(302)
       expect(answer_sheet_question.reload.answer_id).to_not be_nil
     end
+
+    context 'question is submitted without selecting an answer' do
+      let!(:invalid_params) { {} }
+
+      it 'redirects back to the question without raising an exception' do
+        expect do
+          patch answer_sheet_question_path(answer_sheet_question), params: invalid_params
+        end.to_not raise_error(ActionController::ParameterMissing)
+        expect(response).to have_http_status(302)
+      end
+    end
   end
 end
