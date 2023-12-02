@@ -7,7 +7,7 @@
       <% question.answers.each.with_index(0) do |answer, idx| %>
         <div class="flex items-stretch mb-2 h-14">
           <%= ff.radio_button :answer_id, answer.id, class: "peer hidden", data: { quiz_target: 'answer', action: 'quiz#allowSubmit'  } %>
-          <%= ff.label :answer_id, value: answer.id, class: "flex flex-grow gap-x-4 px-2 items-center rounded text-gray-700 text-sm font-bold peer-checked:bg-emerald-500/70 peer-checked:text-white transition-all duration-500" do %>
+          <%= ff.label :answer_id, value: answer.id, class: "flex flex-grow gap-x-4 px-2 items-center rounded text-gray-700 text-sm font-bold peer-checked:bg-emerald-500/70 peer-checked:text-white transition-all duration-500 cursor-pointer" do %>
             <p><%= "#{answer_index_to_letter(idx).capitalize}. #{answer.content}" %></p>
           <% end %>
         </div>
