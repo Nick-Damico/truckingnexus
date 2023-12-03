@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show update]
   before_action :set_resources, only: %i[show]
 
-  def show; end
+  def show
+    @page_content = params[:page_content]
+  end
 
   def update
     return unless @user.update(user_params)

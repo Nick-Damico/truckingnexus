@@ -1,16 +1,1 @@
-<div class='h-full'>
-  <div class='flex flex-col h-full md:flex-row gap-8'>
-    <%= render partial: 'side-navigation', locals: { user: @user } %>
-    <main class='flex flex-col w-full md:w-3/4 gap-y-2'>
-      <section class='bg-white p-4 rounded-lg border border-zinc-300'>
-        <h2 class="font-bold text-2xl mb-2">Manage your Data</h1>
-        <%= render partial: 'form', locals: { user: @user } %>
-      </section>
-      <section class='bg-white p-4 rounded-lg border border-zinc-300'>
-        <h2 class="font-bold text-2xl">Profile Data</h1>
-        <p>See your reviews, conversations, quizzes, and trip-planning.</p>
-      </section>
-    </main>
-  </main>
-</div>
-</div>
+<%= render 'shared/users/dashboard' %>

@@ -11,12 +11,18 @@
   </head>
   <body class='h-full bg-gray-200'>
     <div class='flex flex-col h-full'>
+
       <%= render 'shared/navbar' %>
-      <main class='flex flex-col px-5 grow'>
+
+      <div class='flex flex-col px-5 grow'>
+
         <%= render 'shared/flash_and_error_messages' %>
         <%= yield %>
-      </main>
+
+      </div>
+
       <%= render 'shared/footer' %>
+
     </div>
   </body>
 </html>
