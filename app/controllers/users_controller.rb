@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  layout 'dashboard'
+
   before_action :set_user, only: %i[show update]
   before_action :set_resources, only: %i[show]
 
@@ -17,7 +19,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username)
+    params.require(:user).permit(
+      :username,
+      employment_histories_attributes: [:employer_id]
+    )
   end
 
   def set_user
