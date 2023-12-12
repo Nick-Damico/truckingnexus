@@ -2,6 +2,11 @@
 
 class UserQuizzesController < ApplicationController
   before_action :set_user_quiz, only: %i[show destroy]
+  before_action :set_user, only: %i[index]
+
+  def index
+    @user_quizzes = UserQuiz.where(user: current_user)
+  end
 
   def new; end
 
@@ -45,6 +50,10 @@ class UserQuizzesController < ApplicationController
 
   def set_user_quiz
     @user_quiz = UserQuiz.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
   def user_quiz_params
