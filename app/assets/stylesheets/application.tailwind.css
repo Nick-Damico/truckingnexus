@@ -14,7 +14,7 @@
 
   /* NAVIGATION */
   .main-nav_link--selected {
-    @apply font-bold text-white;
+    @apply font-bold text-white !important;
   }
 
   .drop-down--closed {
