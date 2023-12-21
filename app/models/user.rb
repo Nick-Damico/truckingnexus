@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_many :employers, through: :employment_histories
 
   accepts_nested_attributes_for :employment_histories
+
+  def current_employer
+    employment_histories.find_by(current: true)&.employer
+  end
 end
