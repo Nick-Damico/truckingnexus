@@ -3,6 +3,8 @@
 class UsersController < ApplicationController
   layout 'dashboard'
 
+  UPDATE_MSG = 'Updated Successfully'
+
   before_action :set_user, only: %i[show update]
   before_action :set_resources, only: %i[show]
 
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
   def update
     return unless @user.update(user_params)
 
-    redirect_to @user, flash: { notice: 'Updated Successfully' }
+    redirect_to @user, flash: { notice: UPDATE_MSG }
   end
 
   private
