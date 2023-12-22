@@ -21,7 +21,7 @@ module UsersHelper
     end
   end
 
-  def current_employer_name(user: current_user)
+  def display_current_employer_name(user = current_user)
     user.current_employer&.name || 'Company'
   end
 

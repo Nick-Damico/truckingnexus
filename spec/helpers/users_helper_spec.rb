@@ -32,4 +32,25 @@ RSpec.describe UsersHelper, type: :helper do
       end
     end
   end
+
+  describe '#display_current_employer_name' do
+    context 'Current employer set' do
+      it 'returns the current employer name' do
+        expect(user.current_employer).to_not be_nil
+        expected_name = user.current_employer.name
+
+        expect(display_current_employer_name(user)).to eq expected_name
+      end
+    end
+
+    context 'Current employer not set' do
+      it 'returns the placedholder string; not nil' do
+        user.employers.clear
+
+        expect(user.current_employer).to be_nil
+        expect(display_current_employer_name(user)).to_not be_nil
+        expect(display_current_employer_name(user)).to be_a(String)
+      end
+    end
+  end
 end
