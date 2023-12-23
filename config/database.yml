@@ -23,11 +23,14 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   # On Linux, you'll need to create a username/password that matches the application
   # here it is 'truckingnexus'.
-  # username: truckingnexus
   #
   # If you have peer connection issues with this username/password configuration,
-  # update file /etc/posgresql/16/main/pg_hba.conf line:
-  # peer all all md5
+  # edit the file sudo <editor> /etc/posgresql/16/main/pg_hba.conf
+  # Add an additonal line above `local  all   postgres  peer`:
+  #   local   all   truckingnexus   md5
+  #
+  # Restart Postgresql service.
+  #
   username: <%= Rails.application.credentials.database.username %>
   password: <%= Rails.application.credentials.database.password %>
   port: 5433
