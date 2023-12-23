@@ -22,7 +22,7 @@
 
   /* NAVIGATION */
   .main-nav_link--selected {
-    @apply font-bold !important;
+    @apply font-bold bg-sky-400 !important;
   }
 
   .drop-down--closed {
