@@ -9,7 +9,7 @@ module UsersHelper
 
   def login_button
     link_to('Login', new_user_session_path,
-            class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0')
+            class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-sky-500 hover:bg-white mt-4 lg:mt-0')
   end
 
   def profile_button(user: current_user, **options)
