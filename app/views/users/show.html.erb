@@ -1,11 +1,13 @@
 <div class='flex flex-col w-full md:w-3/4 gap-y-2'>
 
-  <%= render partial: "dashboard/users/#{@page_content}" if @page_content %>
+  <% if @page_content %>
 
-  <section class='bg-white p-4 rounded-lg border border-zinc-300'>
-    <h2 class="font-bold text-2xl mb-2">Manage your Data</h1>
+    <%= render partial: "dashboard/users/#{@page_content}" %>
 
-    <%= render partial: 'form', locals: { user: @user } %>
+  <% else %>
+  
+    <%= render partial: 'dashboard/users/home' %>
 
-  </section>
+  <% end %>
+
 </div>
