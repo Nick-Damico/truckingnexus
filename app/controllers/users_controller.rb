@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   layout 'dashboard'
 
-  UPDATE_MSG = 'Updated Successfully'
+  UPDATE_MSG = 'Updated information successfully'
 
   before_action :set_user, only: %i[show update]
   before_action :set_resources, only: %i[show]
