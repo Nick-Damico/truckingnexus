@@ -1,5 +1,16 @@
 <div>
-  <h1 class="font-extrabold text-4xl text-sky-500">
-    Welcome to <%= current_user.email if user_signed_in? %> Trucking Nexus
+  <h1 class="mb-6 font-extrabold text-4xl text-sky-500">
+    Welcome to <%= current_user.email if user_signed_in? %> the Trucking Nexus
   </h1>
+  <div class='grid grid-rows-1 md:grid-cols-2 grid-cols-1'>
+    <div id="image_box_001" class=''>
+      <%= image_tag "truck_home_pg_001.jpg", class: 'w-full' %>
+    </div>
+    <div class='flex items-center justify-center py-12 text-center text-white bg-sky-500'>
+      <div>
+        <p class='mb-4'>Prep for your<br /> Class A CDL permit</p>
+        <%= link_to 'CDL Quizzes', quizzes_path(), class: 'btn btn--sml border border-white hover:bg-white hover:text-sky-500 duration-300 ease-in-out transition-all' %>
+      </div>
+    </div>
+  </div>
 </div>
