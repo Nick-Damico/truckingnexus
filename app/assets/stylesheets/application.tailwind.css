@@ -16,6 +16,10 @@
     @apply py-2 px-4 bg-blue-500 hover:bg-blue-700;
   }
 
+  .btn--transparent {
+    @apply border border-white hover:bg-white hover:text-sky-500 duration-300 ease-in-out transition-all;
+  }
+
   .btn--disabled {
     @apply cursor-not-allowed bg-gray-400 !important;
   }
