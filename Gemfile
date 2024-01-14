@@ -66,6 +66,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'rails-controller-testing'
+  gem 'rails_live_reload'
 end
 
 group :development do
