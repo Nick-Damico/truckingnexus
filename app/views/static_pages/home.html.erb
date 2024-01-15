@@ -1,12 +1,13 @@
-<main class='flex flex-col h-full pb-2'>
-  <h1 class="mb-6 font-extrabold text-4xl text-sky-500">
-    Welcome to <%= current_user.email if user_signed_in? %> the Trucking Nexus
-  </h1>
+<main class='h-full'>
+  <div class="wrapper flex flex-col h-full pb-2">
+    <h1 class="mb-6 font-extrabold text-4xl text-sky-500">
+      Welcome to <%= current_user.email if user_signed_in? %> the Trucking Nexus
+    </h1>
 
-  <%= render 'static_pages/shared/cdl_prep_section' %>
+    <%= render 'static_pages/shared/cdl_prep_section' %>
 
-  <%= render 'static_pages/shared/feature_cards' %>
+    <%= render 'static_pages/shared/feature_cards' %>
 
-  <%= render 'static_pages/shared/news_letter_signup' %>
-  
+    <%= render 'static_pages/shared/news_letter_signup' %>
+  </div>
 </main>
