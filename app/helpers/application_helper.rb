@@ -22,8 +22,9 @@ module ApplicationHelper
   end
 
   def selected_klass(path, **options)
-    nil unless options[:class]
+    return unless options[:class]
 
-    current_page?(path) ? options[:class] : ''
+    check_parameters = options.fetch(:check_parameters, false)
+    current_page?(path, check_parameters:) ? options[:class] : ''
   end
 end
