@@ -22,10 +22,10 @@ module UsersHelper
   end
 
   def display_current_employer_name(user = current_user)
-    user.current_employer&.name || 'Company'
+    user.current_employer&.name || 'Current Employer'
   end
 
   def display_username(user = current_user)
-    user.username || 'Username'
+    user.username || 'John Doe'
   end
 end
