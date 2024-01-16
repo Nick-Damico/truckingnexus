@@ -2,11 +2,11 @@
 
   <% if @page_content %>
 
-    <%= render partial: "dashboard/users/#{@page_content}" %>
+    <%= render "dashboard/users/#{@page_content}" %>
 
   <% else %>
-  
-    <%= render partial: 'dashboard/users/home' %>
+
+    <%= render 'dashboard/users/home' %>
 
   <% end %>
 
