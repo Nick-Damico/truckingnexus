@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_10_133340) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_16_133846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,7 +55,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_133340) do
     t.boolean "current"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_employment_histories_on_employee_id", unique: true, where: "(current IS TRUE)"
     t.index ["employer_id"], name: "index_employment_histories_on_employer_id"
   end
 
