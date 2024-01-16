@@ -32,7 +32,7 @@ RSpec.describe 'AnswerSheetQuestions', type: :request do
       it 'redirects back to the question without raising an exception' do
         expect do
           patch answer_sheet_question_path(answer_sheet_question), params: invalid_params
-        end.to_not raise_error(ActionController::ParameterMissing)
+        end.to_not raise_error
         expect(response).to have_http_status(302)
       end
     end
