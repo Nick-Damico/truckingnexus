@@ -46,8 +46,8 @@ RSpec.describe 'Users', type: :request do
 
   private
 
-  def employment_history_params(employer, **kargs)
+  def employment_history_params(employer, current: false)
     { 'employment_histories_attributes' =>
-      { '0' => { 'current' => kargs.fetch(:current, false).to_s, 'employer_id' => employer.id.to_s } } }
+      { '0' => { 'current' => current.to_s, 'employer_id' => employer.id.to_s } } }
   end
 end
