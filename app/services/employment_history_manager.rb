@@ -9,5 +9,21 @@ class EmploymentHistoryManager
     @employer = employer
   end
 
-  def set_current_employer; end
+  def call
+    clear_previous_current_employer if current_employer?
+  end
+
+  private
+
+  def clear_previous_current_employer
+    @employee
+      .employment_histories
+      .where(current: true)
+      .where.not(employer_id: @employer.id)
+      .update_all(current: false)
+  end
+
+  def current_employer?
+    @employee.employment_histories.where(current: true, employer_id: @employer.id).any?
+  end
 end
