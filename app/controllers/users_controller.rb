@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   def set_resources
     @companies = Company.order(:name)
     @employment_history = EmploymentHistory.new(current: true)
+    @current_employer = @user.current_employer
   end
 
   def params_has_current_employer?(user_params)
