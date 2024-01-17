@@ -15,6 +15,13 @@ class UsersController < ApplicationController
   def update
     return unless @user.update(user_params)
 
+    if params_has_current_employer?(user_params)
+      EmploymentHistoryManager.new(
+        employee: @user,
+        employer: params_current_employer(user_params)
+      ).call
+    end
+
     redirect_to @user, flash: { notice: UPDATE_MSG }
   end
 
@@ -34,5 +41,23 @@ class UsersController < ApplicationController
   def set_resources
     @companies = Company.order(:name)
     @employment_history = EmploymentHistory.new(current: true)
+  end
+
+  def params_has_current_employer?(user_params)
+    return false unless employment_history_params(user_params).present?
+
+    employment_history_params(user_params).values.any? { |attrs| attrs['current'] }
+  end
+
+  def params_current_employer(user_params)
+    return nil unless params_has_current_employer?(user_params)
+
+    return unless (cur_employer_attrs = employment_history_params(user_params).values.find { |attrs| attrs['current'] })
+
+    Company.find_by(id: cur_employer_attrs['employer_id'])
+  end
+
+  def employment_history_params(user_params)
+    user_params[:employment_histories_attributes]
   end
 end

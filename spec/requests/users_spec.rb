@@ -33,20 +33,21 @@ RSpec.describe 'Users', type: :request do
     context 'current employer' do
       before do
         @current_employer = create(:company)
-        params[:user].merge!(
-          { 'employment_histories_attributes' =>
-            { '0' => { 'current' => 'true', 'employer_id' => @current_employer.id } } }
-        )
+        params[:user].merge!(employment_history_params(@current_employer, current: true))
 
-        patch user_path(user), params: params
+        patch user_path(user), params:
       end
 
       it 'sets the users current employer' do
         expect(user.reload.current_employer).to eq(@current_employer)
       end
-
-      xit 'updates the employment history record when the company is changed' do
-      end
     end
+  end
+
+  private
+
+  def employment_history_params(employer, **kargs)
+    { 'employment_histories_attributes' =>
+      { '0' => { 'current' => kargs.fetch(:current, false).to_s, 'employer_id' => employer.id.to_s } } }
   end
 end
