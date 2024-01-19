@@ -1,5 +1,15 @@
-<section class='bg-white p-4 rounded-lg border border-zinc-300'>
-  <h2 class="font-bold text-2xl">Quizzes</h1>
-  <p>See an overview of your quiz results.</p>
-</section>
+<main class='bg-white p-4 rounded-lg border border-zinc-300'>
+  <h1 class="font-bold text-2xl">Quizzes</h1>
+  <p class='pb-2 mb-6 border-b'>See an overview of your quiz results.</p>
 
+  <section>
+    <h2 class='text-xl font-semibold mb-1'>In Progress Quizzes</h2>
+    <% if (active_quizzes = UserQuiz.active) && (active_quizzes.any?) %>
+      <% active_quizzes.each do |user_quiz| %>
+        <%= render partial: 'quizzes/table', locals: { quiz: user_quiz.quiz } %>
+      <% end %>
+    <% else %>
+      <p class="italic">No Active Quizzes</p>
+    <% end %>
+  </section>
+</main>
