@@ -21,4 +21,8 @@ class UserQuiz < ApplicationRecord
 
     answer_sheet.completed?
   end
+
+  def started_on
+    quiz&.created_at
+  end
 end
