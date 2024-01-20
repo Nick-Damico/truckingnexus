@@ -23,6 +23,6 @@ class UserQuiz < ApplicationRecord
   end
 
   def started_on
-    quiz&.created_at
+    answer_sheet&.created_at
   end
 end

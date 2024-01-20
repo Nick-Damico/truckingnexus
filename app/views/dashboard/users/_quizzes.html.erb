@@ -1,15 +1,19 @@
-<main class='bg-white p-4 rounded-lg border border-zinc-300'>
-  <h1 class="font-bold text-2xl">Quizzes</h1>
-  <p class='pb-2 mb-6 border-b'>See an overview of your quiz results.</p>
+<main class='flex-col space-y-4'>
+  <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
+    <h2 class="font-bold text-2xl">CDL Prep Overview</h2>
+    <p class='pb-2 mb-6'>An overview of your quiz results.</p>
+  </section>
 
-  <section>
+  <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
     <h2 class='text-xl font-semibold mb-1'>In Progress Quizzes</h2>
     <% if (active_quizzes = UserQuiz.active) && (active_quizzes.any?) %>
-      <% active_quizzes.each do |user_quiz| %>
-        <%= render partial: 'quizzes/table', locals: { quiz: user_quiz.quiz } %>
-      <% end %>
+
+        <%= render partial: 'quizzes/table', locals: { user_quizzes: active_quizzes } %>
+
     <% else %>
+
       <p class="italic">No Active Quizzes</p>
+
     <% end %>
   </section>
 </main>

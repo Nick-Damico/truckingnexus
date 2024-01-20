@@ -27,4 +27,8 @@ module ApplicationHelper
     check_parameters = options.fetch(:check_parameters, false)
     current_page?(path, check_parameters:) ? options[:class] : ''
   end
+
+  def format_date(date, format: '%b %d, %Y')
+    date.strftime(format)
+  end
 end

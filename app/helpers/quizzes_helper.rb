@@ -9,8 +9,6 @@ module QuizzesHelper
     (number + 'a'.ord).chr
   end
 
-  end
-
   def start_button_html(quiz:)
     button_to(user_quizzes_path(user_quiz: { quiz_id: quiz.id, user_id: current_user.id }),
               class: 'btn btn--save') do

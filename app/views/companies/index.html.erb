@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <%@companies.each.with_index do |company, idx| %>
+      <% @companies.each.with_index do |company, idx| %>
         <tr class="border-b <%= idx.odd? ? 'bg-sky-100' : 'bg-white' %>">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
             <%= link_to company_path(company) do %>
