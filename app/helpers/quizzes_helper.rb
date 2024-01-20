@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module QuizzesHelper
-  def quiz_card_button_html(quiz:, user: current_user)
-    return nil if user.nil?
+  def answer_index_to_letter(idx)
+    int_to_char(idx)
+  end
 
-    if (active_user_quiz = user.user_quizzes.active.find_by(quiz_id: quiz.id))
-      return resume_quiz_button_html(user_quiz: active_user_quiz)
-    end
+  def int_to_char(number)
+    (number + 'a'.ord).chr
+  end
 
-    start_button_html(quiz:)
   end
 
   def start_button_html(quiz:)
@@ -20,6 +20,16 @@ module QuizzesHelper
     end
   end
 
+  def quiz_card_button_html(quiz:, user: current_user)
+    return nil if user.nil?
+
+    if (active_user_quiz = user.user_quizzes.active.find_by(quiz_id: quiz.id))
+      return resume_quiz_button_html(user_quiz: active_user_quiz)
+    end
+
+    start_button_html(quiz:)
+  end
+
   def resume_quiz_button_html(user_quiz:)
     content_tag(:div,
                 class: 'flex inline-flex w-fit items-center pl-3 text-sm font-medium text-center text-white bg-sky-500 rounded-l-lg focus:ring-4 focus:outline-none focus:ring-blue-300') do
@@ -28,13 +38,5 @@ module QuizzesHelper
         button_to('No', user_quiz_path(user_quiz), method: :delete, data: { confirm: 'Are you sure? Progress will be lost.', turbo_confirm: 'Are you sure? Progress will be lost.' },
                                                    class: 'bg-red-400 hover:bg-red-500 px-3 py-2')
     end
-  end
-
-  def answer_index_to_letter(idx)
-    int_to_char(idx)
-  end
-
-  def int_to_char(number)
-    (number + 'a'.ord).chr
   end
 end
