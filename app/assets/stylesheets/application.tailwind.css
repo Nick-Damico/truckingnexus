@@ -18,8 +18,8 @@
     @apply px-2 py-1;
   }
 
-  .btn--primary {
-    @apply py-2 px-4 bg-blue-500 hover:bg-blue-700;
+  .btn--md {
+    @apply py-2 px-4;
   }
 
   .btn--transparent {
@@ -28,6 +28,10 @@
 
   .btn--disabled {
     @apply cursor-not-allowed bg-gray-400 !important;
+  }
+
+  .btn--primary {
+    @apply bg-blue-500 hover:bg-blue-700;
   }
 
   .btn--save {
