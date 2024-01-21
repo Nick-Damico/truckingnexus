@@ -1,13 +1,9 @@
-<div class='flex flex-col w-full md:w-3/4 gap-y-2'>
+<% if @page_content %>
 
-  <% if @page_content %>
+  <%= render "dashboard/users/#{@page_content}" %>
 
-    <%= render "dashboard/users/#{@page_content}" %>
+<% else %>
 
-  <% else %>
+  <%= render 'dashboard/users/home' %>
 
-    <%= render 'dashboard/users/home' %>
-
-  <% end %>
-
-</div>
+<% end %>
