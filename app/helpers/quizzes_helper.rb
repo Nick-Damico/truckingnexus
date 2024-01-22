@@ -18,17 +18,17 @@ module QuizzesHelper
     end
   end
 
-  def quiz_card_button_html(quiz:, user: current_user)
+  def quiz_button(quiz:, user: current_user)
     return nil if user.nil?
 
     if (active_user_quiz = user.user_quizzes.active.find_by(quiz_id: quiz.id))
-      return resume_quiz_button_html(user_quiz: active_user_quiz)
+      return resume_quiz_button(user_quiz: active_user_quiz)
     end
 
     start_button_html(quiz:)
   end
 
-  def resume_quiz_button_html(user_quiz:)
+  def resume_quiz_button(user_quiz:)
     content_tag(:div,
                 class: 'flex inline-flex w-fit items-center pl-3 text-sm font-medium text-center text-white bg-sky-500 rounded-l-lg focus:ring-4 focus:outline-none focus:ring-blue-300') do
       content_tag(:span, 'Resume Quiz?', class: 'mr-6') +
