@@ -1142,3 +1142,17 @@ puts 'SEEDING QUIZ ANSWERS'
     question.save!
   end
 end
+
+puts 'GENERATING COMPLETED QUIZZES FOR USERS'
+[admin].each do |user|
+  quiz = Quiz.first
+  user_quiz = user.user_quizzes.create(quiz:)
+  user_quiz.prep_for_quiz
+  answer_sheet = user_quiz.answer_sheet
+
+  answer_sheet.answer_sheet_questions.each do |as_question|
+    as_question.update(answer: as_question.question.correct_answer)
+  end
+
+  QuizService::Grader.new(user_quiz:).call
+end
