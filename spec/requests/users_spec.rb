@@ -12,6 +12,14 @@ RSpec.describe 'Users', type: :request do
       get user_path(user)
       expect(response).to have_http_status(:success)
     end
+
+    # page_content: :profile returns partial '_profile' containing the users/_form
+    context 'GET /profile' do
+      it 'returns http success' do
+        get user_path(user, page_content: :profile)
+        expect(response).to have_http_status(:success)
+      end
+    end
   end
 
   describe 'PATCH /update' do
