@@ -13,6 +13,7 @@ class UserQuizzesController < ApplicationController
   def create
     @user_quiz = UserQuiz.create(user_quiz_params)
     if @user_quiz.save
+      # TODO: Should prep_for_quiz belong in a after_save callback?
       @user_quiz.prep_for_quiz
       redirect_to @user_quiz
     else

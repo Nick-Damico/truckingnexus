@@ -9,6 +9,7 @@ class UserQuiz < ApplicationRecord
   validates :quiz, presence: true
 
   scope :active, -> { where(score: nil) }
+  scope :completed, -> { where.not(score: nil) }
 
   def prep_for_quiz(question_count: nil)
     return answer_sheet if answer_sheet.present?
@@ -24,5 +25,11 @@ class UserQuiz < ApplicationRecord
 
   def started_on
     answer_sheet&.created_at
+  end
+
+  def completed_at
+    # TODO: Add a completed at/on DateTime stamp;
+    # Using the updated_could be inaccurate a .touch can modify this.
+    answer_sheet&.updated_at
   end
 end

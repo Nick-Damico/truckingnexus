@@ -17,4 +17,18 @@
 
     <% end %>
   </section>
+
+  <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
+    <h2 class='text-xl font-semibold mb-1'>Completed Quizzes: Last 30 days</h2>
+    <% if (completed_quizzes = UserQuiz.completed) && (completed_quizzes.any?) %>
+
+        <%= render  partial: 'quizzes/tables/results',
+                    locals: { user_quizzes: completed_quizzes } %>
+
+    <% else %>
+
+      <p class="italic">No Completed Quizzes</p>
+
+    <% end %>
+  </section>
 </main>
