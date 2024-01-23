@@ -37,4 +37,8 @@ module QuizzesHelper
                                                    class: 'bg-red-400 hover:bg-red-500 px-3 py-2')
     end
   end
+
+  def quiz_result_button(user_quiz:)
+    link_to('View Results', user_quizzes_result_path(user_quiz), class: 'btn btn--sml btn--primary')
+  end
 end
