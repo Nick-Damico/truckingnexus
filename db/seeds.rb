@@ -1143,6 +1143,19 @@ puts 'SEEDING QUIZ ANSWERS'
   end
 end
 
+puts 'GENERATING ACTIVE QUIZZES FOR USERS'
+[admin].each do |user|
+  quiz = Quiz.first
+  user_quiz = user.user_quizzes.create(quiz:)
+  user_quiz.prep_for_quiz
+  answer_sheet = user_quiz.answer_sheet
+
+  rand(answer_sheet.answer_sheet_questions.count).times do |i|
+    as_question = answer_sheet.answer_sheet_questions[i]
+    as_question.update(answer: as_question.question.correct_answer)
+  end
+end
+
 puts 'GENERATING COMPLETED QUIZZES FOR USERS'
 [admin].each do |user|
   quiz = Quiz.first
