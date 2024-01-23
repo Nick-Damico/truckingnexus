@@ -1,0 +1,2 @@
+module UserQuizzes::ResultsHelper
+end
