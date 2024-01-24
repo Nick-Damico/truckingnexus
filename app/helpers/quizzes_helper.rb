@@ -18,12 +18,12 @@ module QuizzesHelper
     end
   end
 
-  def quiz_button(quiz:, user: current_user, size: :medium)
+  def quiz_button(user_quiz:, user: current_user, size: :medium)
     return nil if user.nil?
 
-    if (active_user_quiz = user.user_quizzes.active.find_by(quiz_id: quiz.id))
-      return quiz_resume_button(user_quiz: active_user_quiz, size:)
-    end
+    return quiz_resume_button(user_quiz:, size:) if user_quiz.active?
+
+    return quiz_result_button(user_quiz:, size:) if user_quiz.completed?
 
     start_button_html(quiz:)
   end
@@ -39,7 +39,7 @@ module QuizzesHelper
     end
   end
 
-  def quiz_result_button(user_quiz:)
-    link_to('View Results', user_quizzes_result_path(user_quiz), class: 'btn btn--sml btn--primary')
+  def quiz_result_button(user_quiz:, size:)
+    link_to('View Results', user_quizzes_result_path(user_quiz), class: "btn #{button_size_class(size)} btn--primary")
   end
 end
