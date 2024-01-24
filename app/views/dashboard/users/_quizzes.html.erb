@@ -6,10 +6,10 @@
 
   <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
     <h2 class='text-xl font-semibold mb-1'>In Progress Quizzes</h2>
-    <% if (active_quizzes = UserQuiz.active) && (active_quizzes.any?) %>
+    <% if (active_quizzes = user.user_quizzes.active) && (active_quizzes.any?) %>
 
-        <%= render  partial: 'quizzes/tables/active',
-                    locals: { user_quizzes: active_quizzes } %>
+      <%= render  partial: 'quizzes/tables/active',
+                  locals: { user_quizzes: active_quizzes } %>
 
     <% else %>
 
@@ -20,9 +20,9 @@
 
   <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
     <h2 class='text-xl font-semibold mb-1'>Completed Quizzes: Last 30 days</h2>
-    <% if (completed_quizzes = UserQuiz.completed) && (completed_quizzes.any?) %>
+    <% if (completed_quizzes = user.user_quizzes.completed) && (completed_quizzes.any?) %>
 
-        <%= render  partial: 'quizzes/tables/results',
+        <%= render  partial: 'quizzes/tables/completed',
                     locals: { user_quizzes: completed_quizzes } %>
 
     <% else %>
