@@ -12,7 +12,7 @@
         <td><%= user_quiz.quiz.name %></td>
         <td><%= format_date(user_quiz.started_on) %></td>
         <td class='float-right'>
-          <%= quiz_button(quiz: user_quiz.quiz, user: current_user) %>
+          <%= quiz_button(quiz: user_quiz.quiz, user: current_user, size: :small) %>
         </td>
       </tr>
     <% end %>

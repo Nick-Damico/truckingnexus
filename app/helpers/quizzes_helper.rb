@@ -18,23 +18,24 @@ module QuizzesHelper
     end
   end
 
-  def quiz_button(quiz:, user: current_user)
+  def quiz_button(quiz:, user: current_user, size: :medium)
     return nil if user.nil?
 
     if (active_user_quiz = user.user_quizzes.active.find_by(quiz_id: quiz.id))
-      return quiz_resume_button(user_quiz: active_user_quiz)
+      return quiz_resume_button(user_quiz: active_user_quiz, size:)
     end
 
     start_button_html(quiz:)
   end
 
-  def quiz_resume_button(user_quiz:)
+  def quiz_resume_button(user_quiz:, size:)
     content_tag(:div,
                 class: 'flex inline-flex w-fit items-center pl-3 text-sm font-medium text-center text-white bg-sky-500 rounded-l-lg focus:ring-4 focus:outline-none focus:ring-blue-300') do
       content_tag(:span, 'Resume Quiz?', class: 'mr-6') +
-        link_to('Yes', user_quiz_path(user_quiz), class: 'bg-emerald-400 hover:bg-emerald-500 px-3 py-2') +
+        link_to('Yes', user_quiz_path(user_quiz),
+                class: "#{button_size_class(size)} bg-emerald-400 hover:bg-emerald-500 btn--sml") +
         button_to('No', user_quiz_path(user_quiz), method: :delete, data: { confirm: 'Are you sure? Progress will be lost.', turbo_confirm: 'Are you sure? Progress will be lost.' },
-                                                   class: 'bg-red-400 hover:bg-red-500 px-3 py-2')
+                                                   class: "#{button_size_class(size)} bg-red-400 hover:bg-red-500")
     end
   end
 
