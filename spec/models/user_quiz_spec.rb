@@ -25,4 +25,18 @@ RSpec.describe UserQuiz, type: :model do
       expect(subject.started_on).to be_a(ActiveSupport::TimeWithZone)
     end
   end
+
+  describe '#active?' do
+    it 'returns true if UserQuiz is active' do
+      active_user_quiz = create(:user_quiz, :active)
+      expect(active_user_quiz.active?).to eq true
+    end
+  end
+
+  describe '#completed?' do
+    it 'returns true if UserQuiz is completed' do
+      completed_user_quiz = create(:user_quiz, :completed)
+      expect(completed_user_quiz.completed?).to eq true
+    end
+  end
 end

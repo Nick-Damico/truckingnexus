@@ -11,10 +11,18 @@ class UserQuiz < ApplicationRecord
   scope :active, -> { where(score: nil) }
   scope :completed, -> { where.not(score: nil) }
 
-  def prep_for_quiz(question_count: nil)
+  delegate :answer_sheet_questions, to: :answer_sheet
+
+  def prep_for_quiz
     return answer_sheet if answer_sheet.present?
 
     AnswerSheet.prep_for_quiz(user_quiz: self)
+  end
+
+  def active?
+    false if answer_sheet.nil?
+
+    !answer_sheet.completed?
   end
 
   def completed?
