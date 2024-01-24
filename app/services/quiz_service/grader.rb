@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: Do not finalize quiz with a score if all answers are not completed.
 module QuizService
   class Grader
     attr_accessor :user_quiz, :answer_sheet

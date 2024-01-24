@@ -431,7 +431,7 @@ combo_questions_data = [
       'Cross the airlines.',
       'Check electrical cable.'
     ],
-    correct_anwser: 'Never'
+    correct_anwser: 'Check air line connection.'
   },
   {
     content: 'You have pushed the trailer air supply valve. You should not back a tractor under a trailer until the whole air system is:',
