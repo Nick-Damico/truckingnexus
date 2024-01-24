@@ -7,6 +7,16 @@ module ApplicationHelper
                 class: class_options)
   end
 
+  def button_size_class(size = :medium)
+    size ||= :medium unless size
+    size.to_sym
+    {
+      small: 'btn--sml',
+      medium: 'btn--md',
+      large: 'btn--lg'
+    }[size]
+  end
+
   def flash_bg_color(key)
     klasses = ['bg-flash']
     case key.to_sym

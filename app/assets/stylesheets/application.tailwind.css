@@ -15,7 +15,7 @@
   }
 
   .btn--sml {
-    @apply px-2 py-1;
+    @apply py-1 px-2;
   }
 
   .btn--md {
