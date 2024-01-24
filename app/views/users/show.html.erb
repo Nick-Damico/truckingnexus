@@ -1,6 +1,6 @@
 <% if @page_content %>
 
-  <%= render "dashboard/users/#{@page_content}" %>
+  <%= render "dashboard/users/#{@page_content}", user: @user %>
 
 <% else %>
 
