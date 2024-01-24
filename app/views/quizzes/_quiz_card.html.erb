@@ -9,7 +9,13 @@
   </div>
   <h3 class="text-lg mb-4 pb-1 border-b border-gray-500"><%= quiz.name %></h3>
   <p class="mb-4 text-gray-600 mb-4"><%= quiz.description %></p>
-  <div class="mt-auto">
-    <%= quiz_button(user_quiz: current_user.user_quizzes.active.first) %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="mt-auto">
+      <% if (active_quiz = current_user.user_quizzes.active.find_by(quiz:)) %>
+        <%= quiz_button(user_quiz: active_quiz) %>
+      <% else %>
+        <%= start_button_html(quiz:) %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
