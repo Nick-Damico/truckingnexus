@@ -12,9 +12,9 @@
   <% if user_signed_in? %>
     <div class="mt-auto">
       <% if (active_quiz = current_user.user_quizzes.active.find_by(quiz:)) %>
-        <%= quiz_button(user_quiz: active_quiz) %>
+        <%= user_quiz_button(user_quiz: active_quiz) %>
       <% else %>
-        <%= start_button_html(quiz:) %>
+        <%= quiz_start_button(quiz:) %>
       <% end %>
     </div>
   <% end %>

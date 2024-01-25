@@ -14,7 +14,7 @@
         <td><%= format_date(user_quiz.completed_at) %></td>
         <td class='text-right'><%= "#{user_quiz.score}%" %></td>
         <td class='float-right'>
-          <%= quiz_button(user_quiz:, size: :small) %>
+          <%= user_quiz_button(user_quiz:, size: :small) %>
         </td>
       </tr>
     <% end %>
