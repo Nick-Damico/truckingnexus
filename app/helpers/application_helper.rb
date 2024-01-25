@@ -33,6 +33,10 @@ module ApplicationHelper
     klasses.join(' ')
   end
 
+  def int_to_char(number)
+    (number + 'a'.ord).chr
+  end
+
   def selected_klass(path, **options)
     return unless options[:class]
 
