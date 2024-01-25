@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  BUTTON_CLASSES = {
+    small: 'btn--sml',
+    medium: 'btn--md',
+    large: 'btn--lg'
+  }.freeze
+
   def copyright_div(**options)
     class_options = options[:class] || 'text-center text-gray-500 text-xs'
     content_tag(:p, '&copy;2023 Trucking Nexus. All rights reserved.'.html_safe,
@@ -10,11 +16,7 @@ module ApplicationHelper
   def button_size_class(size = :medium)
     size ||= :medium unless size
     size.to_sym
-    {
-      small: 'btn--sml',
-      medium: 'btn--md',
-      large: 'btn--lg'
-    }[size]
+    BUTTON_CLASSES[size]
   end
 
   def flash_bg_color(key)
