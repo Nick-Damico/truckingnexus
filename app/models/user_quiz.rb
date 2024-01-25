@@ -20,13 +20,13 @@ class UserQuiz < ApplicationRecord
   end
 
   def active?
-    false if answer_sheet.nil?
+    return false if answer_sheet.nil?
 
     !answer_sheet.completed?
   end
 
   def completed?
-    false if answer_sheet.nil?
+    return false if answer_sheet.nil?
 
     answer_sheet.completed?
   end
