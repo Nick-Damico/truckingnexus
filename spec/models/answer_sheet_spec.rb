@@ -74,13 +74,13 @@ RSpec.describe AnswerSheet, type: :model do
     end
   end
 
-  describe '#number_of_correct' do
+  describe '#correct_answer_count' do
     it 'returns the total number of questions answered correctly' do
       answer_sheet_question = subject.answer_sheet_questions.first
       correct_answer = answer_sheet_question.question.correct_answer
       answer_sheet_question.update(answer: correct_answer)
 
-      expect(subject.number_of_correct_answers).to eq 1
+      expect(subject.correct_answer_count).to eq 1
     end
   end
 end

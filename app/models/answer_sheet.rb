@@ -29,7 +29,7 @@ class AnswerSheet < ApplicationRecord
     answer_sheet_questions.count
   end
 
-  def number_of_correct_answers
+  def correct_answer_count
     answer_sheet_questions.joins(:question).where(
       'answer_sheet_questions.answer_id = questions.correct_answer_id'
     ).count

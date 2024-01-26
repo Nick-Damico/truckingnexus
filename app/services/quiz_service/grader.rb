@@ -23,11 +23,11 @@ module QuizService
     end
 
     def calculate_grade_percentage
-      @grade = (number_of_correct_answers.to_f / number_of_questions * 100.to_f).round
+      @grade = (correct_answer_count.to_f / number_of_questions * 100.to_f).round
     end
 
-    def number_of_correct_answers
-      answer_sheet.number_of_correct_answers
+    def correct_answer_count
+      answer_sheet.correct_answer_count
     end
 
     def number_of_questions
