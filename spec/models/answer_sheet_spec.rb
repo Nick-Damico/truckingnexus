@@ -16,14 +16,14 @@ RSpec.describe AnswerSheet, type: :model do
   it { should have_many(:answers).through(:answer_sheet_questions) }
 
   describe '.prep_for_quiz' do
-    it 'generates AnswerSheet for UserQuiz' do
+    it 'adds an AnswerSheet to the UserQuiz' do
       user_quiz = create(:user_quiz, quiz: create(:quiz, :with_questions))
       expect do
         AnswerSheet.prep_for_quiz(user_quiz:)
       end.to change(AnswerSheet, :count).by(1)
     end
 
-    it 'generates AnswerSheetQuestion records for a quizzes questions' do
+    it 'adds AnswerSheetQuestion records to AnswerSheet' do
       expected_count = user_quiz.quiz.questions.count
       expect(expected_count).to_not be_nil
       expect(expected_count).to_not be_zero
@@ -42,7 +42,7 @@ RSpec.describe AnswerSheet, type: :model do
   end
 
   describe '#unanswered_question_count' do
-    it 'returns a integer count for the remaining unanswered questions' do
+    it 'returns a count for unanswered questions' do
       expected_count = subject.answer_sheet_questions.unanswered_questions.count
       expect(subject.unanswered_question_count).to be_a(Integer)
       expect(subject.unanswered_question_count).to_not be_nil
