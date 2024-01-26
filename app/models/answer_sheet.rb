@@ -35,6 +35,12 @@ class AnswerSheet < ApplicationRecord
     ).count
   end
 
+  def incorrect_answer_count
+    answer_sheet_questions.joins(:question).where(
+      'answer_sheet_questions.answer_id != questions.correct_answer_id'
+    ).count
+  end
+
   def unanswered_question_count
     answer_sheet_questions.unanswered_questions.count
   end

@@ -83,4 +83,19 @@ RSpec.describe AnswerSheet, type: :model do
       expect(subject.correct_answer_count).to eq 1
     end
   end
+
+  describe '#incorrect_answer_count' do
+    it 'returns a count of question answered incorrectly' do
+      answer_sheet_question = subject.answer_sheet_questions.first
+      incorrect_answer =
+        Answer.joins(:question)
+              .where(question: answer_sheet_question.question)
+              .where.not(id: answer_sheet_question.question.correct_answer_id)
+              .first
+
+      answer_sheet_question.update(answer: incorrect_answer)
+
+      expect(subject.incorrect_answer_count).to eq 1
+    end
+  end
 end
