@@ -92,6 +92,7 @@ GEM
     bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    chartkick (5.0.5)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -324,6 +325,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  chartkick (~> 5.0, >= 5.0.5)
   debug
   devise (~> 4.9, >= 4.9.2)
   erb_lint
