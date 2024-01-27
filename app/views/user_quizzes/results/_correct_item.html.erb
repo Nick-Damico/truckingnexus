@@ -1,0 +1,12 @@
+<li class='border-b pb-3 mb-3'>
+  <div>
+    <p class='font-semibold bg-'>
+      <%= answer_sheet_question_counter + 1 %>. <%= answer_sheet_question.question.content %>
+    </p>
+    <div class='ml-4 max-h-64 overflow-hidden'>
+      <p class='italic bg-emerald-500 text-white p-1'>
+        <%= answer_sheet_question.answer.content %>
+      </p>
+    </div>
+  </div>
+</li>

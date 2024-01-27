@@ -1,0 +1,15 @@
+<li class='border-b pb-3 mb-3'>
+  <div>
+    <p class='font-semibold bg-'>
+      <%= answer_sheet_question_counter + 1 %>. <%= answer_sheet_question.question.content %>
+    </p>
+    <div class='ml-4'>
+      <p class='italic bg-rose-500 text-white p-1 mb-1'>
+        <span class='font-bold'>Your Answer:</span> <%= answer_sheet_question.answer.content %>
+      </p>
+      <p class='italic bg-emerald-500 text-white p-1'>
+        <span class='font-bold'>Correct Answer:</span> <%= answer_sheet_question.question.correct_answer.content %>
+      </p>
+    </div>
+  </div>
+</li>
