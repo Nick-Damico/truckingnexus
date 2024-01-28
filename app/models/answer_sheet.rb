@@ -25,20 +25,34 @@ class AnswerSheet < ApplicationRecord
     unanswered_question_count.zero?
   end
 
+  # TODO: PERFORMANCE
+  #   SQL > (2.2ms) on larger quizzes...
+  #   Need to try and improve with some
+  #   database indexes.
   def number_of_questions
     answer_sheet_questions.count
   end
 
+  def correct_questions
+    answer_sheet_questions
+      .includes(:answer, { question: :correct_answer })
+      .where('answer_sheet_questions.answer_id = questions.correct_answer_id')
+      .references(:questions)
+  end
+
   def correct_answer_count
-    answer_sheet_questions.joins(:question).where(
-      'answer_sheet_questions.answer_id = questions.correct_answer_id'
-    ).count
+    correct_questions.count
+  end
+
+  def incorrect_questions
+    answer_sheet_questions
+      .includes(:answer, { question: :correct_answer })
+      .where('answer_id != questions.correct_answer_id')
+      .references(:questions)
   end
 
   def incorrect_answer_count
-    answer_sheet_questions.joins(:question).where(
-      'answer_sheet_questions.answer_id != questions.correct_answer_id'
-    ).count
+    incorrect_questions.count
   end
 
   def unanswered_question_count
