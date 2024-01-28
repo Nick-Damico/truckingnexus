@@ -1,6 +1,10 @@
 <div class='w-full max-w-4xl mt-6 mx-auto text-center'>
-  <div class='text-left'>
-    <%= link_to '<- Back to Quizzes', user_path(current_user, page_content: :quizzes), class: 'btn btn--medium btn--primary' %>
+  <div class='flex justify-between mb-12'>
+    <%= link_to user_path(current_user, page_content: :quizzes), class: 'btn btn--medium btn--primary' do %>
+      <%= render_icon('left_arrow', classes: 'w-4 mr-2') %>
+      Back to Quizzes
+    <% end %>
+    <%= quiz_start_button(quiz: @user_quiz.quiz, text: 'Retake Quiz') %>
   </div>
   <h1 class='text-3xl mb-4'><%= @user_quiz.quiz.name %><br>Summary</h1>
   <div class='mb-4'>
@@ -14,7 +18,7 @@
 
   <div class='flex flex-col md:flex-row gap-2 text-left'>
     <section class='w-full md:w-1/2 bg-white border border-gray-400 p-4'>
-      <h2 class='text-lg font-bold border-b mb-2'>
+      <h2 class='text-lg border-b mb-2'>
         Correct Questions
         <span class='float-right'>
           <%= correct_answer_count(@user_quiz.answer_sheet) %>/<%= total_question_count(@user_quiz.answer_sheet) %>
@@ -28,7 +32,7 @@
     </section>
 
     <section class='w-full md:w-1/2 bg-white border border-gray-400 p-4'>
-      <h2 class='font-bold border-b mb-2'>
+      <h2 class='text-lg border-b mb-2'>
         Missed Questions
         <span class='float-right'>
           <%= incorrect_answer_count(@user_quiz.answer_sheet) %>/<%= total_question_count(@user_quiz.answer_sheet) %>
