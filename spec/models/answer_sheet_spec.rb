@@ -74,6 +74,31 @@ RSpec.describe AnswerSheet, type: :model do
     end
   end
 
+  describe '#correct_questions' do
+    it 'returns collection of AnswerSheetQuestions answered correctly' do
+      answer_sheet_question = subject.answer_sheet_questions.first
+      correct_answer = answer_sheet_question.question.correct_answer
+      answer_sheet_question.update(answer: correct_answer)
+
+      expect(subject.correct_questions).to eq [answer_sheet_question]
+    end
+  end
+
+  describe '#incorrect_questions' do
+    it 'returns collection of AnswerSheetQuestions missed' do
+      answer_sheet_question = subject.answer_sheet_questions.first
+      incorrect_answer =
+        Answer.joins(:question)
+              .where(question: answer_sheet_question.question)
+              .where.not(id: answer_sheet_question.question.correct_answer_id)
+              .first
+
+      answer_sheet_question.update(answer: incorrect_answer)
+
+      expect(subject.incorrect_questions).to eq [answer_sheet_question]
+    end
+  end
+
   describe '#correct_answer_count' do
     it 'returns the total number of questions answered correctly' do
       answer_sheet_question = subject.answer_sheet_questions.first
