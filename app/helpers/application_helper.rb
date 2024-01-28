@@ -47,4 +47,11 @@ module ApplicationHelper
   def format_date(date, format: '%b %d, %Y')
     date.strftime(format)
   end
+
+  # TODO: Write a Spec for this.
+  # Just assert that it renders a partial
+  def render_icon(icon, **kwargs)
+    classes = kwargs[:classes] || ''
+    render "shared/icons/#{icon}", classes:
+  end
 end
