@@ -35,7 +35,7 @@ class AnswerSheet < ApplicationRecord
 
   def correct_questions
     answer_sheet_questions
-      .includes(:answer, { question: :correct_answer })
+      .includes(:answer, :question)
       .where('answer_sheet_questions.answer_id = questions.correct_answer_id')
       .references(:questions)
   end
