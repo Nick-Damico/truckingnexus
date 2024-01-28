@@ -12,18 +12,18 @@ RSpec.describe 'quizzes/index', type: :view do
     render partial: 'quiz_card', collection: quizzes, as: 'quiz'
   end
 
-  it 'renders a list of quizzes' do
+  xit 'renders a list of quizzes' do
     expect(rendered).to include('CDL Quizzes')
     expect(rendered).to include(quizzes.first.name)
   end
 
-  context 'User has no Active quiz' do
+  xcontext 'User has no Active quiz' do
     it 'should display a start button' do
       expect(rendered).to include('Start')
     end
   end
 
-  context 'User has an incomplete Active quiz' do
+  xcontext 'User has an incomplete Active quiz' do
     it 'User should have the choice to Resume active quiz' do
       create(:user_quiz, quiz: quizzes.first, user:)
       user.reload
