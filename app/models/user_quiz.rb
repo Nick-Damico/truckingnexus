@@ -34,10 +34,4 @@ class UserQuiz < ApplicationRecord
   def started_at
     answer_sheet&.created_at
   end
-
-  def completed_at
-    # TODO: Add a completed at/on DateTime stamp;
-    # Using the updated_could be inaccurate a .touch can modify this.
-    answer_sheet&.updated_at
-  end
 end
