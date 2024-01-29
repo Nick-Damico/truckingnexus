@@ -19,10 +19,10 @@ RSpec.describe UserQuiz, type: :model do
     end
   end
 
-  describe '#started_on' do
+  describe '#started_at' do
     it 'returns start DateTime value' do
       subject.prep_for_quiz
-      expect(subject.started_on).to be_a(ActiveSupport::TimeWithZone)
+      expect(subject.started_at).to be_a(ActiveSupport::TimeWithZone)
     end
   end
 
