@@ -48,8 +48,6 @@ module ApplicationHelper
     date.strftime(format)
   end
 
-  # TODO: Write a Spec for this.
-  # Just assert that it renders a partial
   def render_icon(icon, **kwargs)
     classes = kwargs[:classes] || ''
     render "shared/icons/#{icon}", classes:
