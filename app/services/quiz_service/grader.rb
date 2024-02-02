@@ -35,7 +35,10 @@ module QuizService
     end
 
     def save_grade
-      user_quiz.update(score: @grade)
+      user_quiz.update(
+        score: @grade,
+        completed_at: DateTime.current
+      )
     end
   end
 end

@@ -18,6 +18,12 @@ FactoryBot.define do
       user_quiz.answer_sheet_questions.each do |as_question|
         as_question.update(answer: as_question.question.correct_answer)
       end
+    end
+  end
+
+  trait :with_graded_quiz do
+    with_completed_quiz
+    after(:create) do |user_quiz, _eval|
       QuizService::Grader.new(user_quiz:).call
     end
   end
