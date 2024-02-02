@@ -9,7 +9,7 @@ RSpec.describe 'UserQuizzes::Results', type: :request do
 
   describe 'GET /show' do
     it 'returns http success' do
-      user_quiz = create(:user_quiz, :completed)
+      user_quiz = create(:user_quiz, :with_completed_quiz)
       get user_quizzes_result_path(user_quiz)
 
       expect(response).to have_http_status(:success)

@@ -53,7 +53,7 @@ RSpec.describe UserQuiz, type: :model do
 
   describe '#completed?' do
     it 'returns true if UserQuiz is completed' do
-      completed_user_quiz = create(:user_quiz, :completed)
+      completed_user_quiz = create(:user_quiz, :with_completed_quiz)
       expect(completed_user_quiz.completed?).to eq true
     end
   end

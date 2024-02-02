@@ -12,7 +12,7 @@ FactoryBot.define do
     end
   end
 
-  trait :completed do
+  trait :with_completed_quiz do
     after(:create) do |user_quiz, _eval|
       user_quiz.prep_for_quiz
       user_quiz.answer_sheet_questions.each do |as_question|
