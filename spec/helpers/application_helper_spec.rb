@@ -27,4 +27,24 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe '#format_date' do
+    it 'formats the provided date' do
+      default_format = /\A\w{3,}\s{1}\d{2},\s{1}\d{4}\z/
+      date = DateTime.current
+
+      expect(format_date(date)).to match(default_format)
+    end
+
+    it 'formats the date to the provided optional format' do
+      expected_format = /\A\w{3,}\s{1}\d{2},\s{1}\d{2}\z/
+      date = DateTime.current
+
+      expect(format_date(date, format: '%b %d, %y')).to match(expected_format)
+    end
+
+    it "handles nil with HTML element with content 'not available'" do
+      expect(format_date(nil)).to match(/Not available/)
+    end
+  end
 end

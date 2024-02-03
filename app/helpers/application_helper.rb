@@ -45,6 +45,8 @@ module ApplicationHelper
   end
 
   def format_date(date, format: '%b %d, %Y')
+    return content_tag(:span, 'Not available', class: 'italic text-gray-200') unless date
+
     date.strftime(format)
   end
 
