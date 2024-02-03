@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Started On</th>
+      <th class='text-right'>Started On</th>
       <th class='text-right'>Actions</th>
     </tr>
   </thead>
@@ -10,8 +10,8 @@
     <% user_quizzes.each do |user_quiz| %>
       <tr>
         <td><%= user_quiz.quiz.name %></td>
-        <td><%= format_date(user_quiz.started_at) %></td>
-        <td class='float-right'>
+        <td class='text-right'><%= format_date(user_quiz.started_at) %></td>
+        <td class='text-right'>
           <%= user_quiz_button(user_quiz:, user: current_user, size: :small) %>
         </td>
       </tr>

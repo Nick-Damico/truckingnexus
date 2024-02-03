@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Completed On</th>
+      <th class='text-right'>Completed On</th>
       <th class='text-right'>Score</th>
       <th class='text-right'>Actions</th>
     </tr>
@@ -11,9 +11,9 @@
     <% user_quizzes.each do |user_quiz| %>
       <tr>
         <td><%= user_quiz.quiz.name %></td>
-        <td><%= format_date(user_quiz.completed_at) %></td>
+        <td class='text-right'><%= format_date(user_quiz.completed_at) %></td>
         <td class='text-right'><%= "#{user_quiz.score}%" %></td>
-        <td class='float-right'>
+        <td class='text-right'>
           <%= user_quiz_button(user_quiz:, size: :small) %>
         </td>
       </tr>
