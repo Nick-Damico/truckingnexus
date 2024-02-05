@@ -20,7 +20,9 @@
 
   <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
     <h2 class='text-xl font-semibold mb-1'>Completed Quizzes: Last 30 days</h2>
-    <% if (completed_quizzes = user.user_quizzes.completed_last_30_days) && (completed_quizzes.any?) %>
+    <% if
+      (completed_quizzes = user.user_quizzes.completed_last_30_days.order(completed_at: :desc)) &&
+        (completed_quizzes.any?) %>
 
         <%= render  partial: 'quizzes/tables/completed',
                     locals: { user_quizzes: completed_quizzes } %>
