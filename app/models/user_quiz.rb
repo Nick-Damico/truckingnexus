@@ -10,6 +10,7 @@ class UserQuiz < ApplicationRecord
 
   scope :active, -> { where(score: nil) }
   scope :completed, -> { where.not(score: nil) }
+  scope :completed_last_30_days, -> { completed.where('completed_at >= ?', 30.days.ago) }
 
   delegate :answer_sheet_questions, to: :answer_sheet
 
