@@ -21,9 +21,18 @@ FactoryBot.define do
     end
   end
 
+  trait :with_failed_quiz do
+    after(:create) do |user_quiz|
+      user_quiz.prep_for_quiz
+      user_quiz.answer_sheet_questions.each do |as_question|
+        correct_answer_id = as_question.question.correct_answer_id
+        as_question.update(answer: as_question.question.answers.where.not(id: correct_answer_id).first)
+      end
+    end
+  end
+
   trait :with_graded_quiz do
-    with_completed_quiz
-    after(:create) do |user_quiz, _eval|
+    after(:create) do |user_quiz|
       QuizService::Grader.new(user_quiz:).call
     end
   end
