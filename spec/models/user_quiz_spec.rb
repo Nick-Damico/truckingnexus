@@ -71,4 +71,22 @@ RSpec.describe UserQuiz, type: :model do
       expect(completed_user_quiz.completed?).to eq true
     end
   end
+
+  describe '#passed?' do
+    context 'user passed quiz' do
+      it 'returns true' do
+        user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
+
+        expect(user_quiz.passed?).to eq true
+      end
+    end
+
+    context 'user failed quiz' do
+      it 'returns false' do
+        user_quiz = create(:user_quiz, :with_failed_quiz, :with_graded_quiz)
+
+        expect(user_quiz.passed?).to eq false
+      end
+    end
+  end
 end
