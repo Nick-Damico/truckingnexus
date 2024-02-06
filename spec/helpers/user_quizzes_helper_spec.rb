@@ -48,7 +48,7 @@ RSpec.describe UserQuizzesHelper, type: :helper do
     context 'Completed Quiz' do
       it 'returns a link to review the results' do
         user = create(:user)
-        user_quiz = create(:user_quiz, :with_completed_quiz)
+        user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
 
         expected_href = user_quizzes_result_path(user_quiz)
 

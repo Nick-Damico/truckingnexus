@@ -24,9 +24,9 @@ RSpec.describe UserQuiz, type: :model do
   describe '#completed_last_30_days' do
     it 'returns UserQuizzes completed in the last month' do
       # Create a quiz completed today
-      create(:user_quiz, :with_graded_quiz)
+      create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
 
-      old_quiz = create(:user_quiz, :with_graded_quiz)
+      old_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
       old_quiz.update_column(:completed_at, Date.current.months_ago(2))
 
       expect(UserQuiz.completed_last_30_days).to_not include(old_quiz)
@@ -51,7 +51,7 @@ RSpec.describe UserQuiz, type: :model do
       expected_time = Time.current
 
       freeze_time do
-        user_quiz = create(:user_quiz, :with_graded_quiz)
+        user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
         expect(user_quiz.completed_at).to be_a(ActiveSupport::TimeWithZone)
         expect(user_quiz.completed_at.to_s).to eq expected_time.to_s
       end
