@@ -32,6 +32,12 @@ class UserQuiz < ApplicationRecord
     answer_sheet.completed?
   end
 
+  def passed?
+    return false unless score
+
+    score >= Quiz::PASSING_SCORE
+  end
+
   def started_at
     answer_sheet&.created_at
   end
