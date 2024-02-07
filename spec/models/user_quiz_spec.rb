@@ -72,6 +72,13 @@ RSpec.describe UserQuiz, type: :model do
     end
   end
 
+  describe '#graded?' do
+    it 'returns true if UserQuiz has been graded' do
+      completed_user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
+      expect(completed_user_quiz.graded?).to eq true
+    end
+  end
+
   describe '#passed?' do
     context 'user passed quiz' do
       it 'returns true' do

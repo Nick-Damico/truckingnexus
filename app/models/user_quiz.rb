@@ -32,6 +32,10 @@ class UserQuiz < ApplicationRecord
     answer_sheet.completed?
   end
 
+  def graded?
+    !!score && !!completed_at
+  end
+
   def passed?
     return false unless score
 
