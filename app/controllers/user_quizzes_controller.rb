@@ -25,6 +25,8 @@ class UserQuizzesController < ApplicationController
     prep_for_quiz
     set_show_variables
     grade_quiz if @user_quiz.completed?
+
+    redirect_to user_quizzes_result_url(@user_quiz) if @user_quiz.graded?
   end
 
   def destroy

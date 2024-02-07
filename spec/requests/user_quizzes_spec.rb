@@ -70,6 +70,15 @@ RSpec.describe 'UserQuizzes', type: :request do
       get user_quiz_path(user_quiz)
       expect(response).to have_http_status(200)
     end
+
+    context 'completed quiz' do
+      it 'redirects to results page' do
+        completed_user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
+        get user_quiz_path(completed_user_quiz)
+
+        expect(response).to redirect_to(user_quizzes_result_url(completed_user_quiz))
+      end
+    end
   end
 
   describe 'Destroy: DELETE /user_quiz' do
