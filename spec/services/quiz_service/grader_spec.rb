@@ -7,7 +7,7 @@ RSpec.describe QuizService::Grader do
   context 'Completed Quiz' do
     describe '#call' do
       it 'calculates the compeleted quizzes resulting grade' do
-        user_quiz = create(:user_quiz, :with_graded_quiz)
+        user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
 
         expect(user_quiz.score).to_not be_nil
       end
@@ -16,7 +16,7 @@ RSpec.describe QuizService::Grader do
         user_quiz = nil
         expected_datetime = DateTime.current
         freeze_time do
-          user_quiz = create(:user_quiz, :with_graded_quiz)
+          user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
         end
 
         expect(user_quiz.completed_at).to_not be_nil
