@@ -1,15 +1,23 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the UserQuizzes::ResultsHelper. For example:
-#
-# describe UserQuizzes::ResultsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe UserQuizzes::ResultsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#result_msg' do
+    context 'user passed quiz' do
+      it 'returns content notifying user' do
+        user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
+
+        expect(result_msg(user_quiz)).to match(/#{described_class::PASSED_MESSAGE}/i)
+      end
+    end
+
+    context 'user failed quiz' do
+      it 'returns content notifying user' do
+        user_quiz = create(:user_quiz, :with_failed_quiz, :with_graded_quiz)
+
+        expect(result_msg(user_quiz)).to match(/#{described_class::FAILED_MESSAGE}/i)
+      end
+    end
+  end
 end
