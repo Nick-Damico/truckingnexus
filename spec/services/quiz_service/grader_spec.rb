@@ -4,6 +4,15 @@ require 'rails_helper'
 
 RSpec.describe QuizService::Grader do
   include ActiveSupport::Testing::TimeHelpers
+  context 'Incomplete Quiz' do
+    describe '.new' do
+      it 'raises an error' do
+        user_quiz = create(:user_quiz, :active)
+
+        expect { described_class.new(user_quiz:) }.to raise_error(QuizService::GradingError)
+      end
+    end
+  end
   context 'Completed Quiz' do
     describe '#call' do
       it 'calculates the compeleted quizzes resulting grade' do
