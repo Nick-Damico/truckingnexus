@@ -13,7 +13,6 @@ class UserQuizzesController < ApplicationController
   def create
     @user_quiz = UserQuiz.create(user_quiz_params)
     if @user_quiz.save
-      # TODO: Should prep_for_quiz belong in a after_save callback?
       @user_quiz.prep_for_quiz
       redirect_to @user_quiz
     else
@@ -22,7 +21,6 @@ class UserQuizzesController < ApplicationController
   end
 
   def show
-    prep_for_quiz
     set_show_variables
     grade_quiz if @user_quiz.completed?
 
@@ -41,10 +39,6 @@ class UserQuizzesController < ApplicationController
     return if @user_quiz.score.present?
 
     QuizService::Grader.new(user_quiz: @user_quiz).call
-  end
-
-  def prep_for_quiz
-    @user_quiz.prep_for_quiz unless @user_quiz.answer_sheet
   end
 
   def set_show_variables
