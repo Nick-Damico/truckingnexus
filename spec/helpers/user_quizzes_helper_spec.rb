@@ -14,7 +14,7 @@ RSpec.describe UserQuizzesHelper, type: :helper do
     context 'Active UserQuiz' do
       it "returns button with text 'resume'" do
         user = create(:user)
-        user_quiz = create(:user_quiz, :active, user:)
+        user_quiz = create(:user_quiz, user:)
 
         expect(user_quiz_button(user_quiz:, user:)).to match(/resume/i)
       end
@@ -24,7 +24,7 @@ RSpec.describe UserQuizzesHelper, type: :helper do
       # Button with text No to destroy in-progress quiz
       it 'returns button with link to resume quiz' do
         user = create(:user)
-        user_quiz = create(:user_quiz, :active, user:)
+        user_quiz = create(:user_quiz, user:)
 
         expected_href = user_quiz_path(user_quiz)
 
@@ -34,7 +34,7 @@ RSpec.describe UserQuizzesHelper, type: :helper do
 
       it 'returns button to destroy incomplete quiz' do
         user = create(:user)
-        user_quiz = create(:user_quiz, :active, user:)
+        user_quiz = create(:user_quiz, user:)
 
         expected_href = user_quiz_path(user_quiz)
 

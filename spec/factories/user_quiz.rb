@@ -4,12 +4,8 @@ FactoryBot.define do
   factory :user_quiz do
     user { create(:user) }
     quiz { create(:quiz, :with_questions) }
-  end
 
-  trait :active do
-    after(:create) do |user_quiz, _eval|
-      user_quiz.prep_for_quiz
-    end
+    after(:create, &:prep_for_quiz)
   end
 
   trait :with_completed_quiz do

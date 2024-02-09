@@ -17,9 +17,8 @@ RSpec.describe AnswerSheet, type: :model do
 
   describe '.prep_for_quiz' do
     it 'adds an AnswerSheet to the UserQuiz' do
-      user_quiz = create(:user_quiz, quiz: create(:quiz, :with_questions))
       expect do
-        AnswerSheet.prep_for_quiz(user_quiz:)
+        create(:user_quiz)
       end.to change(AnswerSheet, :count).by(1)
     end
 

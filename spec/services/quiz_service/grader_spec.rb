@@ -7,7 +7,7 @@ RSpec.describe QuizService::Grader do
   context 'Incomplete Quiz' do
     describe '.new' do
       it 'raises an error' do
-        user_quiz = create(:user_quiz, :active)
+        user_quiz = create(:user_quiz)
 
         expect { described_class.new(user_quiz:) }.to raise_error(QuizService::GradingError)
       end

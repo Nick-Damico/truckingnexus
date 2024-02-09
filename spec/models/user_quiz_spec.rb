@@ -60,7 +60,7 @@ RSpec.describe UserQuiz, type: :model do
 
   describe '#active?' do
     it 'returns true if UserQuiz is active' do
-      active_user_quiz = create(:user_quiz, :active)
+      active_user_quiz = create(:user_quiz)
       expect(active_user_quiz.active?).to eq true
     end
   end

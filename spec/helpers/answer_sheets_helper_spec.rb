@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe AnswerSheetsHelper, type: :helper do
-  let(:user_quiz) { create(:user_quiz, :active) }
+  let(:user_quiz) { create(:user_quiz) }
   let(:answer_sheet) { user_quiz.answer_sheet }
 
   describe '#correct_answer_count' do
