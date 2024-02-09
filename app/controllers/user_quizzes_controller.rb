@@ -38,7 +38,7 @@ class UserQuizzesController < ApplicationController
   private
 
   def grade_quiz
-    return if @user_quiz.score.present?
+    return unless @user_quiz.completed?
 
     QuizService::Grader.new(user_quiz: @user_quiz).call
   end
