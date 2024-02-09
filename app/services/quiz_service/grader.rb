@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: Do not finalize quiz with a score if all answers are not completed.
 module QuizService
   class GradingError < StandardError; end
 
@@ -9,7 +8,10 @@ module QuizService
     attr_reader :grade
 
     def initialize(user_quiz:)
-      raise GradingError, "Cannot grade incomplete UserQuiz: #{user_quiz.id}" unless user_quiz.completed?
+      unless user_quiz.completed?
+        raise GradingError,
+              "#{self.class.name} Cannot grade incomplete UserQuiz: #{user_quiz.id}"
+      end
 
       @user_quiz = user_quiz
       @answer_sheet = @user_quiz.answer_sheet
