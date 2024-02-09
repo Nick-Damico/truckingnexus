@@ -21,10 +21,12 @@ class UserQuizzesController < ApplicationController
   end
 
   def show
-    set_show_variables
-    grade_quiz if @user_quiz.completed?
+    if @user_quiz.completed?
+      grade_quiz unless @user_quiz.graded?
+      redirect_to user_quizzes_result_url(@user_quiz)
+    end
 
-    redirect_to user_quizzes_result_url(@user_quiz) if @user_quiz.graded?
+    set_show_variables
   end
 
   def destroy
