@@ -8,9 +8,9 @@ RSpec.describe EmploymentHistory, type: :model do
   it { should belong_to(:employee) }
   it { should belong_to(:employer) }
 
-  # TODO: This migration that added the unique index for current: true was removed.
+  # TODO: The migration that added the unique index for current: true was removed.
   #       This broke the spec below. Currently there should only be
-  #       a single current: true EmploymentHistory record, but this it
+  #       a single current: true EmploymentHistory record, but this
   #       is no longer enforced by a validation.
   #
   #       Clearing the previous current: true record is handled by
