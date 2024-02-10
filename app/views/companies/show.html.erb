@@ -1,1 +1,64 @@
-<h2><%= @company.name %></h2>
+<div class="relative overflow-x-auto mb-20 bg-white rounded-lg p-6">
+  <section class='rating flex border-b pb-8 mb-8'>
+    <div class='w-1/2'>
+      <header>
+        <h2 class="text-2xl font-bold mb-2"><%= @company.name %></h2>
+      </header>
+      <div>
+        <!-- Add aria attribute to make this score meaningful or skipped as a bit redundant to rating__score element -->
+        <div class='rating__stars flex mb-1'>
+          <% 5.times do %>
+            <%= render_icon(:star, classes: 'w-6 fill-yellow-400') %>
+          <% end %>
+        </div>
+        <p class='rating__score font-semibold'>4 out of 5 Stars</p>
+        <p class='rating__details'>10 reviews</p>
+      </div>
+    </div>
+    <div class='flex flex-col items-end w-1/2'>
+      <div class='flex flex-col mb-12'>
+        <h3 class='uppercase'>Company Services</h3>
+        <ul class='flex justify-end space-x-2'>
+          <li><%= render_icon(:library, classes: 'w-6 stroke-slate-400') %></li>
+          <li><%= render_icon(:grad_cap, classes: 'w-6 stroke-slate-400') %></li>
+          <li><%= render_icon(:truck, classes: 'w-6 stroke-slate-400') %></li>
+          <li><%= render_icon(:house, classes: 'w-6 stroke-slate-400') %></li>
+        </ul>
+      </div>
+      <%= link_to 'Leave a review', '', class: 'btn btn--lg btn--primary uppercase self-end' %>
+    </div>
+  </section>
+
+  <section class='reviews'>
+    <div class='flex items-center border-b pb-8 mb-8'>
+      <h2 class='text-2xl'>
+        Employee/Trainee Reviews
+      </h2>
+      <div class='reviews__filter flex items-center ml-auto w-72 space-x-2'>
+        <span class='text-lg'>Sort By</span>
+        <%= select_tag :filter, options_for_select([]), include_blank: 'Most Recent', class: 'grow' %>
+      </div>
+    </div>
+
+    <article class='review flex space-x-4 align-start'>
+      <div class='review__score inline-block rounded-full p-6 border border-gray-400 bg-gray-300 self-start'>
+        4.0
+      </div>
+      <div>
+        <header class='review__title'>
+          <h2 class='font-semibold'>Kris O.</h2>
+        </header>
+        <p class='review__date text-sm'>July 2, 2024</p>
+        <div class='rating__stars flex mb-2'>
+          <% 5.times do %>
+            <%= render_icon(:star, classes: 'w-6 fill-yellow-400') %>
+          <% end %>
+        </div>
+        <h3 class='review__subtitle text-md font-semibold mb-1'>A Company that cares about employees</h3>
+        <p class='review__text max-w-prose'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident totam rerum sunt excepturi dolor eum quisquam, laudantium et soluta, non expedita voluptates labore est placeat nisi dolores harum fugit aperiam?
+        </p>
+      </div>
+    </article>
+  </section>
+</div>
