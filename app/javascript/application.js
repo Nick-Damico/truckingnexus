@@ -5,3 +5,5 @@ import 'controllers'
 // chartkick gem
 import 'chartkick'
 import 'Chart.bundle'
+
+import 'flowbite'
