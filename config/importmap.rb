@@ -11,6 +11,6 @@ pin 'Chart.bundle', to: 'Chart.bundle.js'
 pin 'react'
 
 # flowbite https://flowbite.com/
-pin 'flowbite', to: 'flowbite.js'
+# pin 'flowbite', to: 'flowbite.js', preload: false
 
 pin_all_from 'app/javascript/controllers', under: 'controllers'
