@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_29_202655) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_14_164157) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_202655) do
     t.index ["name"], name: "index_quizzes_on_name", unique: true
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "reviewer_id", null: false
+    t.integer "rating"
+    t.text "content"
+    t.string "title"
+    t.string "reviewable_type", null: false
+    t.bigint "reviewable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
+    t.index ["reviewable_type", "reviewer_id"], name: "by_reviewer", unique: true
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+  end
+
   create_table "user_quizzes", force: :cascade do |t|
     t.integer "score"
     t.bigint "user_id", null: false
@@ -109,6 +123,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_202655) do
   add_foreign_key "employment_histories", "users", column: "employee_id"
   add_foreign_key "questions", "answers", column: "correct_answer_id"
   add_foreign_key "questions", "quizzes"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "user_quizzes", "quizzes"
   add_foreign_key "user_quizzes", "users"
 end
