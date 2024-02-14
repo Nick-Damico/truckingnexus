@@ -5,6 +5,9 @@ class Company < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
 
   has_many :users
+
   has_many :employment_histories, foreign_key: :employer_id
   has_many :employees, through: :employment_histories
+
+  has_many :reviews, as: :reviewable
 end
