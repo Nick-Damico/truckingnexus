@@ -5,7 +5,6 @@
         <h2 class="text-2xl font-bold mb-2"><%= @company.name %></h2>
       </header>
       <div>
-        <!-- Add aria attribute to make this score meaningful or skipped as a bit redundant to rating__score element -->
         <div class='rating__stars flex mb-1'>
           <% 5.times do %>
             <%= render_icon(:star, classes: 'w-6 fill-yellow-400') %>
