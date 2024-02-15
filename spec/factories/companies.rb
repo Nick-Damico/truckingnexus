@@ -6,4 +6,10 @@ FactoryBot.define do
     city { Faker::Address.city }
     state { Faker::Address.state }
   end
+
+  trait :with_reviews do
+    after(:create) do |company|
+      company.reviews << create(:review)
+    end
+  end
 end

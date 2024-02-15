@@ -12,12 +12,22 @@ admin =
   User.create!(
     email: 'admin@truckingnexus.com',
     password: '1234trucking',
-    password_confirmation: '1234trucking'
+    password_confirmation: '1234trucking',
+    username: 'SamPuppies'
+  )
+
+john_doe =
+  User.create!(
+    email: 'john_doe@truckingnexus.com',
+    password: '1234trucking',
+    password_confirmation: '1234trucking',
+    username: 'Riding with John'
   )
 
 puts 'SEEDING COMPANIES'
 
 Scrapers::Company.new.call unless File.exist?(Scrapers::Company::JSON_DATA_FILE_PATH)
+test_company = Company.find_or_create_by(name: 'ABC-Trucking', city: 'Nashville', state: 'TN')
 
 file = File.open(Scrapers::Company::JSON_DATA_FILE_PATH)
 JSON.parse(file.read).each do |company|
@@ -1169,3 +1179,46 @@ puts 'GENERATING COMPLETED QUIZZES FOR USERS'
 
   QuizService::Grader.new(user_quiz:).call
 end
+
+puts 'GENERATING REVIEWS'
+review_data = [
+  {
+    title: 'Excellent Training Program!',
+    content: 'I recently completed the training program at XYZ Trucking, and it was outstanding. The instructors were knowledgeable, the facilities were top-notch, and the hands-on experience was invaluable. I feel well-prepared for my career in trucking. Highly recommend!',
+    rating: 5,
+    reviewable: test_company
+  },
+  {
+    title: 'Great Company Culture',
+    content: 'Working at ABC Logistics has been a fantastic experience. The company truly values its employees, and the training is comprehensive. From safety protocols to route planning, they cover it all. The supportive environment makes it a pleasure to be a part of this team.',
+    rating: 4,
+    reviewable: test_company
+  },
+  {
+    title: 'Solid Training, Room for Improvement',
+    content: "I completed the training program at DEF Haulage, and while the basics were covered well, I believe there's room for improvement. More practical on-road training would have been beneficial. However, the overall experience was decent, and the staff was friendly.",
+    rating: 3,
+    reviewable: test_company
+  },
+  {
+    title: 'Smooth Onboarding Process',
+    content: "My onboarding process at LMN Trucking was seamless. The paperwork was minimal, and the training was well-organized. The company's emphasis on safety is commendable. I feel confident and ready to hit the road. Thank you, LMN!",
+    rating: 4,
+    reviewable: test_company
+  },
+  {
+    title: 'Supportive Team and Mentorship',
+    content: 'Joining PQR Transport was a great decision. The mentorship program paired me with an experienced driver, and the support from both colleagues and supervisors has been exceptional. The training was thorough, and I appreciate the emphasis on continuous learning.',
+    rating: 5,
+    reviewable: test_company
+  },
+  {
+    title: 'Average Experience',
+    content: "My time at RST Trucking was average. The training covered the basics, but there wasn't much focus on advanced skills. The work environment was okay, but it didn't stand out. It's a decent starting point, but there are better options out there.",
+    rating: 2,
+    reviewable: test_company
+  }
+]
+
+admin.reviews.create!(review_data[0])
+john_doe.reviews.create!(review_data[1])
