@@ -17,12 +17,19 @@ Trucking Nexus is a Ruby on Rails application that serves as your one-stop desti
 - Ruby on Rails
 - HTML/CSS (ERB & Tailwind.css)
 - JavaScript (Stimulus JS)
+- ActiveStorage image file uploading
+- RSpec / Capybara for Testing
 
 ## Installation:
 
 Copy Repository locally
 
 Install Ruby >= `3.0.0`
+
+Install `imgemagick`
+
+- **Mac**: `brew install imagemagick`
+- **Linux**: `sudo apt-get install imagemagick`
 
 Setup PostgeSQL
 
