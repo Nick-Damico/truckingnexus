@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def update
     return unless @user.update(user_params)
 
-    if params_has_current_employer?(user_params)
+    if params_has_current_employer?
       EmploymentHistoryManager.new(
         employee: @user,
         employer: params_current_employer
@@ -59,6 +59,6 @@ class UsersController < ApplicationController
   end
 
   def employment_history_params
-    user_params[:employment_histories_attributes]
+    user_params[:employment_histories_attributes]&.reject { |_, v| v[:employer_id].blank? }
   end
 end

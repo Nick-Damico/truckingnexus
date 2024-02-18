@@ -38,16 +38,27 @@ RSpec.describe 'Users', type: :request do
       expect(user.reload.username).to_not be_nil
     end
 
-    context 'current employer' do
-      before do
+    context 'employment_histories_attributes' do
+      it 'sets the users current employer' do
         @current_employer = create(:company)
         params[:user].merge!(employment_history_params(@current_employer, current: true))
 
-        patch user_path(user), params:
+        patch(user_path(user), params:)
+
+        expect(user.reload.current_employer).to eq(@current_employer)
       end
 
-      it 'sets the users current employer' do
-        expect(user.reload.current_employer).to eq(@current_employer)
+      context 'params blank' do
+        it 'does not update users current employer' do
+          employer = double('employer')
+          expect(employer).to receive(:id).and_return(nil)
+          params[:user].merge!(employment_history_params(employer, current: true))
+
+          expect(EmploymentHistoryManager).to_not receive(:new)
+          patch(user_path(user), params:)
+
+          expect(user.reload.current_employer).to be_nil
+        end
       end
     end
   end

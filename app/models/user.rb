@@ -16,7 +16,8 @@ class User < ApplicationRecord
 
   has_many :reviews, foreign_key: :reviewer_id
 
-  accepts_nested_attributes_for :employment_histories
+  accepts_nested_attributes_for :employment_histories,
+                                reject_if: proc { |attrs| attrs[:employer_id].blank? }
 
   def current_employer
     employment_histories.find_by(current: true)&.employer
