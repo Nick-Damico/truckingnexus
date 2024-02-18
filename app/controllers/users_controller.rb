@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :username,
+      :avatar,
       employment_histories_attributes: %i[current employer_id]
     )
   end

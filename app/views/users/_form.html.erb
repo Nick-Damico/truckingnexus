@@ -1,9 +1,17 @@
 <%= form_with model: user, data: { turbo: false } do |form| %>
-  <div class="flex flex-col items-stretch mb-2 lg:w-1/2">
+  <%= hidden_field_tag :page_content, @page_content %>
+
+  <div class="form-group">
+    <%= form.label :avatar, class: 'text-gray-700 text-sm font-bold mb-2' %>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="form-group lg:w-1/2">
     <%= form.label :username, class: 'text-gray-700 text-sm font-bold mb-2' %>
     <%= form.text_field :username, placeholder: 'John Doe', class: 'w-full py-2 px-3 text-gray-700 border shadow appearance-none leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
-  <div class="flex flex-col items-stretch mb-2 lg:w-1/2">
+
+  <div class="form-group lg:w-1/2">
     <%= form.fields_for :employment_histories, @employment_history do |ff_eh| %>
       <%= ff_eh.hidden_field :current, value: true %>
       <%= ff_eh.label :employer_id, 'Current Employer', class: 'text-gray-700 text-sm font-bold mb-2' %>

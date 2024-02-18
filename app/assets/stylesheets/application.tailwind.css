@@ -4,9 +4,13 @@
 
 @layer components {
   /* UTILITIES */
-
   .wrapper {
     @apply max-w-screen-2xl m-auto;
+  }
+
+  /* FORMS */
+  .form-group {
+    @apply flex flex-col items-stretch mb-2;
   }
 
   /* BUTTONS */
