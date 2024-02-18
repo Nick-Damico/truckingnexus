@@ -8,12 +8,14 @@ class User < ApplicationRecord
 
   belongs_to :company, optional: true
 
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+  end
+
   has_many :user_quizzes
   has_many :quizzes, through: :user_quizzes
-
   has_many :employment_histories, foreign_key: :employee_id
   has_many :employers, through: :employment_histories
-
   has_many :reviews, foreign_key: :reviewer_id
 
   accepts_nested_attributes_for :employment_histories,

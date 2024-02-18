@@ -4,6 +4,12 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   subject(:user) { create(:user) }
+  let(:avatar) do
+    fixture_file_upload(
+      Rails.root.join('spec', 'fixtures', 'default-avatar01.png'),
+      'image/png'
+    )
+  end
 
   before { sign_in user }
 
@@ -25,6 +31,12 @@ RSpec.describe 'Users', type: :request do
   describe 'PATCH /update' do
     let(:expected_username) { 'Johnny Appleseed' }
     let(:params) { { user: { username: expected_username } } }
+    let(:avatar) do
+      fixture_file_upload(
+        Rails.root.join('spec', 'fixtures', 'default-avatar01.png'),
+        'image/png'
+      )
+    end
 
     it 'redirects to user show page' do
       patch(user_path(user), params:)
@@ -32,7 +44,15 @@ RSpec.describe 'Users', type: :request do
       expect(response).to redirect_to user
     end
 
-    it 'updates users name' do
+    it 'attaches an Avatar image' do
+      params[:user].merge!(avatar:)
+      patch(user_path(user), params:)
+
+      expect(response).to redirect_to user
+      expect(user.reload.avatar).to be_attached
+    end
+
+    it 'updates username' do
       patch(user_path(user), params:)
       expect(user.reload.username).to eq expected_username
       expect(user.reload.username).to_not be_nil
