@@ -5,3 +5,6 @@ db/schema.rb linguist-generated
 vendor/* linguist-vendored
 app/assets/images/truck_home_pg_001.jpg filter=lfs diff=lfs merge=lfs -text
 .jpg filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*svg filter=lfs diff=lfs merge=lfs -text
