@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if params_has_current_employer?(user_params)
       EmploymentHistoryManager.new(
         employee: @user,
-        employer: params_current_employer(user_params)
+        employer: params_current_employer
       ).call
     end
 
@@ -44,21 +44,21 @@ class UsersController < ApplicationController
     @current_employer = @user.current_employer
   end
 
-  def params_has_current_employer?(user_params)
-    return false unless employment_history_params(user_params).present?
+  def params_has_current_employer?
+    return false unless employment_history_params.present?
 
-    employment_history_params(user_params).values.any? { |attrs| attrs['current'] }
+    employment_history_params.values.any? { |attrs| attrs['current'] }
   end
 
-  def params_current_employer(user_params)
-    return nil unless params_has_current_employer?(user_params)
+  def params_current_employer
+    return nil unless params_has_current_employer?
 
-    return unless (cur_employer_attrs = employment_history_params(user_params).values.find { |attrs| attrs['current'] })
+    return unless (cur_employer_attrs = employment_history_params.values.find { |attrs| attrs['current'] })
 
     Company.find_by(id: cur_employer_attrs['employer_id'])
   end
 
-  def employment_history_params(user_params)
+  def employment_history_params
     user_params[:employment_histories_attributes]
   end
 end
