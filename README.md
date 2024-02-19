@@ -26,11 +26,6 @@ Copy Repository locally
 
 Install Ruby >= `3.0.0`
 
-Install `imgemagick`
-
-- **Mac**: `brew install imagemagick`
-- **Linux**: `sudo apt-get install imagemagick`
-
 Setup PostgeSQL
 
 Bundle install
@@ -39,7 +34,14 @@ Start Server
 
 ## File Upload
 
-ActiveStorage is using `minimagick`
+Active Storage is using the `image_processing` gem
+along with `mini_magick` gem, a lightweight wrapper around `imagemagick`.
+
+This is used for generating variant images from attachables.
+This can be changed via the `application.rb`.
+
+Development is using local storage.
+Production is using `Amazon S3`
 
 ## Usage:
 
