@@ -35,6 +35,9 @@ gem "jbuilder"
 # Authentication and Authorization [https://github.com/heartcombo/devise#starting-with-rails]
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
+# ActiveStorage Variant usage
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -37,6 +37,10 @@ Bundle install
 
 Start Server
 
+## File Upload
+
+ActiveStorage is using `minimagick`
+
 ## Usage:
 
 Trucking Nexus is designed with simplicity in mind. Sign up, browse trucking job listings, rate your experiences, access CDL test prep materials, and stay informed about the trucking industry—all within a few clicks.
