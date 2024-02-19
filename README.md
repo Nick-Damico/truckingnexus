@@ -43,6 +43,15 @@ This can be changed via the `application.rb`.
 Development is using local storage.
 Production is using `Amazon S3`
 
+### AWS S3
+
+TruckingNexus is configured to use Amazon S3 in production.
+
+You just need to setup a bucket and IAM user with policies per the documentation
+form the [Rails ActiveStorage guide](https://edgeguides.rubyonrails.org/active_storage_overview.html#s3-service-amazon-s3-and-s3-compatible-apis)
+
+**Tip:** The best way to test that the bucket and policy is setup correctly and objects are **publicly accessible**, is to update the `development.rb` config file for active_storage from `:local` to `:amazon`.
+
 ## Usage:
 
 Trucking Nexus is designed with simplicity in mind. Sign up, browse trucking job listings, rate your experiences, access CDL test prep materials, and stay informed about the trucking industry—all within a few clicks.

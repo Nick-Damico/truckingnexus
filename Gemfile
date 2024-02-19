@@ -37,6 +37,8 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 
 # ActiveStorage Variant usage
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'aws-sdk-s3', require: false
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
