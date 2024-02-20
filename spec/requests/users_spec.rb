@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  subject(:user) { create(:user) }
+  subject(:user) { create(:user, username: 'Paul Bunyan') }
   let(:avatar) do
     fixture_file_upload(
       Rails.root.join('spec', 'fixtures', 'default-avatar01.png'),
@@ -20,7 +20,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     # page_content: :profile returns partial '_profile' containing the users/_form
-    context 'GET /profile' do
+    context 'Page Content: _profile' do
       it 'returns http success' do
         get user_path(user, page_content: :profile)
         expect(response).to have_http_status(:success)
@@ -36,6 +36,26 @@ RSpec.describe 'Users', type: :request do
         Rails.root.join('spec', 'fixtures', 'default-avatar01.png'),
         'image/png'
       )
+    end
+
+    context 'invalid params' do
+      let(:user2) { create(:user) }
+      let(:invalid_params) { { user: { username: user.username } } }
+
+      it 'does not persist changes' do
+        org_username = user2.username
+
+        patch user_path(user2), params: invalid_params
+
+        expect(user2.reload.username).to eq org_username
+      end
+
+      it 'renders the form with flash error message' do
+        patch user_path(user2), params: invalid_params
+
+        expect(response).to render_template(:edit)
+        expect(flash[:alert]).to include(/Username has already been taken/)
+      end
     end
 
     it 'redirects to user show page' do

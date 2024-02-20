@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :employers, through: :employment_histories
   has_many :reviews, foreign_key: :reviewer_id
 
+  validates :username, uniqueness: true, allow_nil: true
+
   accepts_nested_attributes_for :employment_histories,
                                 reject_if: proc { |attrs| attrs[:employer_id].blank? }
 
