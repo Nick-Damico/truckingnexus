@@ -72,8 +72,7 @@
     @apply text-white;
   }
 
-  .bg-flash--alert,
-  .bg-flash--warning {
+  .bg-flash--alert {
     @apply bg-red-400;
   }
 
