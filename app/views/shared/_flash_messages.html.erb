@@ -1,13 +1,7 @@
 <% if flash.any? %>
   <div data-controller="flash" class='flex flex-col items-end'>
-    <% flash.each do |flash_type, messages| %>
-      <% if messages.is_a?(Array) %>
-        <%= render partial: 'shared/flash_message', collection: messages, locals: { flash_type: }, as: :message %>
-
-      <% else %>
-        <%= render 'shared/flash_message', { flash_type:, message: messages } %>
-
-      <% end %>
+    <% flash.each do |flash_type, *messages| %>
+      <%= render partial: 'shared/flash_message', collection: messages.flatten, locals: { flash_type: } %>
     <% end %>
   </div>
 <% end %>
