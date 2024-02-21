@@ -12,6 +12,9 @@
   .form-group {
     @apply flex flex-col items-stretch mb-2;
   }
+  .field_with_errors > input[type='text'] {
+    @apply bg-red-400;
+  }
 
   /* BUTTONS */
   .btn {

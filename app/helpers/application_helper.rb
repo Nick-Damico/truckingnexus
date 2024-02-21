@@ -23,7 +23,7 @@ module ApplicationHelper
     klasses = ['bg-flash']
     case key.to_sym
     when :alert
-      klasses << 'bg-flash--error'
+      klasses << 'bg-flash--alert'
     when :info
       klasses << 'bg-flash--info'
     when :notice
