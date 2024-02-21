@@ -1,0 +1,12 @@
+<turbo-frame id="company_reviews">
+  <% if @reviews.any? %>
+    <%= render @reviews %>
+
+  <% else %>
+    <div class='flex flex-col items-center mb-8'>
+      <%= render_icon(:sad_face, classes: 'w-12') %>
+      <p>Oh no! No one has left a Review yet!</p>
+    </div>
+
+  <% end %>
+</turbo-frame>
