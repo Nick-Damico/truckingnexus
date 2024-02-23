@@ -16,12 +16,26 @@ RSpec.describe 'companies/show', type: :view do
     expect(rendered).to have_content(subject.name)
   end
 
-  it 'displays link to create a review' do
-    assign(:company, subject)
+  context 'authenticated user' do
+    it "displays link to 'create review' button" do
+      assign(:company, subject)
 
-    render
+      render
 
-    expect(rendered).to have_link 'Review', href: new_company_review_path(subject)
+      expect(rendered).to have_link 'Review', href: new_company_review_path(subject)
+    end
+  end
+
+  context 'unauthenticated user' do
+    before { sign_out user }
+
+    it "does not display 'create review' button" do
+      assign(:company, subject)
+
+      render
+
+      expect(rendered).to_not have_link 'Review', href: new_company_review_path(subject)
+    end
   end
 
   context 'without review' do
