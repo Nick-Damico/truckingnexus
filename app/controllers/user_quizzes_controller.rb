@@ -11,7 +11,7 @@ class UserQuizzesController < ApplicationController
   def new; end
 
   def create
-    @user_quiz = UserQuiz.create(user_quiz_params)
+    @user_quiz = UserQuiz.new(user_quiz_params)
     if @user_quiz.save
       @user_quiz.prep_for_quiz
       redirect_to @user_quiz
