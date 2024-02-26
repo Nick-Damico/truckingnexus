@@ -17,10 +17,9 @@ export default class ReviewController extends Controller {
       target = e.target.parentNode
     }
 
-    this.ratingFieldTarget.setAttribute(
-      'value',
-      this.#starIconIndexValue(target) + 1
-    )
+    const newValue = this.#starIconIndexValue(target) + 1
+    this.#setRatingField(newValue)
+    this.#setRating(newValue)
   }
 
   onMouseOverRatingStar(e) {
@@ -61,5 +60,13 @@ export default class ReviewController extends Controller {
 
   #starIconIndexValue(target) {
     return this.ratingStarTargets.indexOf(target)
+  }
+
+  #setRatingField(value) {
+    this.ratingFieldTarget.setAttribute('value', value)
+  }
+
+  #setRating(value) {
+    this.ratingTarget.textContent = value.toFixed(1)
   }
 }
