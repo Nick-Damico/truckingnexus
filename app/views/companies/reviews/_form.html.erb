@@ -1,0 +1,45 @@
+<%= turbo_frame_tag 'new-review' do %>
+
+  <turbo-stream action='update' target='flash-messages'>
+    <template>
+      <%= render 'shared/flash_and_error_messages' %>
+    </template>
+  </turbo-stream>
+
+  <div class='flex space-x-4 border-b pb-8 mb-8 w-full'>
+    <div class='review__score' data-review-target='rating'>
+      <%= review.rating.to_f %>
+    </div>
+
+    <%= form_with model: [reviewable, review], data: { turbo: false }, class: 'w-3/4' do |ff| %>
+      <%= ff.hidden_field :reviewer_id, value: review.reviewer_id %>
+      <%= ff.hidden_field :reviewable_id, value: review.reviewable_id %>
+      <%= ff.hidden_field :reviewable_type, value: review.reviewable_type %>
+      <%= ff.hidden_field :rating, value: nil, data: { review_target: 'ratingField' } %>
+
+      <header class='review__title'>
+        <h2 class='font-semibold'><%= review.reviewer.username %></h2>
+      </header>
+      <p class='review__date text-sm'><%= format_date(DateTime.now) %></p>
+      <div class='rating__stars flex mb-4 p-1' data-review-target='ratingContainer' data-action='mouseout->review#onMouseOutRatingStar  mouseover->review#onMouseOverRatingStar click->review#onClickRatingStar'>
+        <% 5.times do |index| %>
+          <%= render_icon(:star, classes: 'w-6 cursor-pointer fill-none', index:) %>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :title, class: 'label-field' %>
+        <%= ff.text_field :title, class: 'input-field' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :content, class: 'label-field' %>
+        <%= ff.text_area :content, class: 'text-area mb-4' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.submit class: 'btn btn--save' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

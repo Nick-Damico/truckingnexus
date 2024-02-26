@@ -18,9 +18,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
-      redirect_to polymorphic_url([@reviewable, @review]), notice: 'Review successfully saved'
+      redirect_to @reviewable, notice: 'Review successfully saved'
     else
-      render :new, alert: @review.errors.full_messages
+      flash.now[:alert] = @review.errors.full_messages
+      render :new
     end
   end
 
