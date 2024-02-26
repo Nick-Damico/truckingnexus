@@ -1,2 +1,4 @@
-<%= render 'shared/flash_messages' %>
-<%= render 'devise/shared/error_messages' %>
+<%= turbo_frame_tag 'flash-messages' do %>
+  <%= render 'shared/flash_messages' %>
+  <%= render 'devise/shared/error_messages' %>
+<% end %>
