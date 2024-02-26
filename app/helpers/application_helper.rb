@@ -52,6 +52,7 @@ module ApplicationHelper
 
   def render_icon(icon, **kwargs)
     classes = kwargs[:classes] || ''
-    render "shared/icons/#{icon}", classes:
+    index = kwargs[:index] || 0
+    render "shared/icons/#{icon}", classes:, index:
   end
 end

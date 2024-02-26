@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :review do
-    reviewer { create(:user) }
+    reviewer { create(:user, :with_username) }
     rating { 5 }
     content { Faker::Lorem.paragraph(sentence_count: 2) }
     title { Faker::Quote.famous_last_words }

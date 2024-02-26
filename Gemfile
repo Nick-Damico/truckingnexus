@@ -6,8 +6,6 @@ ruby "3.3.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.0"
 
-gem 'rubocop', require: true
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -64,6 +62,8 @@ gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'rubocop', require: true
+  gem 'capybara'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'faker', '~> 3.2'
   gem "factory_bot_rails", "~> 6.2"
@@ -71,6 +71,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'rails-controller-testing'
+
 end
 
 group :development do

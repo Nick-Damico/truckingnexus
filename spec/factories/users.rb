@@ -9,4 +9,8 @@ FactoryBot.define do
   trait :with_current_employer do
     employment_histories { create_list(:employment_history, 1, current: true) }
   end
+
+  trait :with_username do
+    username { Faker::Name }
+  end
 end

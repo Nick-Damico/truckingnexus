@@ -1,0 +1,22 @@
+<article class='review flex space-x-4 align-start border-b pb-8 mb-8 last:border-0'>
+  <div class='review__score'>
+    <%= review.rating.to_f %>
+  </div>
+  <div>
+    <header class='review__title'>
+      <h2 class='font-semibold'><%= review.reviewer.username %></h2>
+    </header>
+    <p class='review__date text-sm'><%= format_date(review.created_at) %></p>
+    <div class='rating__stars flex mb-2'>
+      <% 5.times do %>
+        <%= render_icon(:star, classes: 'w-6 star-icon--active') %>
+      <% end %>
+    </div>
+    <h3 class='review__subtitle text-md font-semibold mb-1'>
+      <%= review.title %>
+    </h3>
+    <p class='review__text max-w-prose'>
+      <%= review.content %>
+    </p>
+  </div>
+</article>

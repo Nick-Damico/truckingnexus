@@ -7,11 +7,13 @@
       <div>
         <div class='rating__stars flex mb-1'>
           <% 5.times do %>
-            <%= render_icon(:star, classes: 'w-6 fill-yellow-400') %>
+            <%= render_icon(:star, classes: 'w-6 star-icon--active') %>
           <% end %>
         </div>
         <p class='rating__score font-semibold'>4 out of 5 Stars</p>
-        <p class='rating__details'>10 reviews</p>
+        <p class='rating__details'>
+          <%= "#{@company.reviews.count} #{'Review'.pluralize(@company.reviews.count)}" %>
+        </p>
       </div>
     </div>
     <div class='flex flex-col items-end w-1/2'>
@@ -24,7 +26,9 @@
           <li><%= render_icon(:house, classes: 'w-6 stroke-slate-400') %></li>
         </ul>
       </div>
-      <%= link_to 'Leave a review', '', class: 'btn btn--lg btn--primary uppercase self-end' %>
+      <% if user_signed_in? %>
+        <%= link_to 'leave a Review', new_company_review_path(@company), id: 'ReviewBtn', class: 'btn btn--lg btn--primary uppercase self-end', data: { turbo_frame: 'new-review' } %>
+      <% end %>
     </div>
   </section>
 
@@ -39,25 +43,15 @@
       </div>
     </div>
 
-    <article class='review flex space-x-4 align-start'>
-      <div class='review__score hidden md:inline-block rounded-full p-6 border border-gray-400 bg-gray-300 self-start'>
-        4.0
+    <div data-controller='review' data-review-active-star-class='star-icon--active'>
+      <%= turbo_frame_tag 'new-review' %>
+    </div>
+
+    <%= turbo_frame_tag 'company-reviews', src: company_reviews_path(@company) do %>
+      <div role="status" class='flex flex-col items-center'>
+          <%= render_icon(:spinning_loader) %>
+          <span class='text-gray-500'>Loading reviews...</span>
       </div>
-      <div>
-        <header class='review__title'>
-          <h2 class='font-semibold'>Kris O.</h2>
-        </header>
-        <p class='review__date text-sm'>July 2, 2024</p>
-        <div class='rating__stars flex mb-2'>
-          <% 5.times do %>
-            <%= render_icon(:star, classes: 'w-6 fill-yellow-400') %>
-          <% end %>
-        </div>
-        <h3 class='review__subtitle text-md font-semibold mb-1'>A Company that cares about employees</h3>
-        <p class='review__text max-w-prose'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident totam rerum sunt excepturi dolor eum quisquam, laudantium et soluta, non expedita voluptates labore est placeat nisi dolores harum fugit aperiam?
-        </p>
-      </div>
-    </article>
+    <% end %>
   </section>
 </div>

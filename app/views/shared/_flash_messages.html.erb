@@ -1,7 +1,5 @@
-<% if flash.any? %>
-  <div data-controller="flash" class='flex flex-col items-end'>
-    <% flash.each do |flash_type, *messages| %>
-      <%= render partial: 'shared/flash_message', collection: messages.flatten, locals: { flash_type: } %>
-    <% end %>
-  </div>
-<% end %>
+<div data-controller="flash" class='flex flex-col items-end'>
+  <% flash.each do |flash_type, *messages| %>
+    <%= render partial: 'shared/flash_message', collection: messages.flatten, locals: { flash_type: } %>
+  <% end %>
+</div>
