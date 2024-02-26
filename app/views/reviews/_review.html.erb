@@ -9,7 +9,7 @@
     <p class='review__date text-sm'><%= format_date(review.created_at) %></p>
     <div class='rating__stars flex mb-2'>
       <% 5.times do %>
-        <%= render_icon(:star, classes: 'w-6 fill-yellow-400') %>
+        <%= render_icon(:star, classes: 'w-6 star-icon--active') %>
       <% end %>
     </div>
     <h3 class='review__subtitle text-md font-semibold mb-1'>
