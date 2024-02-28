@@ -6,9 +6,7 @@
       </header>
       <div>
         <div class='rating__stars flex mb-1'>
-          <% 5.times do %>
-            <%= render_icon(:star, classes: 'w-6 star-icon--active') %>
-          <% end %>
+          <%= rating_stars(rating: 0) %>
         </div>
         <p class='rating__score font-semibold'>4 out of 5 Stars</p>
         <p class='rating__details'>
