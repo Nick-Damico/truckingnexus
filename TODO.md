@@ -5,4 +5,6 @@
 # Known Bugs
 
 - [x] Flash messages on failed users update not displaying
-- [ ] Fix Flash message rendering; Simplify logic
+- [x] Fix Flash message rendering; Simplify logic
+- [ ] Fix Database constraint on Company and Reviewer
+- [ ] Fix duplicate review from User validation message.
