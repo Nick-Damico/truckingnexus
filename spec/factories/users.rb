@@ -11,6 +11,6 @@ FactoryBot.define do
   end
 
   trait :with_username do
-    username { Faker::Name }
+    username { Faker::Internet.username }
   end
 end
