@@ -10,4 +10,8 @@ class Company < ApplicationRecord
   has_many :employees, through: :employment_histories
 
   has_many :reviews, as: :reviewable
+
+  def rating
+    Review.rating_for(self)
+  end
 end

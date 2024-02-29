@@ -12,4 +12,8 @@ class Review < ApplicationRecord
   validates :rating, numericality: { only_integer: true, in: (1..5), message: INVALID_RATING_MESSAGE }
   # Restricts one Review for a Reviewable( i.e. Company ) per Reviewer
   validates_uniqueness_of :reviewable_id, scope: %i[reviewable_type reviewer_id]
+
+  def self.rating_for(reviewable)
+    where(reviewable:).average(:rating)
+  end
 end

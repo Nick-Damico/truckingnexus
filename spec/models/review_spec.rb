@@ -25,26 +25,43 @@ RSpec.describe Review, type: :model do
       expect { dup_review.save(validate: false) }.to raise_error(ActiveRecord::RecordNotUnique)
     end
 
-    context '#rating'
-    it 'is valid with a rating between 1 and 5' do
-      review = build(:review, rating: 3)
+    context '#rating' do
+      it 'is valid with a rating between 1 and 5' do
+        review = build(:review, rating: 3)
 
-      expect(review).to be_valid
+        expect(review).to be_valid
+      end
+
+      it 'is invalid with a rating less than 1 or greater than 5' do
+        invalid_review = build(:review, rating: 100)
+
+        expect(invalid_review).to_not be_valid
+        expect(invalid_review.errors).to include(:rating)
+        expect(invalid_review.errors[:rating]).to include(described_class::INVALID_RATING_MESSAGE)
+      end
+
+      it 'must be an integer' do
+        invalid_review = build(:review, rating: 1.4)
+
+        expect(invalid_review).to_not be_valid
+        expect(invalid_review.errors).to include(:rating)
+      end
     end
+  end
 
-    it 'is invalid with a rating less than 1 or greater than 5' do
-      invalid_review = build(:review, rating: 100)
+  describe '.rating_for(reviewable)' do
+    it 'returns the average rating for a reviewable' do
+      company = create(:company)
 
-      expect(invalid_review).to_not be_valid
-      expect(invalid_review.errors).to include(:rating)
-      expect(invalid_review.errors[:rating]).to include(described_class::INVALID_RATING_MESSAGE)
-    end
+      ratings = [4, 5, 3]
+      ratings.each do |rating|
+        company.reviews << create(:review, rating:)
+      end
 
-    it 'must be an integer' do
-      invalid_review = build(:review, rating: 1.4)
+      expected_rating = (ratings.sum / ratings.count).round
 
-      expect(invalid_review).to_not be_valid
-      expect(invalid_review.errors).to include(:rating)
+      expect(company.reviews.count).to eq ratings.count
+      expect(described_class.rating_for(company)).to eq(expected_rating)
     end
   end
 end
