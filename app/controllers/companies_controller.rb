@@ -8,7 +8,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @companies = Company.all.order(:name)
+    @review_count = @company.reviews.count
+    @rating = @company.rating.floor
   end
 
   private

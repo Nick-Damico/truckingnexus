@@ -6,11 +6,11 @@
       </header>
       <div>
         <div class='rating__stars flex mb-1'>
-          <%= rating_stars(rating: 0) %>
+          <%= rating_stars(rating: @rating) %>
         </div>
-        <p class='rating__score font-semibold'>4 out of 5 Stars</p>
+        <p class='rating__score font-semibold'><%= @rating %> out of 5 Stars</p>
         <p class='rating__details'>
-          <%= "#{@company.reviews.count} #{'Review'.pluralize(@company.reviews.count)}" %>
+          <%= "#{@review_count} #{'Review'.pluralize(@review_count)}" %>
         </p>
       </div>
     </div>
