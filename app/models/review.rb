@@ -2,6 +2,7 @@
 
 class Review < ApplicationRecord
   INVALID_RATING_MESSAGE = 'must be between 1 & 5'
+  NO_RATING_DEFAULT_VALUE = 0
 
   belongs_to :reviewer, class_name: 'User'
   belongs_to :reviewable, polymorphic: true
@@ -14,6 +15,6 @@ class Review < ApplicationRecord
   validates_uniqueness_of :reviewable_id, scope: %i[reviewable_type reviewer_id]
 
   def self.rating_for(reviewable)
-    where(reviewable:).average(:rating)
+    where(reviewable:).average(:rating) || NO_RATING_DEFAULT_VALUE
   end
 end

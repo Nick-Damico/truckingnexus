@@ -50,18 +50,26 @@ RSpec.describe Review, type: :model do
   end
 
   describe '.rating_for(reviewable)' do
-    it 'returns the average rating for a reviewable' do
-      company = create(:company)
+    context 'has reviews' do
+      it 'returns average rating' do
+        company = create(:company)
 
-      ratings = [4, 5, 3]
-      ratings.each do |rating|
-        company.reviews << create(:review, rating:)
+        ratings = [4, 5, 3]
+        ratings.each do |rating|
+          company.reviews << create(:review, rating:)
+        end
+
+        expected_rating = (ratings.sum / ratings.count).round
+
+        expect(described_class.rating_for(company)).to eq(expected_rating)
       end
+    end
+    context 'no reviews' do
+      it "returns no rating default value #{described_class::NO_RATING_DEFAULT_VALUE}" do
+        company = create(:company)
 
-      expected_rating = (ratings.sum / ratings.count).round
-
-      expect(company.reviews.count).to eq ratings.count
-      expect(described_class.rating_for(company)).to eq(expected_rating)
+        expect(described_class.rating_for(company)).to eq(described_class::NO_RATING_DEFAULT_VALUE)
+      end
     end
   end
 end
