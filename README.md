@@ -22,15 +22,65 @@ Trucking Nexus is a Ruby on Rails application that serves as your one-stop desti
 
 ## Installation:
 
-Copy Repository locally
+1. Copy Repository locally
 
-Install Ruby >= `3.0.0`
+```bash
+git clone https://github.com/Nick-Damico/truckingnexus.git
+cd /truckingnexus
+```
 
-Setup PostgeSQL
+2. Install dependencies
 
-Bundle install
+```bash
+bundle install
+```
 
-Start Server
+3. Setup the database
+
+```bash
+bin/rails db:setup
+```
+
+4. Start Server
+
+```bash
+./bin/dev
+# or if you use overmind
+overmind start
+# or just use
+bin/rails server
+```
+
+### Docker
+
+If you prefer to use Docker and have it installed
+
+1. Modify production config `SSL` setting:
+
+```ruby
+# config/production.rb
+
+# Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+config.force_ssl = false # swith to false if true
+```
+
+2. Start App and DB containers
+
+```bash
+docker compose up
+```
+
+3. Access site
+
+```bash
+localhost:3000
+```
+
+2. Stop and tear down
+
+```bash
+docker compose down --rmi all
+```
 
 ## File Upload
 
