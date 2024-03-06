@@ -19,6 +19,7 @@ Trucking Nexus is a Ruby on Rails application that serves as your one-stop desti
 - JavaScript (Stimulus JS)
 - ActiveStorage image file uploading
 - RSpec / Capybara for Testing
+- Docker / Deployment
 
 ## Installation:
 
