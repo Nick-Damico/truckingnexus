@@ -38,7 +38,7 @@ module Truckingnexus
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-    config.factory_bot.definition_file_paths = ['spec/factories']
+    # config.factory_bot.definition_file_paths = ['spec/factories']
 
     # ActiveStorage
     config.active_storage.variant_processor = :mini_magick
