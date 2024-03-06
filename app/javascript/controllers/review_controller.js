@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
-import { connectedMsg } from './utilities'
+import { connectedMsg } from 'controllers/utilities'
 
 export default class ReviewController extends Controller {
   static targets = ['rating', 'ratingStar', 'ratingField', 'ratingContainer']
