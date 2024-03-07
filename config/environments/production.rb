@@ -39,7 +39,7 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
 
   # TODO: configure with the production service you setup for cloud image hosting :amazon, :microsoft, :google
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
