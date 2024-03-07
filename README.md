@@ -20,7 +20,7 @@ Trucking Nexus is a Ruby on Rails application that serves as your one-stop desti
 - ActiveStorage image file uploading
 - RSpec / Capybara for Testing
 - Docker / Deployment
-- 
+- Hosted on Fly.io
 ## Images
 Work in Progress
 CDL Quiz | Results
