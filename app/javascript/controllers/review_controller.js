@@ -20,22 +20,22 @@ export default class ReviewController extends Controller {
     const newValue = this.#starIconIndexValue(target) + 1
     this.#setRatingField(newValue)
     this.#setRating(newValue)
+    this.#activateStarsUpTo(this.ratingFieldTarget.value - 1)
   }
 
   onMouseOverRatingStar(e) {
-    if (!this.#isStarIcon(e.target)) {
-      return
-    }
-
-    this.#activateStarsUpTo(this.#starIconIndexValue(e.target))
+    // if (!this.#isStarIcon(e.target)) {
+    //   return
+    // }
+    // console.log('mouseout')
+    // this.#activateStarsUpTo(this.#starIconIndexValue(e.target))
   }
 
   onMouseOutRatingStar(e) {
-    if (e.target !== this.ratingContainerTarget) {
-      return
-    }
-
-    this.#activateStarsUpTo(this.ratingFieldTarget.value - 1)
+    // if (e.target !== this.ratingContainerTarget) {
+    //   return
+    // }
+    // this.#activateStarsUpTo(this.ratingFieldTarget.value - 1)
   }
 
   #activateStarsUpTo(to) {
