@@ -46,7 +46,7 @@
       <%= turbo_frame_tag 'new-review' %>
     </div>
 
-    <%= turbo_frame_tag 'company-reviews', src: company_reviews_path(@company) do %>
+    <%= turbo_frame_tag :company_reviews, src: company_reviews_path(@company) do %>
       <div role="status" class='flex flex-col items-center'>
           <%= render_icon(:spinning_loader) %>
           <span class='text-gray-500'>Loading reviews...</span>
