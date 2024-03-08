@@ -20,6 +20,18 @@ Trucking Nexus is a Ruby on Rails application that serves as your one-stop desti
 - ActiveStorage image file uploading
 - RSpec / Capybara for Testing
 - Docker / Deployment
+- Hosted on Fly.io
+## Images
+Work in Progress
+CDL Quiz | Results
+:-------------------------:|:-------------------------:
+![Screenshot from 2024-03-07 08-52-34](https://github.com/Nick-Damico/truckingnexus/assets/19657584/be0346fe-209d-4159-a2a5-963b7b71e136) | ![Screenshot from 2024-03-07 09-02-13](https://github.com/Nick-Damico/truckingnexus/assets/19657584/e750922f-6cb2-44f3-ac75-7aa37ab3ad3e)
+
+
+Dashboard | Reviews
+:-------------------------:|:-------------------------:
+![Screenshot from 2024-03-07 08-53-04](https://github.com/Nick-Damico/truckingnexus/assets/19657584/f57d4d0a-4713-45eb-88c1-9512de24d2a8) | ![Screenshot from 2024-03-07 08-52-47](https://github.com/Nick-Damico/truckingnexus/assets/19657584/4b18ba66-353a-49ad-ae59-e05db8b914f0)
+
 
 ## Installation:
 
