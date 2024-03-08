@@ -21,10 +21,22 @@ RSpec.describe 'companies/show', type: :view do
   context 'authenticated user' do
     before { sign_in user }
 
-    it "displays link to 'create review' button" do
-      render
+    describe 'user has not reviewed' do
+      it "displays 'create review' link" do
+        render
 
-      expect(rendered).to have_link 'Review', href: new_company_review_path(subject)
+        expect(rendered).to have_link 'Review', href: new_company_review_path(subject)
+      end
+    end
+
+    describe 'user reviewed' do
+      it "does not display 'create review' link" do
+        subject.reviews << create(:review, reviewer: user)
+
+        render
+
+        expect(rendered).to_not have_link 'Review', href: new_company_review_path(subject)
+      end
     end
   end
 

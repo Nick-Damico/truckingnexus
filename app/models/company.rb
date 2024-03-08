@@ -14,4 +14,8 @@ class Company < ApplicationRecord
   def rating
     Review.rating_for(self)
   end
+
+  def reviewed_by(reviewer)
+    reviews.exists?(reviewer:)
+  end
 end
