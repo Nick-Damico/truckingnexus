@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'new-review' do %>
+<%= turbo_frame_tag @review do %>
 
   <turbo-stream action='update' target='flash-messages'>
     <template>
@@ -11,7 +11,7 @@
       <%= review.rating.to_f %>
     </div>
 
-    <%= form_with model: [reviewable, review], data: { turbo: false }, class: 'w-3/4' do |ff| %>
+    <%= form_with model: [reviewable, review], class: 'w-3/4' do |ff| %>
       <%= ff.hidden_field :reviewer_id, value: review.reviewer_id %>
       <%= ff.hidden_field :reviewable_id, value: review.reviewable_id %>
       <%= ff.hidden_field :reviewable_type, value: review.reviewable_type %>

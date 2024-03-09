@@ -1,0 +1,19 @@
+<!-- Clear out flash errors, if previous attempt failed validation(s) -->
+
+<!-- if first review, clear out container with 'no reviews' message; else prepend to list -->
+<% if @reviewable.reviews.one? %>
+  <%= turbo_stream.update :company_reviews, @review %>
+<% else %>
+  <%= turbo_stream.prepend :company_reviews, @review %>
+<% end %>
+
+<!-- Clear the turbo_frame_tag new_review container -->
+<%= turbo_stream.update :new_review, '' %>
+
+<!-- Remove 'review' button -->
+<%= turbo_stream.remove :review_link %>
+
+<!-- Re-render rating partial -->
+<%= turbo_stream.update :rating do %>
+ <%= render partial: 'companies/rating', locals: { rating: @reviewable.rating, review_count: @reviewable.reviews.count } %>
+<% end %>

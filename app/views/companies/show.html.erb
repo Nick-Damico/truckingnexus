@@ -4,15 +4,9 @@
       <header>
         <h2 class="text-2xl font-bold mb-2"><%= @company.name %></h2>
       </header>
-      <div>
-        <div class='rating__stars flex mb-1'>
-          <%= rating_stars(rating: @rating) %>
-        </div>
-        <p class='rating__score font-semibold'><%= @rating %> out of 5 Stars</p>
-        <p class='rating__details'>
-          <%= "#{@review_count} #{'Review'.pluralize(@review_count)}" %>
-        </p>
-      </div>
+
+      <%= render 'rating', rating: @rating, review_count: @review_count %>
+
     </div>
     <div class='flex flex-col items-end w-1/2'>
       <div class='flex flex-col mb-12'>
@@ -24,9 +18,12 @@
           <li><%= render_icon(:house, classes: 'w-6 stroke-slate-400') %></li>
         </ul>
       </div>
-      <% if user_signed_in? && !@company.reviewed_by(current_user) %>
-        <%= link_to 'leave a Review', new_company_review_path(@company), id: 'ReviewBtn',
-                                                                         class: 'btn btn--lg btn--primary uppercase self-end', data: { turbo_frame: 'new-review' } %>
+      <%= turbo_frame_tag :review_link do %>
+        <% if user_signed_in? && !@company.reviewed_by(current_user) %>
+          <%= link_to 'leave a Review', new_company_review_path(@company), id: 'ReviewBtn',
+                                                                           class: 'btn btn--lg btn--primary uppercase self-end',
+                                                                           data: { turbo_frame: :new_review } %>
+        <% end %>
       <% end %>
     </div>
   </section>
@@ -43,7 +40,7 @@
     </div>
 
     <div data-controller='review' data-review-active-star-class='star-icon--active'>
-      <%= turbo_frame_tag 'new-review' %>
+      <%= turbo_frame_tag :new_review %>
     </div>
 
     <%= turbo_frame_tag :company_reviews, src: company_reviews_path(@company) do %>
