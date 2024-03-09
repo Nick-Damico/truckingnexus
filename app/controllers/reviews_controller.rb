@@ -18,7 +18,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
-      redirect_to @reviewable, notice: 'Review successfully saved'
+      respond_to do |format|
+        format.html { redirect_to @reviewable, notice: 'Review successfully saved' }
+        format.turbo_stream
+      end
     else
       flash.now[:alert] = @review.errors.full_messages
       render :new

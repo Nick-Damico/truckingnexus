@@ -1,4 +1,4 @@
-<turbo-frame id="company-reviews">
+<%= turbo_frame_tag :company_reviews do %>
   <% if @reviews.any? %>
     <%= render @reviews %>
 
@@ -9,4 +9,4 @@
     </div>
 
   <% end %>
-</turbo-frame>
+<% end %>

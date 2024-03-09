@@ -1,4 +1,4 @@
-<%= turbo_frame_tag dom_id(review) do %>
+<%= turbo_frame_tag review do %>
   <article class='review flex space-x-4 align-start border-b pb-8 mb-8 last:border-0'>
     <div class='review__score'>
       <%= review.rating.to_f %>
