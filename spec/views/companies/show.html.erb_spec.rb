@@ -30,9 +30,9 @@ RSpec.describe 'companies/show', type: :view do
     end
 
     describe 'user reviewed' do
-      it "does not display 'create review' link" do
-        subject.reviews << create(:review, reviewer: user)
+      before { subject.reviews << create(:review, reviewer: user) }
 
+      it "does not display 'create review' link" do
         render
 
         expect(rendered).to_not have_link 'Review', href: new_company_review_path(subject)

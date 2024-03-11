@@ -18,5 +18,9 @@
         <%= review.content %>
       </p>
     </div>
+    <div>
+      <%= link_to 'Edit', edit_company_review_path(review.reviewable, review) %>
+      <%= link_to 'Delete', company_review_path(review.reviewable, review), method: :delete %>
+    </div>
   </article>
 <% end %>

@@ -16,7 +16,7 @@ RSpec.describe 'reviews/index', type: :view do
       render
     end
 
-    it 'displays review username' do
+    it 'displays reviewers username' do
       expect(rendered).to have_content(reviews.first.reviewer.username)
     end
 
@@ -30,6 +30,24 @@ RSpec.describe 'reviews/index', type: :view do
 
     it 'displays review content' do
       expect(rendered).to have_content(reviews.first.content)
+    end
+
+    it 'displays an edit link' do
+      review = reviews.first
+      company = review.reviewable
+
+      render
+
+      expect(rendered).to have_link 'Edit', href: edit_company_review_path(company, review)
+    end
+
+    it 'displays a delete link' do
+      review = reviews.first
+      company = review.reviewable
+
+      render
+
+      expect(rendered).to have_link 'Delete', href: company_review_path(company, review)
     end
   end
 
