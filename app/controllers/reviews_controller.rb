@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[show]
+  before_action :set_review, only: %i[show edit]
   before_action :set_reviewable, only: %i[index new create]
 
   def index
@@ -27,6 +27,8 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
+
+  def edit; end
 
   private
 

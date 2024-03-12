@@ -57,6 +57,25 @@ RSpec.describe 'Companies/Review Requests', type: :request do
     end
   end
 
+  describe 'GET /companies/:company_id/edit' do
+    it 'renders form with HTTP status :success' do
+      review_to_edit = company.reviews.first
+
+      get edit_company_review_path(company, review_to_edit)
+
+      expect(response).to render_template('edit')
+      expect(response).to render_template(partial: '_form')
+      expect(response).to have_http_status(:success)
+    end
+
+    xit 'redirects to reviewable :show action with HTTP status :redirect' do
+      post company_reviews_path(company), params: valid_params
+
+      expect(response).to redirect_to(company)
+      expect(response).to have_http_status(:redirect)
+    end
+  end
+
   describe 'GET /companies/:company_id/reviews/:id' do
     it 'renders show template with HTTP status success' do
       get polymorphic_url([company, company.reviews.last])
