@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[show edit]
-  before_action :set_reviewable, only: %i[index new create]
+  before_action :set_review, only: %i[show edit update]
+  before_action :set_reviewable, only: %i[index new create update]
 
   def index
     @reviews = @reviewable.reviews
@@ -29,6 +29,14 @@ class ReviewsController < ApplicationController
   end
 
   def edit; end
+
+  def update
+    if @review.update(review_params)
+      redirect_to [@reviewable, @review]
+    else
+      render :edit
+    end
+  end
 
   private
 
