@@ -1,0 +1,7 @@
+<%= turbo_frame_tag :review_link do %>
+  <% if user_signed_in? && !company.reviewed_by(current_user) %>
+    <%= link_to 'leave a Review', new_company_review_path(company), id: 'ReviewBtn',
+                                                                    class: 'btn btn--lg btn--primary uppercase self-end',
+                                                                    data: { turbo_frame: :new_review } %>
+  <% end %>
+<% end %>

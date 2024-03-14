@@ -1,0 +1,13 @@
+
+<!-- destroy the review -->
+<%= turbo_stream.remove @review %>
+
+<!-- Add 'review' button back -->
+<%= turbo_stream.update :review_link do %>
+  <%= render partial: 'companies/review_link', locals: { company: @reviewable } %>
+<% end %>
+
+<!-- Re-render rating partial -->
+<%= turbo_stream.update :rating do %>
+ <%= render partial: 'companies/rating', locals: { rating: @reviewable.rating, review_count: @reviewable.reviews.count } %>
+<% end %>

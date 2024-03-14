@@ -84,10 +84,18 @@ RSpec.describe 'Companies/Review Requests', type: :request do
       params = { review: review.attributes.merge('rating' => '1') }
 
       expect do
-        patch polymorphic_url([company, company.reviews.last]), params:
+        patch polymorphic_url([company, review]), params:
       end.to change(Review, :count).by(0)
 
       expect(review.reload.rating).to eq 1
+    end
+  end
+
+  describe 'POST /companies/:company_id' do
+    it 'deletes resource and redirects to company/index' do
+      expect do
+        delete polymorphic_url([company, company.reviews.last])
+      end.to change(Review, :count).by(-1)
     end
   end
 end

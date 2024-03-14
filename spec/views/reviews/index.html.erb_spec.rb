@@ -3,10 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'reviews/index', type: :view do
-  let(:user) { create(:user) }
   subject { create(:company, :with_reviews) }
-
-  before { sign_in user }
 
   context 'with review' do
     let(:reviews) { subject.reviews }
@@ -16,7 +13,7 @@ RSpec.describe 'reviews/index', type: :view do
       render
     end
 
-    it 'displays reviewers username' do
+    it 'displays reviewer username' do
       expect(rendered).to have_content(reviews.first.reviewer.username)
     end
 
@@ -24,7 +21,7 @@ RSpec.describe 'reviews/index', type: :view do
       expect(rendered).to have_content(reviews.first.title)
     end
 
-    it 'displays reviewers rating' do
+    it 'displays review rating' do
       expect(rendered).to have_content(reviews.first.rating.to_f)
     end
 
@@ -32,22 +29,53 @@ RSpec.describe 'reviews/index', type: :view do
       expect(rendered).to have_content(reviews.first.content)
     end
 
-    it 'displays an edit link' do
-      review = reviews.first
-      company = review.reviewable
+    describe 'edit link' do
+      context 'review belongs to user' do
+        it 'displays link' do
+          review = subject.reviews.first
+          sign_in review.reviewer
 
-      render
+          render
 
-      expect(rendered).to have_link 'Edit', href: edit_company_review_path(company, review)
+          expect(rendered).to have_link 'Edit', href: edit_company_review_path(subject, review)
+        end
+      end
+
+      context 'review does not belong to user' do
+        it 'does not display' do
+          review = subject.reviews.first
+          sign_in create(:user)
+
+          render
+
+          expect(rendered).to_not have_link 'Edit', href: edit_company_review_path(subject, review)
+        end
+      end
     end
 
-    it 'displays a delete link' do
-      review = reviews.first
-      company = review.reviewable
+    describe 'delete button' do
+      context 'review belongs to user' do
+        it 'displays button' do
+          review = subject.reviews.first
+          sign_in review.reviewer
 
-      render
+          render
 
-      expect(rendered).to have_link 'Delete', href: company_review_path(company, review)
+          expect(rendered).to have_selector("form[action='#{company_review_path(subject, review)}'][method='post']")
+          expect(rendered).to have_selector(:button, text: 'Delete')
+        end
+      end
+      context 'review does not belong to user' do
+        it 'does not display button' do
+          review = subject.reviews.first
+          sign_in create(:user)
+
+          render
+
+          expect(rendered).to_not have_selector("form[action='#{company_review_path(subject, review)}'][method='post']")
+          expect(rendered).to_not have_selector(:button, text: 'Delete')
+        end
+      end
     end
   end
 

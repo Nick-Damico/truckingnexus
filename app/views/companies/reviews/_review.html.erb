@@ -1,5 +1,5 @@
-<%= turbo_frame_tag review do %>
-  <article class='review flex space-x-4 align-start border-b pb-8 mb-8 last:border-0'>
+<%= turbo_frame_tag review, class: 'flex' do %>
+  <article class='review flex space-x-4 align-start pb-8 mb-8 border-b border-zinc-300'>
     <div class='review__score'>
       <%= review.rating.to_f %>
     </div>
@@ -17,10 +17,15 @@
       <p class='review__text max-w-prose'>
         <%= review.content %>
       </p>
-    </div>
-    <div>
-      <%= link_to 'Edit', edit_company_review_path(review.reviewable, review) %>
-      <%= link_to 'Delete', company_review_path(review.reviewable, review), method: :delete %>
+      <div class='flex grow-0 justify-end'>
+        <% if review.reviewer == current_user %>
+          <%= link_to 'Edit', edit_company_review_path(review.reviewable, review),
+                      class: 'btn btn--sml btn--primary btn--sq' %>
+          <%= button_to 'Delete', company_review_path(review.reviewable, review),
+                        method: :delete,
+                        class: 'btn btn--sml btn--alert btn--sq' %>
+        <% end %>
+      </div>
     </div>
   </article>
 <% end %>

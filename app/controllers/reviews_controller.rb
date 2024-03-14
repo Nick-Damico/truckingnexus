@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[show edit update]
-  before_action :set_reviewable, only: %i[index new create update]
+  before_action :set_review, except: %i[index new create]
+  before_action :set_reviewable
 
   def index
     @reviews = @reviewable.reviews
@@ -35,6 +35,15 @@ class ReviewsController < ApplicationController
       redirect_to [@reviewable, @review]
     else
       render :edit
+    end
+  end
+
+  def destroy
+    flash[:alert] = @review.errors.full_messages if @review.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @reviewable }
+      format.turbo_stream
     end
   end
 

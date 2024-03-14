@@ -18,13 +18,9 @@
           <li><%= render_icon(:house, classes: 'w-6 stroke-slate-400') %></li>
         </ul>
       </div>
-      <%= turbo_frame_tag :review_link do %>
-        <% if user_signed_in? && !@company.reviewed_by(current_user) %>
-          <%= link_to 'leave a Review', new_company_review_path(@company), id: 'ReviewBtn',
-                                                                           class: 'btn btn--lg btn--primary uppercase self-end',
-                                                                           data: { turbo_frame: :new_review } %>
-        <% end %>
-      <% end %>
+
+      <%= render 'review_link', company: @company %>
+
     </div>
   </section>
 
