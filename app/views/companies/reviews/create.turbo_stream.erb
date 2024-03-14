@@ -10,8 +10,8 @@
 <!-- Clear the turbo_frame_tag new_review container -->
 <%= turbo_stream.update :new_review, '' %>
 
-<!-- Remove 'review' button -->
-<%= turbo_stream.remove :review_link %>
+<!-- hides review button from current user with review -->
+<%= turbo_stream.update :review_link %>
 
 <!-- Re-render rating partial -->
 <%= turbo_stream.update :rating do %>
