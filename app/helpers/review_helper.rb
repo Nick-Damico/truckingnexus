@@ -5,9 +5,12 @@ module ReviewHelper
 
   ACTIVE_STAR_CLASS = 'star-icon--active'
 
-  def rating_stars(rating:, count: 5)
+  def rating_stars(rating:, count: 5, **kwargs)
+    rating ||= 0
+    klasses = kwargs[:class] || ''
+
     count.times.map do |i|
-      render_icon(:star, classes: "w-6 #{ACTIVE_STAR_CLASS if i < rating}")
+      render_icon(:star, classes: "w-6 #{ACTIVE_STAR_CLASS if i < rating} #{klasses}")
     end.join.html_safe
   end
 
