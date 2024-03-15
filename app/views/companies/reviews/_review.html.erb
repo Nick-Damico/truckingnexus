@@ -1,5 +1,5 @@
-<%= turbo_frame_tag review, class: 'flex' do %>
-  <article class='review flex space-x-4 align-start pb-8 mb-8 border-b border-zinc-300'>
+<%= turbo_frame_tag review do %>
+  <article class='review w-full flex flex-col md:flex-row space-x-4 align-start pb-8 mb-8 border-b border-zinc-300'>
     <div class='review__score'>
       <%= review.rating.to_f %>
     </div>
@@ -14,18 +14,18 @@
       <h3 class='review__subtitle text-md font-semibold mb-1'>
         <%= review.title %>
       </h3>
-      <p class='review__text max-w-prose'>
+      <p class='review__text max-w-prose mb-4'>
         <%= review.content %>
       </p>
-      <div class='flex grow-0 justify-end'>
-        <% if review.reviewer == current_user %>
-          <%= link_to 'Edit', edit_company_review_path(review.reviewable, review),
-                      class: 'btn btn--sml btn--primary btn--sq' %>
-          <%= button_to 'Delete', company_review_path(review.reviewable, review),
-                        method: :delete,
-                        class: 'btn btn--sml btn--alert btn--sq' %>
-        <% end %>
-      </div>
+    </div>
+    <div class='flex items-end'>
+      <% if review.reviewer == current_user %>
+        <%= link_to 'Edit', edit_company_review_path(review.reviewable, review),
+                    class: 'h-auto btn btn--sml btn--primary btn--sq' %>
+        <%= button_to 'Delete', company_review_path(review.reviewable, review),
+                      method: :delete,
+                      class: 'btn btn--sml btn--alert btn--sq' %>
+      <% end %>
     </div>
   </article>
 <% end %>
