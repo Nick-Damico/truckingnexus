@@ -9,5 +9,5 @@
 
 <!-- Re-render rating partial -->
 <%= turbo_stream.update :rating do %>
- <%= render partial: 'companies/rating', locals: { rating: @reviewable.rating, review_count: @reviewable.reviews.count } %>
+ <%= render 'companies/rating', rating: @reviewable.rating, review_count: @reviewable.reviews.count %>
 <% end %>
