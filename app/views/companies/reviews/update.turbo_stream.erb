@@ -1,0 +1,5 @@
+<%= turbo_stream.replace @review %>
+
+<%= turbo_stream.update :rating do %>
+ <%= render 'companies/rating', rating: @reviewable.rating, review_count: @reviewable.reviews.count %>
+<% end %>

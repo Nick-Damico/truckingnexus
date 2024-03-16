@@ -21,7 +21,7 @@
     <div class='flex items-end'>
       <% if review.reviewer == current_user %>
         <%= link_to 'Edit', edit_company_review_path(review.reviewable, review),
-                    class: 'h-auto btn btn--sml btn--primary btn--sq' %>
+                    class: 'btn btn--sml btn--primary btn--sq' %>
         <%= button_to 'Delete', company_review_path(review.reviewable, review),
                       method: :delete,
                       class: 'btn btn--sml btn--alert btn--sq' %>

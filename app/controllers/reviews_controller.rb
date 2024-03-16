@@ -32,7 +32,10 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to [@reviewable, @review]
+      respond_to do |format|
+        format.html { redirect_to [@reviewable, @review] }
+        format.turbo_stream
+      end
     else
       render :edit
     end
