@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   before_action :selected_company, only: %i[show]
 
   def index
-    @companies = Company.all.order(:name)
+    @companies = Company.includes(:reviews).order(:name)
   end
 
   def show

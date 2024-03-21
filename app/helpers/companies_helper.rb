@@ -2,7 +2,7 @@
 
 module CompaniesHelper
   def rating(company)
-    return 'No Reviews' unless company.reviews.exists?
+    return 'No Reviews' unless company.reviews.any?
 
     pluralize(company.rating.to_i, 'star')
   end
