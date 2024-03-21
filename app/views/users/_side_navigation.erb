@@ -1,4 +1,7 @@
-<div class='flex flex-col w-72 items-center bg-white border border-zinc-300 rounded'>
+<div class='flex shadow-md flex-col w-72 md:h-full shadow-gray-500/40 shadow-none items-center bg-white border border-zinc-300 rounded'>
+  <button class='md:hidden absolute -right-2 p-2 bg-white border'>
+    <%= render_icon(:right_arrow, classes: 'w-6 h-6') %>
+  </button>
   <div class='flex flex-col w-36 items-center mb-6 py-4 border-b border-zinc-300'>
     <p class='font-bold'>Trucker</p>
 
