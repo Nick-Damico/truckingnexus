@@ -1,7 +1,11 @@
-<div class='flex shadow-md flex-col w-72 md:h-full shadow-gray-500/40 shadow-none items-center bg-white border border-zinc-300 rounded'>
-  <button class='md:hidden absolute -right-2 p-2 bg-white border'>
-    <%= render_icon(:right_arrow, classes: 'w-6 h-6') %>
-  </button>
+<div class='flex flex-col w-72 md:h-full has-[:checked]:drop-shadow-md items-center bg-white border border-zinc-300 rounded'>
+  <div class='md:hidden absolute right-0 p-2'>
+    <div class='relative right-2 top-2 flex justify-center items-center'>
+      <input class='absolute z-50  p-3 bg-transparent focus:ring-0 checked:bg-none text-transparent outline-none border-0' type="checkbox" name="side_navigation">
+      <svg class="absolute z-10 fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
+    </div>
+  </div>
+
   <div class='flex flex-col w-36 items-center mb-6 py-4 border-b border-zinc-300'>
     <p class='font-bold'>Trucker</p>
 
