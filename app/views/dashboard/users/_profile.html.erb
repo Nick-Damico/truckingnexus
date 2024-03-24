@@ -1,8 +1,18 @@
 <section class='bg-white p-4 rounded-lg border border-zinc-300'>
   <h2 class="font-bold text-2xl mb-2">
-    Update Your Information
+    User Information
   </h2>
 
   <%= render partial: 'form', locals: { user: @user } %>
 
+</section>
+
+<section class='bg-white p-4 rounded-lg border border-zinc-300'>
+  <h2 class="font-bold text-2xl mb-2">
+    Security &amp; Privacy
+  </h2>
+
+  <%= turbo_frame_tag :edit_registration do %>
+    <%= render 'users/registrations/form', resource: user, resource_name: user.class.name %>
+  <% end %>
 </section>
