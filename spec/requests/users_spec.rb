@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'User Requests', type: :request do
   subject(:user) { create(:user, username: 'Paul Bunyan') }
   let(:avatar) do
     fixture_file_upload(
@@ -32,14 +32,14 @@ RSpec.describe 'Users', type: :request do
 
 
   describe 'GET /show' do
-    it 'returns http success' do
+    it 'returns http status success' do
       get user_path(user)
       expect(response).to have_http_status(:success)
     end
 
     # page_content: :profile returns partial '_profile' containing the users/_form
-    context 'Page Content: _profile' do
-      it 'returns http success' do
+    context 'Users dashboard profile page content' do
+      it 'returns http status success' do
         get user_path(user, page_content: :profile)
         expect(response).to have_http_status(:success)
       end
