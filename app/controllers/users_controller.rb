@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   UPDATE_MSG = 'Updated information successfully'
 
+  before_action :authenticate_user!
   before_action :set_user, only: %i[show update]
   before_action :set_resources, only: %i[show update]
 

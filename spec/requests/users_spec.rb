@@ -13,6 +13,24 @@ RSpec.describe 'Users', type: :request do
 
   before { sign_in user }
 
+  context 'authentication' do
+    describe 'prevents unauthenticated user access' do
+      it 'returns http status redirect' do
+        sign_out subject
+        get user_path(subject)
+        expect(response).to have_http_status(:redirect)
+      end
+
+      it 'redirects to sign in form' do
+        sign_out subject
+        get user_path(subject)
+
+        expect(response).to redirect_to(user_session_url)
+      end
+    end
+  end
+
+
   describe 'GET /show' do
     it 'returns http success' do
       get user_path(user)
