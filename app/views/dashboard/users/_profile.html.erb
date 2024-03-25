@@ -13,6 +13,6 @@
   </h2>
 
   <%= turbo_frame_tag :edit_registration do %>
-    <%= render 'users/registrations/form', resource: user, resource_name: user.class.name %>
+    <%= render 'users/registrations/form', resource: @user, resource_name: @user.class.name %>
   <% end %>
 </section>
