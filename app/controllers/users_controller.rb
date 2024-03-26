@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_user, only: %i[show update]
+  before_action :authorize_user!
   before_action :set_resources, only: %i[show update]
 
   def show
@@ -31,6 +32,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def authorize_user!
+    return if @user == current_user
+
+    redirect_to current_user, flash: { alert: 'Access denied. You are not authorized to view this page.' }
+  end
 
   def user_params
     params.require(:user).permit(

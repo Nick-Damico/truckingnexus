@@ -15,7 +15,7 @@ RSpec.describe 'User Requests', type: :request do
 
   context 'authentication' do
     describe 'prevents unauthenticated user access' do
-      it 'returns http status redirect' do
+      it 'returns HTTP status redirect(302)' do
         sign_out subject
         get user_path(subject)
         expect(response).to have_http_status(:redirect)
@@ -30,6 +30,15 @@ RSpec.describe 'User Requests', type: :request do
     end
   end
 
+  context 'authorization' do
+    describe "restricts unauthorized user access to another user's dashboard" do
+      it 'returns HTTP status redirect(302)' do
+        get user_path(create(:user))
+
+        expect(response).to have_http_status(:redirect)
+      end
+    end
+  end
 
   describe 'GET /show' do
     it 'returns HTTP status success(200)' do
