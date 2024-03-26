@@ -32,14 +32,14 @@ RSpec.describe 'User Requests', type: :request do
 
 
   describe 'GET /show' do
-    it 'returns http status success' do
+    it 'returns HTTP status success(200)' do
       get user_path(user)
       expect(response).to have_http_status(:success)
     end
 
     # page_content: :profile returns partial '_profile' containing the users/_form
     context 'Users dashboard profile page content' do
-      it 'returns http status success' do
+      it 'returns HTTP status success(200)' do
         get user_path(user, page_content: :profile)
         expect(response).to have_http_status(:success)
       end
@@ -69,6 +69,8 @@ RSpec.describe 'User Requests', type: :request do
       end
 
       it 'renders the form with flash error message' do
+        sign_in user2
+
         patch user_path(user2), params: invalid_params
 
         expect(response).to render_template(:edit)
