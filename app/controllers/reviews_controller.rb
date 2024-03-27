@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
   before_action :set_review, except: %i[index new create]
   before_action :set_reviewable
+  before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
     @reviews = @reviewable.reviews
@@ -51,6 +53,12 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def authorize_user!
+    return if @review.reviewer == current_user
+
+    redirect_to companies_url, flash: { alert: 'Access denied. You are not authorized to view this page.' }
+  end
 
   def review_params
     params.require(:review).permit(:title, :content, :rating, :reviewable_type, :reviewable_id, :reviewer_id)

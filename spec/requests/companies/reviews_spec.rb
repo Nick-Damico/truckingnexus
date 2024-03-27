@@ -68,7 +68,9 @@ RSpec.describe 'Companies/Review Requests', type: :request do
 
   describe 'GET /companies/:company_id/edit' do
     it 'renders form with HTTP status :success' do
-      review_to_edit = company.reviews.first
+      # Only the reviewer is authorized to edit their review
+      review_to_edit = company.reviews.last
+      sign_in review_to_edit.reviewer
 
       get edit_company_review_path(company, review_to_edit)
 
@@ -80,7 +82,8 @@ RSpec.describe 'Companies/Review Requests', type: :request do
 
   describe 'POST /companies/:company_id/review/:id' do
     it 'updates resource' do
-      review = company.reviews.first
+      review = company.reviews.last
+      sign_in review.reviewer
       params = { review: review.attributes.merge('rating' => '1') }
 
       expect do
@@ -93,8 +96,11 @@ RSpec.describe 'Companies/Review Requests', type: :request do
 
   describe 'POST /companies/:company_id' do
     it 'deletes resource and redirects to company/index' do
+      review = company.reviews.last
+      sign_in review.reviewer
+
       expect do
-        delete polymorphic_url([company, company.reviews.last])
+        delete polymorphic_url([company, review])
       end.to change(Review, :count).by(-1)
     end
   end
