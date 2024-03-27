@@ -57,7 +57,7 @@ class ReviewsController < ApplicationController
   def authorize_user!
     return if @review.reviewer == current_user
 
-    redirect_to companies_url, flash: { alert: 'Access denied. You are not authorized to view this page.' }
+    redirect_to companies_url, flash: { alert: t('flash.unauthorized_access') }
   end
 
   def review_params
