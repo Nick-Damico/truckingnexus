@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Requests', type: :request do
-  subject(:user) { create(:user, username: 'Paul Bunyan') }
+  subject { create(:user, username: 'Paul Bunyan') }
   let(:avatar) do
     fixture_file_upload(
       Rails.root.join('spec', 'fixtures', 'default-avatar01.png'),
@@ -11,7 +11,11 @@ RSpec.describe 'User Requests', type: :request do
     )
   end
 
-  before { sign_in user }
+  it_behaves_like 'Authorized Routes' do
+    let(:authorized_routes) { [user_path(subject)] }
+  end
+
+  before { sign_in subject }
 
   context 'authentication' do
     describe 'prevents unauthenticated user access' do
@@ -30,26 +34,16 @@ RSpec.describe 'User Requests', type: :request do
     end
   end
 
-  context 'authorization' do
-    describe "restricts unauthorized user access to another user's dashboard" do
-      it 'returns HTTP status redirect(302)' do
-        get user_path(create(:user))
-
-        expect(response).to have_http_status(:redirect)
-      end
-    end
-  end
-
   describe 'GET /show' do
     it 'returns HTTP status success(200)' do
-      get user_path(user)
+      get user_path(subject)
       expect(response).to have_http_status(:success)
     end
 
     # page_content: :profile returns partial '_profile' containing the users/_form
     context 'Users dashboard profile page content' do
       it 'returns HTTP status success(200)' do
-        get user_path(user, page_content: :profile)
+        get user_path(subject, page_content: :profile)
         expect(response).to have_http_status(:success)
       end
     end
@@ -67,7 +61,7 @@ RSpec.describe 'User Requests', type: :request do
 
     context 'invalid params' do
       let(:user2) { create(:user) }
-      let(:invalid_params) { { user: { username: user.username } } }
+      let(:invalid_params) { { user: { username: subject.username } } }
 
       it 'does not persist changes' do
         org_username = user2.username
@@ -88,23 +82,23 @@ RSpec.describe 'User Requests', type: :request do
     end
 
     it 'redirects to user show page' do
-      patch(user_path(user), params:)
+      patch(user_path(subject), params:)
       expect(response).to have_http_status(:redirect)
-      expect(response).to redirect_to user
+      expect(response).to redirect_to subject
     end
 
     it 'attaches an Avatar image' do
       params[:user].merge!(avatar:)
-      patch(user_path(user), params:)
+      patch(user_path(subject), params:)
 
-      expect(response).to redirect_to user
-      expect(user.reload.avatar).to be_attached
+      expect(response).to redirect_to subject
+      expect(subject.reload.avatar).to be_attached
     end
 
     it 'updates username' do
-      patch(user_path(user), params:)
-      expect(user.reload.username).to eq expected_username
-      expect(user.reload.username).to_not be_nil
+      patch(user_path(subject), params:)
+      expect(subject.reload.username).to eq expected_username
+      expect(subject.reload.username).to_not be_nil
     end
 
     context 'employment_histories_attributes' do
@@ -112,9 +106,9 @@ RSpec.describe 'User Requests', type: :request do
         @current_employer = create(:company)
         params[:user].merge!(employment_history_params(@current_employer, current: true))
 
-        patch(user_path(user), params:)
+        patch(user_path(subject), params:)
 
-        expect(user.reload.current_employer).to eq(@current_employer)
+        expect(subject.reload.current_employer).to eq(@current_employer)
       end
 
       context 'params blank' do
@@ -124,9 +118,9 @@ RSpec.describe 'User Requests', type: :request do
           params[:user].merge!(employment_history_params(employer, current: true))
 
           expect(EmploymentHistoryManager).to_not receive(:new)
-          patch(user_path(user), params:)
+          patch(user_path(subject), params:)
 
-          expect(user.reload.current_employer).to be_nil
+          expect(subject.reload.current_employer).to be_nil
         end
       end
     end
