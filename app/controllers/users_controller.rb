@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def authorize_user!
     return if @user == current_user
 
-    redirect_to current_user, flash: { alert: 'Access denied. You are not authorized to view this page.' }
+    redirect_to current_user, flash: { alert: t('flash.unauthorized_access') }
   end
 
   def user_params
