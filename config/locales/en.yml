@@ -31,6 +31,8 @@
 
 en:
   hello: 'Hello world'
+  flash:
+    unauthorized_access: 'Access denied. You are not authorized to view this page.'
 
   helpers:
     submit:
