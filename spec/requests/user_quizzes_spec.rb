@@ -28,6 +28,7 @@ RSpec.describe 'UserQuizzes', type: :request do
   describe 'GET /user_quizzes' do
     it 'returns a success status code' do
       get new_user_quiz_path(quiz)
+
       expect(response).to have_http_status(200)
     end
   end
@@ -38,6 +39,7 @@ RSpec.describe 'UserQuizzes', type: :request do
         expect do
           post user_quizzes_path, params: valid_params
         end.to change(UserQuiz, :count).by(1)
+
         expect(assigns[:user_quiz].quiz_id).to eq quiz.id
         expect(assigns[:user_quiz].user_id).to eq user.id
       end
@@ -59,6 +61,7 @@ RSpec.describe 'UserQuizzes', type: :request do
 
       it 'redirects to GET /quizzes url' do
         post user_quizzes_path, params: invalid_params
+
         expect(response).to have_http_status(302)
         expect(response).to redirect_to(quizzes_url)
       end
@@ -68,6 +71,7 @@ RSpec.describe 'UserQuizzes', type: :request do
   describe 'Show: GET /user_quiz' do
     it 'returns successful status code' do
       get user_quiz_path(user_quiz)
+
       expect(response).to have_http_status(200)
     end
 
@@ -84,12 +88,14 @@ RSpec.describe 'UserQuizzes', type: :request do
   describe 'Destroy: DELETE /user_quiz' do
     it 'destroys user_quiz record' do
       user_quiz.prep_for_quiz
+
       expect do
         delete user_quiz_path(user_quiz)
-      end.to change(UserQuiz,
-                    :count).by(-1).and change(AnswerSheet,
-                                              :count).by(-1).and change(Quiz,
-                                                                        :count).by(0).and change(Answer, :count).by(0)
+      end.to
+      change(UserQuiz, :count).by(-1).and
+      change(AnswerSheet, :count).by(-1).and
+      change(Quiz, :count).by(0).and
+      change(Answer, :count).by(0)
     end
   end
 end
