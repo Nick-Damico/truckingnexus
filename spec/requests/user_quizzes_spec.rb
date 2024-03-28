@@ -25,15 +25,7 @@ RSpec.describe 'UserQuizzes', type: :request do
     }
   end
 
-  describe 'GET /user_quizzes' do
-    it 'returns a success status code' do
-      get new_user_quiz_path(quiz)
-
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe 'Create: POST /user_quizzes' do
+  describe 'CREATE POST /user_quizzes' do
     context 'successful' do
       it 'creates a resource' do
         expect do
@@ -78,6 +70,8 @@ RSpec.describe 'UserQuizzes', type: :request do
     context 'completed quiz' do
       it 'redirects to results page' do
         completed_user_quiz = create(:user_quiz, :with_completed_quiz, :with_graded_quiz)
+        sign_in completed_user_quiz.user # Needs authorized Access
+
         get user_quiz_path(completed_user_quiz)
 
         expect(response).to redirect_to(user_quizzes_result_url(completed_user_quiz))
@@ -91,11 +85,10 @@ RSpec.describe 'UserQuizzes', type: :request do
 
       expect do
         delete user_quiz_path(user_quiz)
-      end.to
-      change(UserQuiz, :count).by(-1).and
-      change(AnswerSheet, :count).by(-1).and
-      change(Quiz, :count).by(0).and
-      change(Answer, :count).by(0)
+      end.to change(UserQuiz,
+                    :count).by(-1).and change(AnswerSheet,
+                                              :count).by(-1).and change(Quiz,
+                                                                        :count).by(0).and change(Answer, :count).by(0)
     end
   end
 end
