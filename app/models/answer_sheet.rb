@@ -16,9 +16,9 @@ class AnswerSheet < ApplicationRecord
   def self.generate_answer_sheet_questions(answer_sheet)
     return nil unless answer_sheet && (quiz = answer_sheet.user_quiz.quiz)
 
-    quiz.questions.each do |question|
-      answer_sheet.answer_sheet_questions.create(question:)
-    end
+    answer_sheet.answer_sheet_questions.insert_all(
+      quiz.questions.map { |question| { question_id: question.id } }
+    )
   end
 
   def completed?
