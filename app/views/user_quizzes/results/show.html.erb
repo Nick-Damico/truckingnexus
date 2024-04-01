@@ -8,7 +8,8 @@
   </div>
   <h1 class='text-3xl mb-4'><%= @user_quiz.quiz.name %><br>Summary</h1>
   <div class='mb-4'>
-    <%= pie_chart [['Correct', correct_answer_count(@user_quiz.answer_sheet)], ['Missed', incorrect_answer_count(@user_quiz.answer_sheet)]], colors: ['rgb(16 185 129)', 'rgb(239 68 68)'] %>
+    <%= pie_chart [['Correct', correct_answer_count(@user_quiz.answer_sheet)], ['Missed', incorrect_answer_count(@user_quiz.answer_sheet)]],
+                  colors: ['rgb(16 185 129)', 'rgb(239 68 68)'] %>
   </div>
   <p class='text-2xl mb-4'>
     Score: <%= @user_quiz.score %>%
@@ -27,7 +28,7 @@
       <ul class='px-2 max-h-52 overflow-y-scroll'>
         <%= render  partial: 'correct_item',
                     collection: @user_quiz.answer_sheet.correct_questions,
-                    as: :answer_sheet_question %>
+                    as: :answer_sheet_question, cache: true %>
       </ul>
     </section>
 
@@ -41,7 +42,7 @@
       <ul class='px-2 max-h-52 overflow-y-scroll'>
         <%= render  partial: 'incorrect_item',
                     collection: @user_quiz.answer_sheet.incorrect_questions,
-                    as: :answer_sheet_question %>
+                    as: :answer_sheet_question, cache: true %>
       </ul>
     </section>
 
