@@ -5,7 +5,7 @@ class Review < ApplicationRecord
   NO_RATING_DEFAULT_VALUE = 0
 
   belongs_to :reviewer, class_name: 'User'
-  belongs_to :reviewable, polymorphic: true
+  belongs_to :reviewable, polymorphic: true, touch: true
 
   validates :title, presence: true
   validates :content, presence: true
