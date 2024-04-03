@@ -2,122 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  /* UTILITIES */
-  .wrapper {
-    @apply max-w-screen-2xl m-auto;
-  }
+/* UTILITIES */
+.wrapper {
+  @apply max-w-screen-2xl m-auto;
+}
 
-  /* FORMS */
-  .form-group {
-    @apply flex flex-col items-stretch mb-2;
-  }
-  .field_with_errors > input[type='text'] {
-    @apply bg-red-400;
-  }
+/* FORMS */
+.form-group {
+  @apply flex flex-col items-stretch mb-2;
+}
+div.field_with_errors > input[type='text'],
+div.field_with_errors > input[type='password'] {
+  @apply bg-red-400;
+}
 
-  .label-field {
-    @apply block text-gray-700 text-sm font-bold mb-2;
-  }
+.label-field {
+  @apply block text-gray-700 text-sm font-bold mb-2;
+}
 
-  .input-field,
-  .text-area {
-    @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
-  }
+.input-field,
+.text-area {
+  @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+}
 
-  .text-area {
-    @apply min-h-28;
-  }
+.text-area {
+  @apply min-h-28;
+}
 
-  /* FORMS/REVIEW */
-  .star-icon--active {
-    @apply fill-yellow-400 !important;
-  }
+/* FORMS/REVIEW */
+.star-icon--active {
+  @apply fill-yellow-400 !important;
+}
 
-  .review__score {
-    @apply box-border w-[74px] hidden md:inline-block rounded-full p-6 border border-gray-400 bg-gray-300 self-start;
-  }
+.review__score {
+  @apply box-border w-[74px] hidden md:inline-block rounded-full p-6 border border-gray-400 bg-gray-300 self-start;
+}
 
-  /* BUTTONS */
-  .btn {
-    @apply inline-flex w-fit text-sm items-center text-white text-center px-3 py-2 font-medium rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300;
-  }
+/* BUTTONS */
+.btn {
+  @apply inline-flex w-fit text-sm items-center text-white text-center px-3 py-2 font-medium rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300;
+}
 
-  .btn--sq {
-    @apply rounded-none;
-  }
+.btn--sq {
+  @apply rounded-none;
+}
 
-  .btn--sml {
-    @apply py-1 px-2;
-  }
+.btn--sml {
+  @apply py-1 px-2;
+}
 
-  .btn--md {
-    @apply py-2 px-4;
-  }
+.btn--md {
+  @apply py-2 px-4;
+}
 
-  .btn--lg {
-    @apply py-3 px-6;
-  }
+.btn--lg {
+  @apply py-3 px-6;
+}
 
-  .btn--transparent {
-    @apply border border-white hover:bg-white hover:text-sky-500 duration-300 ease-in-out transition-all;
-  }
+.btn--transparent {
+  @apply border border-white hover:bg-white hover:text-sky-500 duration-300 ease-in-out transition-all;
+}
 
-  .btn--disabled {
-    @apply cursor-not-allowed bg-gray-400 !important;
-  }
+.btn--disabled {
+  @apply cursor-not-allowed bg-gray-400 !important;
+}
 
-  .btn--primary {
-    @apply bg-blue-500 hover:bg-blue-700;
-  }
+.btn--primary {
+  @apply bg-blue-500 hover:bg-blue-700;
+}
 
-  .btn--save {
-    @apply bg-emerald-500 hover:bg-emerald-600;
-  }
+.btn--save {
+  @apply bg-emerald-500 hover:bg-emerald-600;
+}
 
-  .btn--alert {
-    @apply bg-red-400 hover:bg-red-500;
-  }
+.btn--alert {
+  @apply bg-red-400 hover:bg-red-500;
+}
 
-  /* NAVIGATION */
-  .main-nav_link--selected {
-    @apply font-bold bg-sky-400 !important;
-  }
+/* NAVIGATION */
+.main-nav_link--selected {
+  @apply font-bold bg-sky-400 !important;
+}
 
-  .drop-down--closed {
-    @apply -top-[11rem] !important;
-  }
+.drop-down--closed {
+  @apply -top-[11rem] !important;
+}
 
-  .profile-nav_link--selected {
-    @apply bg-sky-500 text-white;
-  }
+.profile-nav_link--selected {
+  @apply bg-sky-500 text-white;
+}
 
-  .h-nav_drop-down--closed {
-    @apply max-h-[80px] !important;
-  }
+.h-nav_drop-down--closed {
+  @apply max-h-[80px] !important;
+}
 
-  .h-reset {
-    @apply h-auto !important;
-  }
+.h-reset {
+  @apply h-auto !important;
+}
 
-  /* FLASH MESSAGES */
-  .bg-flash {
-    @apply text-white;
-  }
+/* FLASH MESSAGES */
+.bg-flash {
+  @apply text-white;
+}
 
-  .bg-flash--alert {
-    @apply bg-red-400;
-  }
+.bg-flash--alert {
+  @apply bg-red-400;
+}
 
-  .bg-flash--info {
-    @apply bg-sky-400;
-  }
+.bg-flash--info {
+  @apply bg-sky-400;
+}
 
-  .bg-flash--notice {
-    @apply bg-emerald-400;
-  }
+.bg-flash--notice {
+  @apply bg-emerald-400;
+}
 
-  .flash-dismiss-animation {
-    @apply transition-all translate-x-12 opacity-0 duration-500 ease-out;
-  }
+.flash-dismiss-animation {
+  @apply transition-all translate-x-12 opacity-0 duration-500 ease-out;
 }
