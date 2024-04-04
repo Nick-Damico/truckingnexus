@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :companies, only: %i[index show] do
     resources :reviews, module: :companies
   end
-  resources :quizzes, only: [:index]
+  resources :quizzes, only: %i[index new]
   resources :user_quizzes, only: %i[index create show destroy]
   namespace :user_quizzes do
     resources :results, only: %i[show]
