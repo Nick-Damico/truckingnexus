@@ -3,4 +3,11 @@
     <%= f.label :title, class: 'label-field' %>
     <%= f.text_field :title, class: 'input-field' %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: 'label-field' %>
+    <%= f.text_area :description, class: 'text-area' %>
+  </div>
+
+  <%= f.submit quiz_submit_btn_text(@quiz), class: 'btn btn--save' %>
 <% end %>

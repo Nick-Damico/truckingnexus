@@ -16,4 +16,8 @@ module QuizzesHelper
         content_tag(:span, render_icon(icon_name, classes: 'w-4'))
     end
   end
+
+  def quiz_submit_btn_text(quiz)
+    quiz.persisted? ? 'Update Quiz' : 'Save Draft'
+  end
 end
