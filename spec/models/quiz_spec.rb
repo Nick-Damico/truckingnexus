@@ -13,4 +13,10 @@ RSpec.describe Quiz, type: :model do
   it 'has a valid factory' do
     expect(subject).to be_valid
   end
+
+  it 'defaults to Draft true for new records' do
+    subject.save
+
+    expect(subject.draft).to eq true
+  end
 end

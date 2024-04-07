@@ -42,11 +42,13 @@ puts 'SEEDING QUIZZES'
 
 combo_quiz = Quiz.find_or_create_by!(
   name: 'Combination Endorsement',
-  description: 'Test your knowledge of combination vehicles with our CDL quiz. Challenge yourself with questions about coupling and uncoupling procedures, and safe driving practices for these complex commercial vehicles.'
+  description: 'Test your knowledge of combination vehicles with our CDL quiz. Challenge yourself with questions about coupling and uncoupling procedures, and safe driving practices for these complex commercial vehicles.',
+  draft: false
 )
 airbrake_quiz = Quiz.find_or_create_by!(
   name: 'Airbrake Endorsement',
-  description: 'Take our CDL airbrake quiz to assess your understanding of air brake systems used in commercial vehicles. Explore topics like air brake components, maintenance, and proper operation to ensure safe and efficient braking.'
+  description: 'Take our CDL airbrake quiz to assess your understanding of air brake systems used in commercial vehicles. Explore topics like air brake components, maintenance, and proper operation to ensure safe and efficient braking.',
+  draft: false
 )
 
 combo_questions_data = [
