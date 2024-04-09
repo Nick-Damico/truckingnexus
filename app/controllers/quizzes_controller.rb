@@ -2,6 +2,7 @@
 
 class QuizzesController < ApplicationController
   before_action :authenticate_user!, only: %i[new]
+  before_action :set_quiz, only: %i[show]
 
   def index
     @quizzes = Quiz.all
@@ -22,9 +23,15 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def show; end
+
   private
 
   def quiz_params
     params.require(:quiz).permit(:name, :description)
+  end
+
+  def set_quiz
+    @quiz = Quiz.find(params[:id])
   end
 end
