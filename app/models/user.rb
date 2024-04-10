@@ -12,10 +12,11 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [100, 100]
   end
 
-  has_many :user_quizzes
-  has_many :quizzes, through: :user_quizzes
+  has_many :authored_quizzes, class_name: 'Quiz', foreign_key: :author_id
   has_many :employment_histories, foreign_key: :employee_id
   has_many :employers, through: :employment_histories
+  has_many :user_quizzes
+  has_many :quizzes, through: :user_quizzes
   has_many :reviews, foreign_key: :reviewer_id
 
   validates :username, uniqueness: true, allow_nil: true

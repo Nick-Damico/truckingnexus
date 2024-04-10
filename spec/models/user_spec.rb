@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject { create(:user) }
 
+  it { should have_many(:authored_quizzes) }
   it { should have_many(:quizzes).through(:user_quizzes) }
   it { should have_many(:employers).through(:employment_histories) }
   it { should have_many(:reviews) }

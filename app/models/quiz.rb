@@ -6,6 +6,8 @@ class Quiz < ApplicationRecord
   #       that can be configured.
   PASSING_SCORE = 70
 
+  belongs_to :author, class_name: 'User'
+
   has_many :questions
   has_many :user_quizzes
   has_many :users, through: :user_quizzes
