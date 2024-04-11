@@ -18,7 +18,7 @@
         <tr>
           <td><%= review.title %></td>
           <td><%= review.reviewable_type.capitalize %></td>
-          <td class='flex mb-4 p-1'><%= rating_stars(rating: review.rating) %></td>
+          <td class='flex'><%= rating_stars(rating: review.rating) %></td>
           <td><%= format_date(review.created_at) %></td>
           <td class='float-right'>
             <%= link_to 'View', polymorphic_path(review.reviewable), class: 'btn btn--primary btn--sml' %>
