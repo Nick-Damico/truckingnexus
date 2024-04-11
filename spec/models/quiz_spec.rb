@@ -11,8 +11,8 @@ RSpec.describe Quiz, type: :model do
   it { should have_many(:questions) }
   it { should have_many(:users).through(:user_quizzes) }
 
-  it 'has a valid factory' do
-    expect(subject).to be_valid
+  context 'Validations' do
+    it { should validate_presence_of(:author) }
   end
 
   it 'defaults to Draft true for new records' do

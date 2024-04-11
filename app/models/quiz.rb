@@ -12,6 +12,7 @@ class Quiz < ApplicationRecord
   has_many :user_quizzes
   has_many :users, through: :user_quizzes
 
+  validates :author, presence: true
   validates :name, presence: true
   validates :name, uniqueness: true
 end
