@@ -103,7 +103,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_09_013646) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.boolean "draft", default: true
-    t.bigint "author_id"
+    t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_quizzes_on_author_id"
     t.index ["draft"], name: "index_quizzes_on_draft"
     t.index ["name"], name: "index_quizzes_on_name", unique: true
