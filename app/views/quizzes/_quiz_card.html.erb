@@ -14,7 +14,7 @@
       <% if (active_quiz = current_user.user_quizzes.active.find_by(quiz:)) %>
         <%= user_quiz_button(user_quiz: active_quiz) %>
       <% else %>
-        <%= quiz_start_button(quiz:) %>
+        <%= quiz_button(quiz:) %>
       <% end %>
     </div>
   <% end %>

@@ -6,6 +6,12 @@ module QuizzesHelper
     int_to_char(idx)
   end
 
+  def quiz_button(quiz:, user: current_user, **)
+    return link_to 'Edit Draft', quiz_path(quiz), class: 'btn btn--primary' if quiz.draft?
+
+    quiz_start_button(quiz:, user:, **)
+  end
+
   def quiz_start_button(quiz:, user: current_user, **kwargs)
     text = kwargs[:text] || 'Start Quiz'
     icon_name = kwargs[:icon] || 'right_arrow'
