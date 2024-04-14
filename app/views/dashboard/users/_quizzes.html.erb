@@ -5,6 +5,20 @@
   </section>
 
   <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
+    <h2 class='text-xl font-semibold mb-1'>Your Quizzes</h2>
+    <% if (authored_quizzes = user.authored_quizzes) && (authored_quizzes.any?) %>
+
+      <%= render  partial: 'quizzes/tables/authored',
+                  locals: { authored_quizzes: } %>
+
+    <% else %>
+
+      <p class="italic text-gray-500">No Active Quizzes</p>
+
+    <% end %>
+  </section>
+
+  <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
     <h2 class='text-xl font-semibold mb-1'>In Progress Quizzes</h2>
     <% if (active_quizzes = user.user_quizzes.active) && (active_quizzes.any?) %>
 

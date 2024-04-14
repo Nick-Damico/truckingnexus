@@ -23,6 +23,8 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def edit; end
+
   def show; end
 
   private

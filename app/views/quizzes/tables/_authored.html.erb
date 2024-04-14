@@ -1,0 +1,20 @@
+<table class="w-full text-sm text-left text-gray-500 border-separate border-spacing-2">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class='text-right'>Created At</th>
+      <th class='text-right'>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% authored_quizzes.each do |quiz| %>
+      <tr>
+        <td><%= quiz.name %></td>
+        <td class='text-right'><%= format_date(quiz.created_at) %></td>
+        <td class='text-right'>
+          <%= link_to 'Edit', edit_quiz_path(quiz), class: 'btn btn--primary btn--sml' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
