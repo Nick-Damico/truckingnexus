@@ -16,10 +16,9 @@ module QuizzesHelper
     text = kwargs[:text] || 'Start Quiz'
     icon_name = kwargs[:icon] || 'right_arrow'
 
-    button_to(user_quizzes_path(user_quiz: { quiz_id: quiz.id, user_id: user.id }),
-              class: 'btn btn--save') do
-      content_tag(:span, text, class: 'mr-2') +
-        content_tag(:span, render_icon(icon_name, classes: 'w-4'))
+    button_to(user_quizzes_path(user_quiz: { quiz_id: quiz.id, user_id: user.id }), class: 'btn btn--save') do
+      concat content_tag(:span, text, class: 'mr-2')
+      concat content_tag(:span, render_icon(icon_name, classes: 'w-4'))
     end
   end
 
