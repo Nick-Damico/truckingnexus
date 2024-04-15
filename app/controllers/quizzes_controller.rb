@@ -5,7 +5,7 @@ class QuizzesController < ApplicationController
   before_action :set_quiz, only: %i[show]
 
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.published
   end
 
   def new

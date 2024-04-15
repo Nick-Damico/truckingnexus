@@ -15,4 +15,7 @@ class Quiz < ApplicationRecord
   validates :author, presence: true
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  scope :published, -> { where(draft: false) }
+  scope :draft, -> { where(draft: true) }
 end
