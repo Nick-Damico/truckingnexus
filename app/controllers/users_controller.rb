@@ -52,9 +52,18 @@ class UsersController < ApplicationController
   end
 
   def set_resources
-    @companies = Company.order(:name)
-    @employment_history = EmploymentHistory.new(current: true)
-    @current_employer = @user.current_employer
+    return unless params[:page_content]
+
+    case params[:page_content]
+    when 'profile'
+      @companies          = Company.order(:name)
+      @employment_history = EmploymentHistory.new(current: true)
+      @current_employer   = @user.current_employer
+    when 'quizzes'
+      @authored_quizzes   = @user.authored_quizzes
+      @active_quizzes     = @user.user_quizzes.active
+      @completed_quizzes  = @user.user_quizzes.completed_last_30_days.order(completed_at: :desc)
+    end
   end
 
   def params_has_current_employer?
