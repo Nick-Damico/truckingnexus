@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :companies, only: %i[index show] do
     resources :reviews, module: :companies
   end
-  resources :quizzes, only: %i[index new create edit show]
+
+  resources :quizzes, only: %i[index new create edit show] do
+    resources :questions, only: %i[create index]
+  end
+
   resources :user_quizzes, only: %i[index create show destroy]
   namespace :user_quizzes do
     resources :results, only: %i[show]
