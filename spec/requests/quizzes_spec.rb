@@ -40,7 +40,7 @@ RSpec.describe 'Quizzes', type: :request do
 
     context 'valid params' do
       let(:valid_params) do
-        { quiz: { name: quiz.name, description: quiz.description } }
+        { quiz: { author_id: user.id, name: quiz.name, description: quiz.description } }
       end
 
       it 'responds with HTTP status redirect(302)' do

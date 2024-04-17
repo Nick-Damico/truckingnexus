@@ -1,4 +1,4 @@
-<%= form_with model: @quiz do |f| %>
+  <%= f.hidden_field :author_id, value: current_user.id %>
   <div class="form-group">
     <%= f.label :name, 'Title', class: 'label-field' %>
     <%= f.text_field :name, class: 'input-field' %>
