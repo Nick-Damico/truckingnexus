@@ -32,7 +32,8 @@
 en:
   hello: 'Hello world'
   flash:
-    unauthorized_access: 'Access denied. You are not authorized to view this page.'
+    unauthorized_access: 'Access denied. You are not authorized to view this page'
+    successfully_created: '%{model_name} was successfully created'
 
   helpers:
     submit:
