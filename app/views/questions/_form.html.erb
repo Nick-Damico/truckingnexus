@@ -1,0 +1,17 @@
+<%= form_with model: [quiz, question]  do |ff| %>
+  <h2 class='text-xl mb-2 font-semibold'>Add Question</h2>
+  <div class="form-group">
+    <%= ff.label :question, 'Question', class: 'label-field' %>
+    <%= ff.text_field :content, class: 'text-field',
+                                placeholder: 'example: Why drain water from the compressed air tanks?' %>
+  </div>
+  <% 2.times { ff.object.answers.build } %>
+  <%= ff.fields_for :answers, ff.object.answers do |ffa| %>
+    <div class="form-group">
+      <%= ffa.label :content, 'Answer', class: 'label-field' %>
+      <%= ffa.text_field :content, class: 'text-field' %>
+    </div>
+  <% end %>
+
+  <%= ff.submit class: 'btn btn--save' %>
+<% end %>

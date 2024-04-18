@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :quizzes, only: %i[index new create edit show] do
-    resources :questions, only: %i[create index]
+    resources :questions, only: %i[create new index]
   end
 
   resources :user_quizzes, only: %i[index create show destroy]
