@@ -2,7 +2,7 @@
 
 class QuizzesController < ApplicationController
   before_action :authenticate_user!, only: %i[new]
-  before_action :set_quiz, only: %i[show]
+  before_action :set_quiz, only: %i[show edit]
 
   def index
     @quizzes = Quiz.published
