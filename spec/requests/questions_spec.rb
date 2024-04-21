@@ -40,7 +40,8 @@ RSpec.describe 'Questions', type: :request do
 
     context 'valid params' do
       let(:valid_params) do
-        { question: { content: 'Is it Safe?', quiz_id: quiz.id } }
+        { question: { content: 'Is it Safe?', quiz_id: quiz.id,
+                      answers_attributes: { '0': { content: 'Foo' }, '1': { content: 'Bar' } } } }
       end
 
       it 'responds with HTTP status redirect(302)' do
@@ -52,7 +53,7 @@ RSpec.describe 'Questions', type: :request do
       it 'creates a new record & redirects to show action' do
         expect do
           post(quiz_questions_path(quiz), params: valid_params)
-        end.to change(Question, :count).by(1)
+        end.to change(Question, :count).by(1).and change(Answer, :count).by(2)
 
         expect(response).to redirect_to(quiz_path(assigns[:quiz]))
         expect(flash[:notice]).to eq 'Question was successfully created'
