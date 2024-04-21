@@ -20,7 +20,7 @@ RSpec.shared_examples 'Authorized Routes' do
       authorized_routes.each do |route|
         get route
 
-        expect(flash[:alert]).to eq('Access denied. You are not authorized to view this page.') # Adjust the flash message as per your application
+        expect(flash[:alert]).to eq(I18n.t('flash.unauthorized_access')) # Adjust the flash message as per your application
       end
     end
   end
