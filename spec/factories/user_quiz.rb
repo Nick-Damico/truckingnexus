@@ -12,7 +12,7 @@ FactoryBot.define do
     after(:create) do |user_quiz, _eval|
       user_quiz.prep_for_quiz
       user_quiz.answer_sheet_questions.each do |as_question|
-        as_question.update(answer: as_question.question.correct_answer)
+        as_question.update(answer: as_question.question.answers.find_by(correct: true))
       end
     end
   end
@@ -21,8 +21,7 @@ FactoryBot.define do
     after(:create) do |user_quiz|
       user_quiz.prep_for_quiz
       user_quiz.answer_sheet_questions.each do |as_question|
-        correct_answer_id = as_question.question.correct_answer_id
-        as_question.update(answer: as_question.question.answers.where.not(id: correct_answer_id).first)
+        as_question.update(answer: as_question.question.answers.where(correct: false).first)
       end
     end
   end

@@ -11,7 +11,7 @@ RSpec.describe 'AnswerSheetQuestions', type: :request do
   let!(:answer_sheet_question) { answer_sheet.answer_sheet_questions.first }
 
   let!(:valid_params) do
-    correct_answer = answer_sheet_question.question.correct_answer
+    correct_answer = answer_sheet_question.question.answers.correct.first
     {
       answer_sheet_question: {
         answer_id: correct_answer.id

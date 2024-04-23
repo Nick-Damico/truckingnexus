@@ -34,10 +34,7 @@ class AnswerSheet < ApplicationRecord
   end
 
   def correct_questions
-    answer_sheet_questions
-      .includes(:answer, :question)
-      .where('answer_sheet_questions.answer_id = questions.correct_answer_id')
-      .references(:questions)
+    answer_sheet_questions.includes(:answer, :question).where(answers: { correct: true })
   end
 
   def correct_answer_count
@@ -45,10 +42,7 @@ class AnswerSheet < ApplicationRecord
   end
 
   def incorrect_questions
-    answer_sheet_questions
-      .includes(:answer, { question: :correct_answer })
-      .where('answer_id != questions.correct_answer_id')
-      .references(:questions)
+    answer_sheet_questions.includes(:answer).where(answers: { correct: false })
   end
 
   def incorrect_answer_count
