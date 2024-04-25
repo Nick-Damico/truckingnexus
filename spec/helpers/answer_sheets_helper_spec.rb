@@ -9,8 +9,8 @@ RSpec.describe AnswerSheetsHelper, type: :helper do
   describe '#correct_answer_count' do
     it 'returns the number of correct answers' do
       answer_sheet = user_quiz.answer_sheet
-      correct_answer =
-        answer_sheet.answer_sheet_questions.first.question.correct_answer
+      questions = answer_sheet.questions
+      correct_answer = questions.first.answers.where(correct: true).first
 
       answer_sheet.answer_sheet_questions.first.update(answer: correct_answer)
 
@@ -22,11 +22,7 @@ RSpec.describe AnswerSheetsHelper, type: :helper do
     it 'returns the number of incorrect answers' do
       answer_sheet = user_quiz.answer_sheet
       question = answer_sheet.answer_sheet_questions.first.question
-      incorrect_answer =
-        Answer.joins(:question)
-              .where(question:)
-              .where.not(id: question.correct_answer)
-              .first
+      incorrect_answer = Answer.where(question:, correct: false).first
 
       answer_sheet.answer_sheet_questions.first.update(answer: incorrect_answer)
 
