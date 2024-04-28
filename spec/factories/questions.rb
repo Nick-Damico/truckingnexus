@@ -6,10 +6,8 @@ FactoryBot.define do
     content { Faker::Lorem.sentence }
 
     after(:build) do |question, _evaluator|
-      answers = build_list(:answer, 2)
-      answers.first.correct = true
-
-      question.answers << answers
+      question.answers << build(:answer, correct: true)
+      question.answers << build(:answer)
     end
   end
 end

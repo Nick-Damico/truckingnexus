@@ -14,4 +14,10 @@ RSpec.describe Question, type: :model do
   it 'should have a valid factory' do
     expect(subject).to be_valid
   end
+
+  describe '#correct_answer' do
+    it 'returns correct answer' do
+      expect(subject.correct_answer.correct?).to eq true
+    end
+  end
 end
