@@ -42,7 +42,7 @@ class AnswerSheet < ApplicationRecord
   end
 
   def incorrect_questions
-    answer_sheet_questions.includes(:answer).where(answers: { correct: false })
+    answer_sheet_questions.includes(:question, :answer).where(answers: { correct: false })
   end
 
   def incorrect_answer_count
