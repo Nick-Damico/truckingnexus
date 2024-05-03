@@ -6,4 +6,6 @@ class AnswerSheetQuestion < ApplicationRecord
   belongs_to :question
 
   scope :unanswered_questions, -> { where(answer_id: nil) }
+
+  delegate :correct_answer, to: :question
 end
