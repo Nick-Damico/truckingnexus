@@ -1151,11 +1151,9 @@ puts 'SEEDING QUIZ ANSWERS'
 
 [combo_questions_data, airbrake_questions_data].each do |question_data|
   question_data.each do |data|
-    # question = Question.find_by(content: data[:content])
-    # question.correct_answer = Answer.find_by(content: data[:correct_answer], question_id: question.id)
-    # question.save!
+    question = Question.find_by(content: data[:content])
     content = data[:answers][data[:correct_answer_index]]
-    answer = Answer.find_by_content(content)
+    answer = question.answers.find_by_content(content)
     answer.update_column(:correct, true)
   end
 end
