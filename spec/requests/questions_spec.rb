@@ -35,6 +35,14 @@ RSpec.describe 'Questions', type: :request do
     end
   end
 
+  describe 'GET /quizzes/:quiz_id/questions/:id/edit' do
+    it 'responds with HTTP Status success(200)' do
+      get edit_quiz_question_path(quiz, quiz.questions.first)
+
+      expect(response).to have_http_status(200)
+    end
+  end
+
   describe 'POST /quizzes/:quiz_id/questions' do
     before { sign_in quiz_author }
 
