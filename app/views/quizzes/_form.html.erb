@@ -14,7 +14,18 @@
 <% end %>
 
 <% if quiz.persisted? %>
-  <div class='border border-zinc-300 p-2'>
-    <%= render 'questions/form', quiz: @quiz, question: @quiz.questions.build %>
-  </div>
+  <% if quiz.questions.any? %>
+  <%= turbo_frame_tag :question_form do %>
+    <div class="questions">
+      <h2>Quiz Questions</h2>
+      <% quiz.questions.each do |question| %>
+        <%= render 'questions/question', question: %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% else %>
+    <p>Quiz has no questions</p>
+  <% end %>
+
 <% end %>

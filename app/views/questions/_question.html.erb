@@ -1,0 +1,7 @@
+<div class="question">
+  <h3 class="question__content"><%= question.content %></h3>
+  <div>
+    <%= link_to 'Edit', edit_quiz_question_path(question.quiz_id, question), class: 'btn btn--sml btn--primary',
+                                                                             data: { turbo_frame: :question_form } %>
+  </div>
+</div>
