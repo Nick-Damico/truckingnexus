@@ -27,7 +27,9 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @question.build_answers if @question.answers.none?
+  end
 
   def update; end
 

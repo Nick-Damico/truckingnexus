@@ -12,4 +12,8 @@ class Question < ApplicationRecord
   def correct_answer
     answers.find_by_correct(true)
   end
+
+  def build_answers(count = 2)
+    count.times { @question.answers.build }
+  end
 end

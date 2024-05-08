@@ -7,7 +7,6 @@
                                   placeholder: 'example: Why drain water from the compressed air tanks?' %>
     </div>
 
-    <% 2.times { ff.object.answers.build } %>
     <%= ff.fields_for :answers, ff.object.answers do |ffa| %>
       <div class="form-group">
         <%= ffa.label :content, 'Answer', class: 'label-field' %>
