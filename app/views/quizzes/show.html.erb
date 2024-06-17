@@ -1,1 +1,12 @@
-<h2><%= @quiz.name %></h2>
+
+<div class="relative overflow-x-auto mb-20 bg-white rounded-lg p-6">
+  <section class='rating flex flex-col border-b pb-8 mb-8'>
+    <h2 class='font-semibold'>Title: <%= @quiz.name %></h2>
+    <div>
+      Description:
+      <p>
+        <%= @quiz.description %>
+      </p>
+    </div>
+  </section>
+</div>
