@@ -85,7 +85,7 @@ RSpec.describe 'Questions', type: :request do
       it 'responds with HTTP status unprocessable entity(422)' do
         post(quiz_questions_path(quiz), params: invalid_params)
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(422)
         expect(flash.now[:alert]).to_not be_empty
       end
     end
