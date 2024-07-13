@@ -16,11 +16,11 @@ The application should aid the driver with logging. The aid provided should incl
 
 The application will provide the driver with a place to electronically transfer logs in PDF form or print in PDF form.
 
-### Feature List
+### Feature List - (What your software is supposed to do)
 
     1. Application needs to represent a log sheet.
     2. It must track the date of the log sheets.
-    3. It should use the log sheet dates to construct a 7 day time line for validation of FMSCA regulations.
+    3. It should use the log sheets to construct a 7 day time line for validation of FMSCA regulations.
     4. It provides a form to user to record their daily driver activity.
     5. It validates required information when entering a logsheet.
     6. It provides the user view of the logsheet in FMCSA format as well as a way to print to pdf.
