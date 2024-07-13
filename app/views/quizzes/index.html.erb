@@ -12,11 +12,6 @@
       Start your preparation by practicing with our quizzes below.
     <% end %>
   </p>
-  <div>
-    <h2 class='text-lg mb-2 font-semibold'>Design a Quiz</h2>
-    <p class='max-w-prose mb-2'>Can you design a better quiz? If so, help your fellow students reach their goals by designing a quiz to help them study, or design a quiz that better helps you prepare for your upcoming tests.</p>
-    <%= link_to 'Create Quiz', new_quiz_path, class: 'btn btn--save btn--sml' %>
-  </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-2">
   <%= render partial: 'quiz_card', collection: @quizzes, as: 'quiz' %>

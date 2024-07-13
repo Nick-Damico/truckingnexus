@@ -4,7 +4,10 @@
     <p class='pb-2 mb-6'>An overview of your quiz results.</p>
   </section>
 
-  <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
+  <%
+=begin
+  %>
+ <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
     <h2 class='text-xl font-semibold mb-1'>Your Quizzes</h2>
     <% if @authored_quizzes.any? %>
 
@@ -17,6 +20,9 @@
 
     <% end %>
   </section>
+<%
+=end
+%>
 
   <section class='p-4 bg-white border border-zinc-300 rounded-lg'>
     <h2 class='text-xl font-semibold mb-1'>In Progress Quizzes</h2>
