@@ -27,4 +27,10 @@ class User < ApplicationRecord
   def current_employer
     employment_histories.find_by(current: true)&.employer
   end
+
+  def full_name
+    return nil unless first_name.present? && last_name.present?
+
+    "#{first_name} #{last_name}"
+  end
 end
