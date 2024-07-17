@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_14_144852) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_17_014102) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,6 +78,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_14_144852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_companies_on_name", unique: true
+  end
+
+  create_table "driver_logs", force: :cascade do |t|
+    t.datetime "started_at", null: false
+    t.datetime "ended_at", null: false
+    t.bigint "user_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "employee_number"
+    t.integer "total_miles"
+    t.integer "tractor_number"
+    t.integer "trailer_number_1"
+    t.integer "trailer_number_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_driver_logs_on_user_id"
   end
 
   create_table "employment_histories", force: :cascade do |t|
@@ -156,6 +172,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_14_144852) do
   add_foreign_key "answer_sheet_questions", "questions"
   add_foreign_key "answer_sheets", "user_quizzes"
   add_foreign_key "answers", "questions"
+  add_foreign_key "driver_logs", "users"
   add_foreign_key "employment_histories", "companies", column: "employer_id"
   add_foreign_key "employment_histories", "users", column: "employee_id"
   add_foreign_key "questions", "quizzes"
