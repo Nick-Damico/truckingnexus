@@ -3,7 +3,7 @@ class CreateDriverLogs < ActiveRecord::Migration[7.1]
     create_table :driver_logs do |t|
       t.datetime :started_at, null: false
       t.datetime :ended_at, null: false
-      t.references :user, null: false, foreign_key: true
+      t.references :driver, null: false, foreign_key: { to_table: :users }
       t.string :first_name
       t.string :last_name
       t.integer :employee_number

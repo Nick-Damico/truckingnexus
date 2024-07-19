@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_014102) do
   create_table "driver_logs", force: :cascade do |t|
     t.datetime "started_at", null: false
     t.datetime "ended_at", null: false
-    t.bigint "user_id", null: false
+    t.bigint "driver_id", null: false
     t.string "first_name"
     t.string "last_name"
     t.integer "employee_number"
@@ -93,7 +93,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_014102) do
     t.integer "trailer_number_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_driver_logs_on_user_id"
+    t.index ["driver_id"], name: "index_driver_logs_on_driver_id"
   end
 
   create_table "employment_histories", force: :cascade do |t|
@@ -172,7 +172,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_014102) do
   add_foreign_key "answer_sheet_questions", "questions"
   add_foreign_key "answer_sheets", "user_quizzes"
   add_foreign_key "answers", "questions"
-  add_foreign_key "driver_logs", "users"
+  add_foreign_key "driver_logs", "users", column: "driver_id"
   add_foreign_key "employment_histories", "companies", column: "employer_id"
   add_foreign_key "employment_histories", "users", column: "employee_id"
   add_foreign_key "questions", "quizzes"

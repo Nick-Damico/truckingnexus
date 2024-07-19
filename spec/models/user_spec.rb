@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
   it { should allow_value(nil).for(:last_name) }
 
   it { should have_many(:authored_quizzes) }
+  it { should have_many(:driver_logs) }
   it { should have_many(:quizzes).through(:user_quizzes) }
   it { should have_many(:employers).through(:employment_histories) }
   it { should have_many(:reviews) }
