@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_17_014102) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_20_152919) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "activity_type", ["on_duty", "driving", "off_duty", "sleeper"]
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -96,6 +100,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_014102) do
     t.index ["driver_id"], name: "index_driver_logs_on_driver_id"
   end
 
+  create_table "duty_statuses", force: :cascade do |t|
+    t.bigint "driver_log_id", null: false
+    t.enum "activity", null: false, enum_type: "activity_type"
+    t.datetime "started_at", null: false
+    t.datetime "ended_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["driver_log_id"], name: "index_duty_statuses_on_driver_log_id"
+  end
+
   create_table "employment_histories", force: :cascade do |t|
     t.bigint "employee_id", null: false
     t.bigint "employer_id", null: false
@@ -173,6 +187,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_014102) do
   add_foreign_key "answer_sheets", "user_quizzes"
   add_foreign_key "answers", "questions"
   add_foreign_key "driver_logs", "users", column: "driver_id"
+  add_foreign_key "duty_statuses", "driver_logs"
   add_foreign_key "employment_histories", "companies", column: "employer_id"
   add_foreign_key "employment_histories", "users", column: "employee_id"
   add_foreign_key "questions", "quizzes"
