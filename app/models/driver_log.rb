@@ -4,6 +4,9 @@ class DriverLog < ApplicationRecord
   belongs_to :driver, class_name: 'User'
   has_many :duty_statuses
 
+  validates :started_at, :ended_at, presence: true
+  validate :start_and_end_dates
+
   after_initialize :set_start_and_end_times
 
   validates :started_at, :ended_at, presence: true
