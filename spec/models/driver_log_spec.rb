@@ -12,7 +12,7 @@ RSpec.describe DriverLog, type: :model do
     it { should validate_presence_of(:started_at) }
     it { should validate_presence_of(:ended_at) }
 
-    describe '#start_and_end_times' do
+    describe '#dates_within_24_hours' do
       context 'start and end times represent a 24-hour peroid' do
         it 'does not set an error if times are valid' do
           driver_log = build(:driver_log)
