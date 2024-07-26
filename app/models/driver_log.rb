@@ -20,7 +20,9 @@ class DriverLog < ApplicationRecord
 
   def start_and_end_dates
     return unless started_at.present? && ended_at.present?
-    return if ((ended_at - started_at) / 1.hour.to_i).ceil == 24
+
+    log_date_range = DateRange.new(start_date: started_at, end_date: ended_at)
+    return if log_date_range.total_hours == 24.hours
 
     errors.add(:base, 'Start and End times must be within a 24-hour period')
   end
