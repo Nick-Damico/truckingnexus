@@ -13,4 +13,11 @@ class DutyStatus < ApplicationRecord
   validates :started_at, :ended_at, presence: true
   validate :start_time_within_log_range
 
+  private
+
+  def start_time_within_log_range
+    return if driver_log.date_range.include?(started_at)
+
+    errors.add(:started_at, 'must be within 24-hour period of driver log')
+  end
 end
