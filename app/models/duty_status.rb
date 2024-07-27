@@ -8,5 +8,5 @@ class DutyStatus < ApplicationRecord
     on_duty: 'on_duty',
     driving: 'driving',
     sleeper: 'sleeper'
-  }
+  }, validate: true
 end
