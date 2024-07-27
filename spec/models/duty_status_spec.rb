@@ -16,5 +16,7 @@ RSpec.describe DutyStatus, type: :model do
                                                             }).backed_by_column_of_type(:enum)
     }
     it { should validate_presence_of(:activity).with_message('is not included in the list') }
+    it { should validate_presence_of(:started_at) }
+    it { should validate_presence_of(:ended_at) }
   end
 end

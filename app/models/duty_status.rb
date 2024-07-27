@@ -9,4 +9,8 @@ class DutyStatus < ApplicationRecord
     driving: 'driving',
     sleeper: 'sleeper'
   }, validate: true
+
+  validates :started_at, :ended_at, presence: true
+  validate :start_time_within_log_range
+
 end
