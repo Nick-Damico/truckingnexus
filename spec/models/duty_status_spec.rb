@@ -27,5 +27,12 @@ RSpec.describe DutyStatus, type: :model do
       expect(new_duty_status.errors[:started_at]).to include('must be within 24-hour period of driver log')
     end
 
+    it 'is expected that the ended_at time is within the 24-hour range of the driver log' do
+      new_duty_status = driver_log.duty_statuses.new(activity: :on_duty, started_at: Time.current,
+                                                     ended_at: 1.day.from_now)
+
+      expect(new_duty_status).to be_invalid
+      expect(new_duty_status.errors[:ended_at]).to include('must be within 24-hour period of driver log')
+    end
   end
 end
