@@ -21,7 +21,7 @@
         <h2 class='font-semibold'><%= review.reviewer.username %></h2>
       </header>
 
-      <p class='review__date text-sm'><%= format_date(DateTime.now) %></p>
+      <p class='review__date text-sm'><%= format_date(review.created_at) %></p>
 
       <div class='rating__stars flex mb-4 p-1' data-review-target='ratingContainer' data-action='mouseout->review#onMouseOutRatingStar  mouseover->review#onMouseOverRatingStar click->review#onClickRatingStar'>
         <%= rating_stars(rating: review.rating, class: 'cursor-pointer') %>
