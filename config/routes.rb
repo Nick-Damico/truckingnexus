@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :reviews, module: :companies
   end
 
-  resources :driver_logs, only: %i[index]
+  resources :driver_logs, only: %i[index new]
 
   resources :quizzes, only: %i[index new create edit show] do
     resources :questions, except: %i[destroy]
