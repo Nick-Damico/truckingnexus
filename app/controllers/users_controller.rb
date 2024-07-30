@@ -52,8 +52,6 @@ class UsersController < ApplicationController
   end
 
   def set_resources
-    return unless params[:page_content]
-
     case params[:page_content]
     when 'profile'
       @companies          = Company.order(:name)
