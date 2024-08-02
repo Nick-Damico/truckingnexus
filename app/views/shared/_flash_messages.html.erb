@@ -1,5 +1,5 @@
 <div data-controller="flash" class='flex flex-col items-end'>
-  <% flash.each do |flash_type, *messages| %>
-    <%= render partial: 'shared/flash_message', collection: messages.flatten, locals: { flash_type: } %>
+  <% flash.each do |flash_level, *messages| %>
+    <%= render partial: 'shared/flash_message', collection: messages.flatten, locals: { flash_level: } %>
   <% end %>
 </div>
