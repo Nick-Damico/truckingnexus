@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   def show; end
 
   def new
-    @review = @reviewable.reviews.new(reviewer: current_user)
+    @review = @reviewable.reviews.new(reviewer: current_user, created_at: Time.current)
   end
 
   def create

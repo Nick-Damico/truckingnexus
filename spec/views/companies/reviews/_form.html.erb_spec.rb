@@ -9,13 +9,15 @@ RSpec.describe 'companies/reviews/_form', type: :view do
   before do
     sign_in user
 
-    assign(:review, create(:review, reviewer: user, reviewable: company))
+    review = build(:review, reviewer: user, reviewable: company, created_at: Time.current)
 
-    render
+    render locals: { review:, reviewable: company }
   end
 
-  xit 'displays a form element' do
-    expect(rendered).to have_content(user.username)
+  context 'New Review' do
+    it 'displays a current date/time' do
+      expect(rendered).to have_content(Time.current.strftime('%b %d, %Y'))
+    end
   end
 
   # context 'with review' do
