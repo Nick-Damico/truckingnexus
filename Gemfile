@@ -65,7 +65,7 @@ group :development, :test do
   gem 'erb_lint', require: false
   gem "factory_bot_rails", "~> 6.2"
   gem 'faker', '~> 3.2'
-  gem 'rubocop', "~>1.60", require: true
+  gem 'rubocop', "~>1.65", require: true
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
