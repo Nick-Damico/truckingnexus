@@ -7,6 +7,13 @@
   @apply max-w-screen-2xl m-auto;
 }
 
+@layer utilities {
+  /* ALLOWS USE WITH MODIFIERS */
+  .main-nav_link--selected {
+    @apply font-bold bg-sky-400 !important;
+  }
+}
+
 /* FORMS */
 .form-group {
   @apply flex flex-col items-stretch mb-2;
@@ -80,10 +87,6 @@ div.field_with_errors > input[type='password'] {
 }
 
 /* NAVIGATION */
-.main-nav_link--selected {
-  @apply font-bold bg-sky-400 !important;
-}
-
 .drop-down--closed {
   @apply -top-[11rem] !important;
 }
