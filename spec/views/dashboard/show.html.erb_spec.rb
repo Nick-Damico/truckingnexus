@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'users/show.html.erb', type: :view do
-  let(:user) { create(:user, :with_current_employer) }
+  let(:user) { create(:user, :with_current_employer, username: 'Sam Puppies') }
 
   before do
     assign(:user, user)
@@ -23,6 +23,12 @@ RSpec.describe 'users/show.html.erb', type: :view do
         render
 
         expect(rendered).to have_content('User Information')
+      end
+
+      it 'displays the username in a text input field' do
+        render
+
+        expect(rendered).to have_field('Username', with: user.username)
       end
     end
   end
