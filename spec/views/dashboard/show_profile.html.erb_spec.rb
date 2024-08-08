@@ -37,5 +37,25 @@ RSpec.describe 'users/show.html.erb', type: :view do
         expect(rendered).to have_select('Current Employer', with_selected: user.current_employer.name)
       end
     end
+
+    context 'section: Security & Privacy' do
+      it "displays the 'Current Password' input field" do
+        render
+
+        expect(rendered).to have_field('Current password')
+      end
+
+      it "displays the 'New Password' input field" do
+        render
+
+        expect(rendered).to have_field('New password')
+      end
+
+      it "displays the 'Confirm new password' input field" do
+        render
+
+        expect(rendered).to have_field('Confirm new password')
+      end
+    end
   end
 end
