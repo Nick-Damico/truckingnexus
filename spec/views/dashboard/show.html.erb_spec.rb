@@ -30,6 +30,12 @@ RSpec.describe 'users/show.html.erb', type: :view do
 
         expect(rendered).to have_field('Username', with: user.username)
       end
+
+      it "displays the 'Current Employer' select with the user's current employer selected" do
+        render
+
+        expect(rendered).to have_select('Current Employer', with_selected: user.current_employer.name)
+      end
     end
   end
 end
