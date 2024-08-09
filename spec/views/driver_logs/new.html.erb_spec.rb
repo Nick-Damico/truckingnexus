@@ -15,5 +15,19 @@ RSpec.describe 'driver_logs/new', type: :view do
     it 'displays a new driver log heading' do
       expect(rendered).to have_selector('h2', text: 'New Driver Log')
     end
+
+    # EXPECTED TEXT FIELDS
+    {
+      employee_number: 'Employee number',
+      first_name: 'First name',
+      last_name: 'Last name',
+      tractor_number: 'Tractor number',
+      trailer_number_1: 'Trailer number 1',
+      trailer_number_2: 'Trailer number 2'
+    }.each do |_field, label|
+      it "displays input field for #{label}" do
+        expect(rendered).to have_field(label)
+      end
+    end
   end
 end

@@ -1,0 +1,33 @@
+<%= form_with model: driver_log do |ff| %>
+  <div class="form-group">
+    <%= ff.label :employee_number, class: 'label-field' %>
+    <%= ff.text_field :employee_number, class: 'input-field' %>
+  </div>
+
+  <div class="form-group">
+    <%= ff.label :first_name, class: 'label-field' %>
+    <%= ff.text_field :first_name, class: 'input-field' %>
+  </div>
+
+  <div class="form-group">
+    <%= ff.label :last_name, class: 'label-field' %>
+    <%= ff.text_field :last_name, class: 'input-field' %>
+  </div>
+
+  <div class="form-group">
+    <%= ff.label :tractor_number, class: 'label-field' %>
+    <%= ff.text_field :tractor_number, class: 'input-field' %>
+  </div>
+
+  <div class="form-group">
+    <%= ff.label :trailer_number_1, class: 'label-field' %>
+    <%= ff.text_field :trailer_number_1, class: 'input-field' %>
+  </div>
+
+  <div class="form-group">
+    <%= ff.label :trailer_number_2, class: 'label-field' %>
+    <%= ff.text_field :trailer_number_2, class: 'input-field' %>
+  </div>
+
+  <%= ff.submit class: 'btn btn--save' %>
+<% end %>
