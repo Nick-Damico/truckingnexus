@@ -1,15 +1,33 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the CompaniesHelper. For example:
-#
-# describe CompaniesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe CompaniesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  include ReviewHelper
+
+  describe '#rating' do
+    it 'returns the average rating as star icons by default' do
+      review = create(:review, rating: 4)
+      company = create(:company, reviews: [review])
+
+      expected_result = rating_stars(rating: company.rating)
+
+      expect(rating(company)).to eq expected_result
+    end
+
+    it 'returns the average rating as a string when optional parameter display_with_icons is false' do
+      review = create(:review, rating: 4)
+      company = create(:company, reviews: [review])
+
+      expect(rating(company, display_with_icons: false)).to eq '4 stars'
+    end
+
+    context 'has no reviews' do
+      it 'returns string "No Reviews"' do
+        company = create(:company)
+
+        expect(rating(company)).to eq 'No Reviews'
+      end
+    end
+  end
 end

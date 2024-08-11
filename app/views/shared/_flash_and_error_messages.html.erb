@@ -1,4 +1,6 @@
 <%= turbo_frame_tag 'flash-messages' do %>
-  <%= render 'shared/flash_messages' %>
-  <%= render 'devise/shared/error_messages' %>
+  <div class='align-end'>
+    <%= render 'shared/flash_messages' %>
+    <%= render 'devise/shared/error_messages' %>
+  </div>
 <% end %>

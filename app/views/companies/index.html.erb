@@ -1,24 +1,26 @@
-<div class="relative overflow-x-auto mb-20 bg-white rounded-lg p-6">
-  <h2 class="text-2xl font-bold mb-4">Top <%= @companies.size %> Companies</h2>
-  <table class="w-full text-sm text-left text-gray-500">
-    <thead class="text-xs text-white uppercase bg-sky-500">
-      <tr class='text-md'>
-        <th scope="col" class="px-6 py-4">
-          Company Name
-        </th>
-        <th scope="col" class="px-6 py-4">
-          City
-        </th>
-        <th scope="col" class="px-6 py-4">
-          State
-        </th>
-        <th scope="col" class="px-6 py-4">
-          Overall Rating
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: 'company', collection: @companies, cached: true %>
-    </tbody>
-  </table>
+<div class="w-full">
+  <div class="relative overflow-x-auto mb-20 bg-white rounded-lg p-6">
+    <h2 class="text-2xl font-bold mb-4">Top <%= @companies.size %> Companies</h2>
+    <table class="w-full text-sm text-left text-gray-500">
+      <thead class="text-xs text-white uppercase bg-sky-500">
+        <tr class='text-md'>
+          <th scope="col" class="px-6 py-4">
+            Company Name
+          </th>
+          <th scope="col" class="px-6 py-4">
+            City
+          </th>
+          <th scope="col" class="px-6 py-4">
+            State
+          </th>
+          <th scope="col" class="px-6 py-4">
+            Overall Rating
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'company', collection: @companies, cached: true %>
+      </tbody>
+    </table>
+  </div>
 </div>
