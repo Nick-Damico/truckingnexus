@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :driver_log do
-    driver { create(:user) }
+    driver { create(:user, :with_current_employer) }
+    company { driver.current_employer }
   end
 end
