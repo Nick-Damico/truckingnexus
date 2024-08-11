@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       ).call
     end
 
-    redirect_to @user, flash: { notice: UPDATE_MSG }
+    redirect_to user_url(@user, page_content: params[:page_content]), flash: { notice: UPDATE_MSG }
   end
 
   private
