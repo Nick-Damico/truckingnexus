@@ -34,6 +34,9 @@ en:
   flash:
     unauthorized_access: 'Access denied. You are not authorized to view this page'
     successfully_created: '%{model_name} was successfully created'
+    users:
+      update:
+        success: 'Updated information successfully'
 
   helpers:
     submit:

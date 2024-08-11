@@ -3,8 +3,6 @@
 class UsersController < ApplicationController
   layout 'dashboard'
 
-  UPDATE_MSG = 'Updated information successfully'
-
   before_action :authenticate_user!
   before_action :set_user, only: %i[show update]
   before_action :authorize_user!
@@ -28,7 +26,8 @@ class UsersController < ApplicationController
       ).call
     end
 
-    redirect_to user_url(@user, page_content: params[:page_content]), flash: { notice: UPDATE_MSG }
+    redirect_to user_url(@user, page_content: params[:page_content]),
+                flash: { notice: t('flash.users.update.success') }
   end
 
   private
