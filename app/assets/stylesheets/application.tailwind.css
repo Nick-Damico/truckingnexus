@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 /* UTILITIES */
-.wrapper {
-  @apply max-w-screen-2xl m-auto;
-}
-
 @layer utilities {
   /* ALLOWS USE WITH MODIFIERS */
   .main-nav_link--selected {
