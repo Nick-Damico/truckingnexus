@@ -10,4 +10,8 @@ module CompaniesHelper
       pluralize(company.rating.to_i, 'star')
     end
   end
+
+  def company_link(body, company)
+    link_to(body, company_path(company), class: 'flex')
+  end
 end

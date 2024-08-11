@@ -1,14 +1,14 @@
 <tr class="border-b <%= company_counter.odd? ? 'bg-sky-100' : 'bg-white' %>">
   <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-    <%= link_to h(company.name), company_path(company) %>
+    <%= company_link(h(company.name), company) %>
   </th>
   <td class="px-6 py-4">
-    <%= link_to company.city, company_path(company) %>
+    <%= company_link(company.city, company) %>
   </td>
   <td class="px-6 py-4">
-    <%= link_to company.state, company_path(company) %>
+    <%= company_link(company.state, company) %>
   </td>
   <td class="px-6 py-4">
-    <%= link_to rating(company), company_path(company), class: 'flex' %>
+    <%= company_link(rating(company), company) %>
   </td>
 </tr>
