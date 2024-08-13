@@ -17,7 +17,7 @@ module UserQuizzesHelper
       content_tag(:span, 'Resume Quiz?', class: 'mr-6') +
         link_to('Yes', user_quiz_path(user_quiz),
                 class: "#{button_size_class(size)} bg-emerald-400 hover:bg-emerald-500 btn--sml") +
-        button_to('No', user_quiz_path(user_quiz), method: :delete, data: { confirm: 'Are you sure? Progress will be lost.', turbo_confirm: 'Are you sure? Progress will be lost.' },
+        button_to('No', user_quiz_path(user_quiz), method: :delete, data: { turbo_confirm: 'Are you sure? Progress will be lost.' },
                                                    class: "#{button_size_class(size)} btn--alert")
     end
   end
