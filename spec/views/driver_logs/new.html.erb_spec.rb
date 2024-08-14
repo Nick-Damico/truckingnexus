@@ -13,7 +13,7 @@ RSpec.describe 'driver_logs/new', type: :view do
     end
 
     it 'displays a new driver log heading' do
-      expect(rendered).to have_selector('h2', text: 'New Driver Log')
+      expect(rendered).to have_selector('h2', text: 'New Drivers Daily Log')
     end
 
     # EXPECTED TEXT FIELDS
