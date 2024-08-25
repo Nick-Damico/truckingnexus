@@ -6,6 +6,7 @@ RSpec.describe DriverLog, type: :model do
   subject { build(:driver_log) }
 
   it { should belong_to(:driver) }
+  it { should belong_to(:company) }
   it { should have_many(:duty_statuses) }
 
   describe 'validations' do

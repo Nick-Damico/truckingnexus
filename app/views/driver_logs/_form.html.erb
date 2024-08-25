@@ -1,32 +1,45 @@
 <%= form_with model: driver_log do |ff| %>
-  <div class="form-group">
-    <%= ff.label :employee_number, class: 'label-field' %>
-    <%= ff.text_field :employee_number, class: 'input-field' %>
+  <div class='mb-2'>
+    <%= ff.label :started_at, 'Log Date: (Month / Day / Year)', class: 'label-field' %>
+    <%= ff.date_select :started_at, order: %i[month day year], class: 'flex-row' %>
   </div>
 
-  <div class="form-group">
-    <%= ff.label :first_name, class: 'label-field' %>
-    <%= ff.text_field :first_name, class: 'input-field' %>
-  </div>
+  <div class='row flex flex-col md:flex-row space-y-4 md:space-x-6 md:space-y-0'>
+    <fieldset class="col md:w-1/2">
+      <legend>Driver information</legend>
+      <div class="form-group">
+        <%= ff.label :employee_number, class: 'label-field' %>
+        <%= ff.text_field :employee_number, class: 'input-field' %>
+      </div>
 
-  <div class="form-group">
-    <%= ff.label :last_name, class: 'label-field' %>
-    <%= ff.text_field :last_name, class: 'input-field' %>
-  </div>
+      <div class="form-group grow">
+        <%= ff.label :first_name, class: 'label-field' %>
+        <%= ff.text_field :first_name, class: 'input-field' %>
+      </div>
 
-  <div class="form-group">
-    <%= ff.label :tractor_number, class: 'label-field' %>
-    <%= ff.text_field :tractor_number, class: 'input-field' %>
-  </div>
+      <div class="form-group grow">
+        <%= ff.label :last_name, class: 'label-field' %>
+        <%= ff.text_field :last_name, class: 'input-field' %>
+      </div>
+    </fieldset>
 
-  <div class="form-group">
-    <%= ff.label :trailer_number_1, class: 'label-field' %>
-    <%= ff.text_field :trailer_number_1, class: 'input-field' %>
-  </div>
+    <fieldset class="col md:w-1/2">
+      <legend>Load information</legend>
+      <div class="form-group grow">
+        <%= ff.label :tractor_number, class: 'label-field' %>
+        <%= ff.text_field :tractor_number, class: 'input-field' %>
+      </div>
 
-  <div class="form-group">
-    <%= ff.label :trailer_number_2, class: 'label-field' %>
-    <%= ff.text_field :trailer_number_2, class: 'input-field' %>
+      <div class="form-group grow">
+        <%= ff.label :trailer_number_1, class: 'label-field' %>
+        <%= ff.text_field :trailer_number_1, class: 'input-field' %>
+      </div>
+
+      <div class="form-group grow">
+        <%= ff.label :trailer_number_2, class: 'label-field' %>
+        <%= ff.text_field :trailer_number_2, class: 'input-field' %>
+      </div>
+    </fieldset>
   </div>
 
   <%= ff.submit class: 'btn btn--save' %>

@@ -2,8 +2,10 @@
 
 class DriverLog < ApplicationRecord
   belongs_to :driver, class_name: 'User'
+  belongs_to :company
   has_many :duty_statuses
 
+  validates :company, presence: true
   validates :started_at, :ended_at, presence: true
   validate :dates_within_24_hours
 
