@@ -31,7 +31,7 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 
 # Authentication and Authorization [https://github.com/heartcombo/devise#starting-with-rails]
-gem 'devise', '~> 4.9', '>= 4.9.2'
+gem 'devise', '~> 4.9', '>= 4.9'
 
 # ActiveStorage Variant usage
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
