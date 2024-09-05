@@ -13,17 +13,11 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    respond_to do |format|
-      if @question.save
-        format.html do
-          redirect_to @question.quiz, notice: t('flash.successfully_created', model_name: @question.class.name)
-        end
-      else
-        format.html do
-          flash.now[:alert] = @question.errors.full_messages
-          render :new, status: :unprocessable_entity
-        end
-      end
+    if @question.save
+      redirect_to @question.quiz, notice: t('flash.successfully_created', model_name: @question.class.name)
+    else
+      flash.now[:alert] = @question.errors.full_messages
+      render :new, status: :unprocessable_entity
     end
   end
 
