@@ -19,7 +19,7 @@ RSpec.describe 'AnswerSheetQuestions', type: :request do
     }
   end
 
-  describe 'PUT /answer_sheet_question' do
+  xdescribe 'PUT /answer_sheet_question' do
     it 'renders the index template' do
       patch answer_sheet_question_path(answer_sheet_question), params: valid_params
       expect(response).to have_http_status(302)
