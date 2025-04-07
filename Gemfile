@@ -89,4 +89,5 @@ group :development do
   # gem "spring"
   gem "rubocop-rails-omakase", require: false, group: [ :development ]
   gem "rubocop-erb", require: false
+  gem "htmlbeautifier"
 end

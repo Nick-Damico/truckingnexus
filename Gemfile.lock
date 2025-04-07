@@ -155,6 +155,7 @@ GEM
     ffi (1.17.1-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    htmlbeautifier (1.4.3)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -403,6 +404,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails (~> 6.2)
   faker (~> 3.2)
+  htmlbeautifier
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
