@@ -55,6 +55,7 @@ airbrake_quiz = Quiz.find_or_create_by!(
 
 combo_questions_data = [
   {
+    quiz_id: 1,
     content: 'You are coupling a semi trailer to your tractor but have not yet backed under. The trailer is at the right height when:',
     answers: [
       'It will be raised slightly when the tractor is backed under it.',
@@ -64,6 +65,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'You should not back a tractor under a trailer until the whole air system is:',
     answers: [
       'Between 60 and 80 psi.',
@@ -73,6 +75,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'Which part of the kingpin should the locking jaws close around?',
     answers: [
       'The base',
@@ -82,6 +85,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'When you get ready to back under the semi trailer you should line up:',
     answers: [
       'About 12 degrees off the line of the trailer',
@@ -91,6 +95,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'How should you test the tractor semi trailer connection for security?',
     answers: [
       'Pull gently forward in low gear against the locked trailer brakes, then look at it carefully',
@@ -100,6 +105,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'When should you use the hand valve to park a combination vehicle?',
     answers: [
       'To park at loading docks.',
@@ -109,6 +115,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'You supply air to the trailer tanks by:',
     answers: [
       'Pushing in the trailer air supply valve.',
@@ -118,6 +125,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'Why should you be sure that the fifth wheel plate is greased as required?',
     answers: [
       'To reduce heat and noise.',
@@ -127,6 +135,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'After you supply air to the trailer, make sure the air lines are not crossed and the trailer brakes are working. This is done by:',
     answers: [
       'Applying and releasing the trailer brakes and listening for brake sounds.',
@@ -136,6 +145,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'There are two things that a driver can do to prevent a roll over. They are: (1) Keep the cargo as close to the ground as possible; and (2):',
     answers: [
       'Make sure that the brakes are properly adjusted',
@@ -145,6 +155,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'Before you back under a trailer, make sure the:',
     answers: [
       'Air suply knob is in.',
@@ -154,6 +165,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'If the service air lines comes apart while you are driving a combination vehicle but the emergency line stays together, what will happen right away?',
     answers: [
       'Nothing is likely to happen until you try to apply the brakes.',
@@ -163,11 +175,13 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'The air leakage rate for a combination vehicle (engine off, brakes on) should not be more than ___ psi per minute.',
     answers: %w[4 2 6],
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'In normal driving, some drivers use the hand valve before applying the brake pedal to prevent a jackknife. Which of statements is true?',
     answers: [
       'If the trailer has no spring brakes, you can drive away, but you will not have trailer brakes.',
@@ -177,6 +191,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'Why should you lock the tractor glad hands (or dummy couplers) to each other when you are not towing a trailer?',
     answers: [
       'The connected brake circuit becomes a back up air tank.',
@@ -186,6 +201,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'For coupling to be completed, the saftey catch for the fifth wheel locking lever must be:',
     answers: [
       'Straight up.',
@@ -195,6 +211,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'The front trailer supports are up and the trailer is resting on the tractor. Make sure:',
     answers: [
       'There is enough clearance between the upper and lower fifth wheel.',
@@ -204,6 +221,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'You have a major leak in the service line and you put on the brakes. Service air pressure will escape and cause the:',
     answers: [
       'Trailer tank pressure to be lost.',
@@ -213,6 +231,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'When backing a tractor under a trailer you should expect:',
     answers: [
       'Trailer will be lifted slightly when the tractor backs under it.',
@@ -222,6 +241,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'The driver crosses the air lines when hooking up to an old trailer. What will happen?',
     answers: [
       'If the trailer has no spring brakes, you can drive away, but you will not have trailer brakes.',
@@ -231,6 +251,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'You are coupling a tractor to a semi trailer and have backed up but are not under it. What should you hook up before backing under the semitrailer?',
     answers: [
       'The emergency and service air lines.',
@@ -240,6 +261,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'Air lines on a combination vehicle are often colored to keep them from getting mixed up. The emergency line is ___; The service line is ___.',
     answers: [
       'Red, Blue',
@@ -249,6 +271,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'Which of these statements is true?',
     answers: [
       'Light vehicles need more braking power to stop than heavy ones.',
@@ -258,6 +281,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'After connecting the air lines, but before backing under the trailer you should:',
     answers: [
       'Make sure that the trailer brakes are off.',
@@ -267,20 +291,13 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
-    content: 'The hand valve should be used:',
-    answers: [
-      'To test the trailer brakes.',
-      'Only when the trailer is fully loaded.',
-      'Only with the foot brake.'
-    ],
-    correct_answer_index: 0
-  },
-  {
+    quiz_id: 1,
     content: 'The air leakage rate for a single vehicle (engine off, brakes off) should be no more than ___ psi per minute.',
     answers: %w[2 3 4],
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'The fifth wheel locking lever is not locked after the jaws close around the kingpin. This means that:',
     answers: [
       'You can set the fifth wheel for weight balance.',
@@ -290,6 +307,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'You are driving a combination vehicle when the trailer breaks away, pulling apart both air lines. You would expect the trailer brakes to come on and:',
     answers: [
       'The trailer supply valve to stay open',
@@ -299,6 +317,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'Semi trailers made before 1975 that are equipped with air brakes:',
     answers: [
       'Often do not have spring brakes.',
@@ -308,6 +327,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'Almost half of all truck driver deaths are the result of:',
     answers: [
       'Speed.',
@@ -317,6 +337,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'What statement best explains "crack the whip effect"?',
     answers: [
       'When you make a quick lane change or sudden movement with your steering wheel the rear trailer tends to swing out. The force of the rear trailer becomes amplified causing it to roll over (rearward amplification).',
@@ -326,6 +347,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'Which type of truck-trailer combination has the best chance of the "crack the whip" rollover?',
     answers: [
       'A single tractor trailer',
@@ -335,6 +357,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'Which trailers are most likely to get stuck on railroad tracks?',
     answers: [
       'Lowboy trailers. A low slung unit.',
@@ -344,6 +367,7 @@ combo_questions_data = [
     multiple: true # QUESTION TYPES NOT IMPLEMENTED YET.
   },
   {
+    quiz_id: 1,
     content: 'Where should the tractor be when you inspect landing gear after uncoupling the trailer?',
     answers: [
       'With the tractor frame under the trailer.',
@@ -353,11 +377,13 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'Under good driving conditions, you should leave at least one second of space between your vehicle and the vehicle ahead for every ___ feet of your vehicles length.',
     answers: %w[10 20 30],
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'The safest way to make turn without entering another traffic lane is:',
     answers: [
       'You should turn wide before you start the turn.',
@@ -367,6 +393,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'In general, the higher your truck\'s center of gravity, the:',
     answers: [
       'Easier it is to turn around corners.',
@@ -376,6 +403,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'If the service line comes apart while you are driving a combination vehicle but the emergency line stays together, what will happen right away?',
     answers: [
       'The trailer\'s tank will exhaust through the open line.',
@@ -385,6 +413,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'Glad hands are used to connect the:',
     answers: [
       'Electric lines from the tractor to trailer',
@@ -394,6 +423,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'A driver crosses the air lines when hooking up to an old trailer. What will happen?',
     answers: [
       'The hand valve will apply the tractor brakes instead of the trailer brakes.',
@@ -403,6 +433,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'The hand valve should be used:',
     answers: [
       'As a parking brake.',
@@ -412,6 +443,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'When driving a set of doubles it is necessary to close which shut-off valve in the last trailer.',
     answers: [
       'Front.',
@@ -421,6 +453,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'Your emergency air line breaks, or it gets pulled apart while you are driving. The loss of pressure will cause the:',
     answers: [
       'Air compressor to unload instead of pumping air.',
@@ -430,6 +463,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'How much space should be between upper and lower fifth wheel after coupling?',
     answers: [
       'Just enough to see light through it.',
@@ -439,6 +473,7 @@ combo_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 1,
     content: 'If the brakes are not released when you pushed the trailer air supply valve you should:',
     answers: [
       'Check air line connection.',
@@ -448,6 +483,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'You have pushed the trailer air supply valve. You should not back a tractor under a trailer until the whole air system is:',
     answers: [
       'At normal pressure.',
@@ -457,6 +493,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'You are coupling tractor to a semitrailer. You have connected the airlines. Before backing under the trailer you should:',
     answers: [
       'Supply air to the trailer system, then pull out the air supply knob.',
@@ -466,6 +503,7 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'After you have coupled the trailer you should have to raise the landing gear by using:',
     answers: [
       'Low gear.',
@@ -475,11 +513,13 @@ combo_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'When connecting the glad hands press the two seals with the coupler together at what degree?',
     answers: %w[45 90 180],
     correct_answer_index: 0
   },
   {
+    quiz_id: 1,
     content: 'The iron trailer supports are up and the trailer is resting on the tractor. Make sure:',
     answers: [
       'There is enough clearance between the upper and lower fifth wheels.',
@@ -489,6 +529,7 @@ combo_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 1,
     content: 'When you are uncoupling a loaded trailer lower the landing gear until it:',
     answers: [
       'Reaches the ground.',
@@ -853,6 +894,7 @@ combo_questions_data = [
 
 airbrake_questions_data = [
   {
+    quiz_id: 2,
     content: 'Oil and water usually collect in compressed air tanks. If you do not have an automatic tank drain, when should you drain the air tanks?',
     answers: [
       'After every working day.',
@@ -862,6 +904,7 @@ airbrake_questions_data = [
     correct_answer_index: 0
   },
   {
+    quiz_id: 2,
     content: 'Why drain water form the compressed air tanks?',
     answers: [
       'To keep from fouling the air compressor oil.',
@@ -871,11 +914,13 @@ airbrake_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 2,
     content: 'The air brake system for a straight truck or bus should not leak at a rate of more than ___ psi per minute with the engine off and the brakes released.',
     answers: %w[1 2 3],
     correct_answer_index: 2
   },
   {
+    quiz_id: 2,
     content: 'To make an emergency stop with air brakes, using the stab braking method, you should:',
     answers: [
       'Pump the brake pedal rapidly and lightly.',
@@ -885,6 +930,7 @@ airbrake_questions_data = [
     correct_answer_index: 2
   },
   {
+    quiz_id: 2,
     content: 'You should know that your brakes are fading when:',
     answers: [
       'Pressure on the brake pedal is released and speed increases.',
@@ -894,6 +940,7 @@ airbrake_questions_data = [
     correct_answer_index: 1
   },
   {
+    quiz_id: 2,
     content: 'If the air compressor should develop a leak, what keeps the air in the tanks?',
     answers: [
       'The tractor protection valve.',
@@ -1136,8 +1183,8 @@ airbrake_questions_data = [
 
 puts 'SEEDING QUIZ QUESTIONS'
 
-[{ quiz: combo_quiz, data: combo_questions_data },
- { quiz: airbrake_quiz, data: airbrake_questions_data }].each do |hash|
+[ { quiz: combo_quiz, data: combo_questions_data },
+ { quiz: airbrake_quiz, data: airbrake_questions_data } ].each do |hash|
   quiz, data = hash.values_at(:quiz, :data)
   quiz.questions.create!(data.map do |q_data|
     {
@@ -1149,17 +1196,17 @@ end
 
 puts 'SEEDING QUIZ ANSWERS'
 
-[combo_questions_data, airbrake_questions_data].each do |question_data|
+[ combo_questions_data ].each do |question_data|
   question_data.each do |data|
-    question = Question.find_by(content: data[:content])
+    question = Question.find_by(content: data[:content], quiz_id: data[:quiz_id])
     content = data[:answers][data[:correct_answer_index]]
-    answer = question.answers.find_by_content(content)
+    answer = Answer.find_by(content: content, question_id: question.id)
     answer.update_column(:correct, true)
   end
 end
 
 puts 'GENERATING ACTIVE QUIZZES FOR USERS'
-[admin].each do |user|
+[ admin ].each do |user|
   quiz = Quiz.first
   user_quiz = user.user_quizzes.create(quiz:)
   user_quiz.prep_for_quiz
@@ -1172,7 +1219,7 @@ puts 'GENERATING ACTIVE QUIZZES FOR USERS'
 end
 
 puts 'GENERATING COMPLETED QUIZZES FOR USERS'
-[admin].each do |user|
+[ admin ].each do |user|
   quiz = Quiz.first
   user_quiz = user.user_quizzes.create(quiz:)
   user_quiz.prep_for_quiz
