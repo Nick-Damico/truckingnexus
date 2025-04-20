@@ -9,10 +9,10 @@ class User < ApplicationRecord
   belongs_to :company, optional: true
 
   has_one_attached :avatar do |attachable|
-    attachable.variant :thumb, resize_to_limit: [100, 100]
+    attachable.variant :thumb, resize_to_limit: [ 100, 100 ]
   end
 
-  has_many :authored_quizzes, class_name: 'Quiz', foreign_key: :author_id
+  has_many :authored_quizzes, class_name: "Quiz", foreign_key: :author_id
   has_many :driver_logs, foreign_key: :driver_id
   has_many :employment_histories, foreign_key: :employee_id
   has_many :employers, through: :employment_histories
