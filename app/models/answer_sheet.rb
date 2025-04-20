@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class AnswerSheet < ApplicationRecord
-  ANSWER_ERROR_MSG = 'Oops! Please choose an answer before submitting.'
-
   belongs_to :user_quiz
 
   has_many :answer_sheet_questions, dependent: :destroy

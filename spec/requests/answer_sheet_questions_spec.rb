@@ -19,9 +19,10 @@ RSpec.describe 'AnswerSheetQuestions', type: :request do
     }
   end
 
-  xdescribe 'PUT /answer_sheet_question' do
+  describe 'PUT /answer_sheet_question' do
     it 'renders the index template' do
       patch answer_sheet_question_path(answer_sheet_question), params: valid_params
+
       expect(response).to have_http_status(302)
       expect(answer_sheet_question.reload.answer_id).to_not be_nil
     end
@@ -33,7 +34,16 @@ RSpec.describe 'AnswerSheetQuestions', type: :request do
         expect do
           patch answer_sheet_question_path(answer_sheet_question), params: invalid_params
         end.to_not raise_error
+
         expect(response).to have_http_status(302)
+      end
+
+      it 'displays an flash error message' do
+        expect do
+          patch answer_sheet_question_path(answer_sheet_question), params: invalid_params
+        end.to_not raise_error
+
+        expect(flash[:alert]).to eq('Oops! Please choose an answer before submitting.')
       end
     end
   end
