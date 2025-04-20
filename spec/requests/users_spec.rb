@@ -12,7 +12,7 @@ RSpec.describe 'User Requests', type: :request do
   end
 
   it_behaves_like 'Authorized Routes' do
-    let(:authorized_routes) { [user_path(subject)] }
+    let(:authorized_routes) { [ user_path(subject) ] }
   end
 
   before { sign_in subject }
@@ -118,6 +118,18 @@ RSpec.describe 'User Requests', type: :request do
         expect(subject.reload.current_employer).to eq(@current_employer)
       end
 
+      it "allows the user to change their current employer" do
+        subject.employment_histories.create(employer: create(:company), current: true)
+
+        new_employer = create(:company)
+        params[:user].merge!(employment_history_params(new_employer, current: true))
+
+        patch(user_path(subject), params:)
+
+        expect(subject.reload.current_employer).to eq(new_employer)
+        expect(subject.employment_histories.where(current: true).count).to eq(1)
+      end
+
       context 'params blank' do
         it 'does not update users current employer' do
           employer = double('employer')
@@ -135,8 +147,8 @@ RSpec.describe 'User Requests', type: :request do
 
   private
 
-  def employment_history_params(employer, current: false)
-    { 'employment_histories_attributes' =>
-      { '0' => { 'current' => current.to_s, 'employer_id' => employer.id.to_s } } }
-  end
+    def employment_history_params(employer, current: false)
+      { 'employment_histories_attributes' =>
+        { '0' => { 'current' => current.to_s, 'employer_id' => employer.id.to_s } } }
+    end
 end
