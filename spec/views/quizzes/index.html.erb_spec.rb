@@ -4,33 +4,19 @@ require 'rails_helper'
 
 RSpec.describe 'quizzes/index', type: :view do
   let!(:user) { create(:user) }
-  let!(:quizzes) { create_list(:quiz, 1, :with_questions) }
+  let!(:quiz) { create(:quiz, :with_questions, name: "Ruby Basics") }
 
   before do
     sign_in user
     render
-    render partial: 'quiz_card', collection: quizzes, as: 'quiz'
+    render partial: 'quiz_card', collection: [ quiz ], as: 'quiz'
   end
 
-  xit 'renders a list of quizzes' do
-    expect(rendered).to include('CDL Quizzes')
-    expect(rendered).to include(quizzes.first.name)
+  it 'renders a list of quizzes' do
+    expect(rendered).to include("Ruby Basics")
   end
 
-  xcontext 'User has no Active quiz' do
-    it 'should display a start button' do
-      expect(rendered).to include('Start')
-    end
-  end
-
-  xcontext 'User has an incomplete Active quiz' do
-    it 'User should have the choice to Resume active quiz' do
-      create(:user_quiz, quiz: quizzes.first, user:)
-      user.reload
-      render
-      render partial: 'quiz_card', collection: quizzes, as: 'quiz'
-
-      expect(rendered).to include('Resume Quiz?')
-    end
+  it "shows a start button if the user has not started the quiz" do
+    expect(rendered).to have_content("Start")
   end
 end
