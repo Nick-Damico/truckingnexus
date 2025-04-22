@@ -10,4 +10,8 @@ FactoryBot.define do
   trait :with_questions do
     questions { create_list(:question, 1) }
   end
+
+  trait :published do
+    draft { false }
+  end
 end
