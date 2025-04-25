@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_04_23_202857) do
+ActiveRecord::Schema[7.2].define(version: 2025_04_25_130959) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -127,6 +127,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_23_202857) do
     t.decimal "latitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "locatable_type"
+    t.bigint "locatable_id"
+    t.index ["locatable_type", "locatable_id"], name: "index_geolocations_on_locatable"
   end
 
   create_table "questions", force: :cascade do |t|
