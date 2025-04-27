@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_04_25_130959) do
+ActiveRecord::Schema[7.2].define(version: 2025_04_27_035445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -132,6 +132,14 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_25_130959) do
     t.index ["locatable_type", "locatable_id"], name: "index_geolocations_on_locatable"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.bigint "quiz_id", null: false
     t.text "content"
@@ -204,6 +212,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_25_130959) do
   add_foreign_key "duty_statuses", "driver_logs"
   add_foreign_key "employment_histories", "companies", column: "employer_id"
   add_foreign_key "employment_histories", "users", column: "employee_id"
+  add_foreign_key "notes", "users"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "users", column: "author_id"
   add_foreign_key "reviews", "users", column: "reviewer_id"
