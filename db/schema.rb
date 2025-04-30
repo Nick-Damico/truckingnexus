@@ -134,9 +134,11 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_27_035445) do
 
   create_table "notes", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "geolocation_id", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["geolocation_id"], name: "index_notes_on_geolocation_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
@@ -212,6 +214,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_27_035445) do
   add_foreign_key "duty_statuses", "driver_logs"
   add_foreign_key "employment_histories", "companies", column: "employer_id"
   add_foreign_key "employment_histories", "users", column: "employee_id"
+  add_foreign_key "notes", "geolocations"
   add_foreign_key "notes", "users"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "users", column: "author_id"
