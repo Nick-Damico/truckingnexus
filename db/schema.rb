@@ -127,9 +127,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_27_035445) do
     t.decimal "latitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "locatable_type"
-    t.bigint "locatable_id"
-    t.index ["locatable_type", "locatable_id"], name: "index_geolocations_on_locatable"
   end
 
   create_table "notes", force: :cascade do |t|

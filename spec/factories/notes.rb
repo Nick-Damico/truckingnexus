@@ -6,7 +6,6 @@ FactoryBot.define do
 
   trait :with_geolocation do
     after(:create) do |note|
-      create(:geolocation, locatable: note)
     end
   end
 end
