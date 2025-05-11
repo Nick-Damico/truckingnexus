@@ -1,6 +1,6 @@
 class CreateGeolocations < ActiveRecord::Migration[7.2]
   def change
-    create_table :geolocations do |t|
+    create_table :geolocations, if_not_exists: true  do |t|
       t.string :name
       t.decimal :longitude, precision: 10, scale: 6
       t.decimal :latitude, precision: 10, scale: 6
